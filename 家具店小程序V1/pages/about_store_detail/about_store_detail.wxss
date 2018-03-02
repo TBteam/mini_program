@@ -1,0 +1,100 @@
+/* pages/about_store_detail/about_store_detail.wxss */
+page{
+  background-color:  whitesmoke;
+}
+.store_image_mian{
+  width: 96%;
+  height: 400rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.store_image{
+  width: 100%;
+  height: 100%;
+}
+.about_us_main{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  direction: column;
+  background-color: white
+}
+.text_mian{
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+.icon_mian{
+  height: 100%;
+  width: 20%;
+}
+.icon_style{
+  padding-top: 10rpx;
+  padding-left: 40rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.text_style{
+  padding-left: 20rpx;
+  font-size: 35rpx;
+  font-family:"", Times, serif; 
+}
+
+.about_us_line{
+  height: 0rpx;
+  width: 100%;
+  border-top-style:none;
+  border-right-style:none;
+  border-bottom-style:solid;
+  border-left-style:none;
+  border-width:1rpx;
+  border-color:gainsboro;
+}
+.copy_button_main{
+  width: 20%;
+  height: 80rpx;
+  padding-top: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.copy_button_size{
+  width: 70%;
+  height: 60rpx;
+  margin-left:auto;
+  margin-right:auto;
+  text-align: center;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width:1rpx;
+  border-radius: 10rpx;
+  border-color:#9c9595;
+  
+}
+.copy_button_text_style{
+  font-size: 30rpx;
+  font-family:"", Times, serif;
+  white-space: nowrap;     /*文本不换行*/
+  line-height:60rpx;
+  vertical-align:middle;   /******上下居中*****/
+}
+
+.about_us_info_title_mian{
+    width: 100%;
+    height: 100rpx;
+    text-align: center;
+}
+.about_us_info_title_text_style{
+    font-size: 50rpx;
+   font-family:"", Times, serif;
+}
+.about_us_K{
+  width: 100%;
+  height: 80rpx;
+}
+.about_us_KK{
+  width: 100%;
+  height: 15rpx;
+}

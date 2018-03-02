@@ -1,0 +1,197 @@
+<!--pages/cate_info_test/cate_info_test.wxml-->
+<!--商品详情&为您推荐-->
+<view  class='good_details_recommand_title_main'>
+   <view  bindtap='good_details_recommand_select' id='1'  class='good_details_recommand_title_details'>
+         <view wx:if='{{first_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>首页</text>
+        </view> 
+        <view wx:if='{{!first_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>首页</text>
+        </view>     
+   </view>
+   <view bindtap='good_details_recommand_select' id='2'   class='good_details_recommand_title_recommand'>
+        <view wx:if='{{all_good_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>全部商品</text>
+        </view>   
+        <view wx:if='{{!all_good_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>全部商品</text>
+        </view>  
+   </view>
+   <view bindtap='good_details_recommand_select' id='3'   class='good_details_recommand_title_recommand'>
+        <view wx:if='{{hot_good_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>热销</text>
+        </view>   
+        <view wx:if='{{!hot_good_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>热销</text>
+        </view>  
+   </view>
+   <view bindtap='good_details_recommand_select' id='4'   class='good_details_recommand_title_recommand'>
+        <view wx:if='{{new_good_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>新款</text>
+        </view>   
+        <view wx:if='{{!new_good_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>新款</text>
+        </view>  
+   </view>
+</view>
+
+<view class='K'></view>
+<!--首页-->
+<view wx:if='{{first_flag}}'>
+<view class='brand_info_logo_main'  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+    <image class="brand_info_image_size" src="../photo/ttt.jpg"></image>
+</view>
+<view class='brand_info_K'></view>
+<view wx:for='{{imgUrls1}}' wx:ker='key'>
+<view class='brand_info_image_main'>
+    <image class="brand_info_image_size" src="{{item}}"></image>
+</view>
+<view class='brand_info_K'></view>
+<view class='brand_info_text_main'>
+    <text class='brand_info_text_style'>上图为品牌1图片介绍，本处为品牌1文字介绍,上图为品牌1图片介绍，本处为品牌1文字介绍,上图为品牌1图片介绍，本处为品牌1文字介绍</text>
+</view>
+</view>
+<view class='brand_info_K'></view>
+
+<view class='main'>
+    <view wx:for='{{goods}}'>
+        <view class='good_mian_left' bindtap='bindtap'>
+            <image class="image" src="{{item.url}}"  ></image>
+            <view class='name_text'>
+                 <text class='name_text_style'> 商品名称</text>
+            </view>
+            <view class='old_price'>
+                 <text class='old_price_style'>¥ 78</text>
+            </view>    
+        </view>
+   </view>
+</view>
+</view>
+<!--全部商品-->
+<view wx:if='{{all_good_flag}}'>
+<view class='main'>
+    <view wx:for='{{goods}}'>
+        <view class='good_mian_left' bindtap='bindtap'>
+            <image class="image" src="{{item.url}}"  ></image>
+            <view class='name_text'>
+                 <text class='name_text_style'> 商品名称</text>
+            </view>
+            <view class='old_price'>
+                 <text class='old_price_style'>¥ 78</text>
+            </view>    
+        </view>
+   </view>
+</view>
+<view class='bottom_K'></view>
+</view>
+<!--热销-->
+<view wx:if='{{hot_good_flag}}'>
+<view class='main'>
+    <view wx:for='{{goods}}'>
+        <view class='good_mian_left' bindtap='bindtap'>
+            <image class="image" src="{{item.url}}"  ></image>
+            <view class='name_text'>
+                 <text class='name_text_style'> 商品名称</text>
+            </view>
+            <view class='old_price'>
+                 <text class='old_price_style'>¥ 78</text>
+            </view>    
+        </view>
+   </view>
+</view>
+</view>
+<!--新款-->
+<view wx:if='{{new_good_flag}}'>
+<view class='main'>
+    <view wx:for='{{goods}}'>
+        <view class='good_mian_left' bindtap='bindtap'>
+            <image class="image" src="{{item.url}}"  ></image>
+            <view class='name_text'>
+                 <text class='name_text_style'> 商品名称</text>
+            </view>
+            <view class='old_price'>
+                 <text class='old_price_style'>¥ 78</text>
+            </view>    
+        </view>
+   </view>
+</view>
+</view>
+<!--底部导航栏-->
+<view wx:if='{{all_good_flag}}'>
+<view class='bottom_main'>
+   <view class='bottom_item_main' bindtap='bottom_select' id='1'>
+      <view class='bottom_item_text_image_main'>
+         <view class='bottom_item_image_main'>
+              <image class="bottom_item_image_size"         src="../photo/andon.png"></image>
+         </view>
+         <view class='bottom_item_text_main'>
+            <text class='bottom_item_text_unselect_style'>分类</text>
+         </view>
+      </view>
+    </view>
+<view class='line'></view>
+<view class='bottom_item_main' bindtap='bottom_select' id='2'>
+      <view class='bottom_item_text_image_main'>
+         <view class='bottom_item_image_main'>
+              <image class="bottom_item_image_size"         src="../photo/andon.png"></image>
+         </view>
+         <view class='bottom_item_text_main'>
+            <text class='bottom_item_text_unselect_style'>场景</text>
+         </view>
+      </view>
+</view>
+<view class='line'></view>
+<view class='bottom_item_main' bindtap='about_store'>
+   <view class='bottom_item_text_image_main'>
+         <view class='bottom_item_text_main1'>
+            <text class='bottom_item_text_unselect_style'>关于店铺</text>
+         </view>
+      </view>
+ </view>
+</view>
+</view>
+
+<view wx:if='{{all_good_flag&&classfiy_flag}}'>
+<view class='classfiy_select_main'>
+  <view class='classfiy_select_border_main'>
+       <scroll-view scroll-y='true'  class='scroll_view_size'>
+       <view wx:for='{{classfiy}}'>
+         <view class='classfiy_select_item_main'> 
+             <text class='classfiy_select_item_style'>{{item}}</text>
+           </view>
+           <view class='line1'></view>
+        </view>   
+       </scroll-view>
+  </view>
+     <image class="classfiy_select_icon_size" src="../photo/right3.png"></image>
+</view>
+</view>
+
+<view wx:if='{{all_good_flag&&secne_flag}}'>
+<view class='classfiy_select_main1'>
+  <view class='classfiy_select_border_main1'>
+    <view class='classfiy_select_item_main'> 
+             <text class='classfiy_select_item_style'>客厅</text>
+    </view>
+    <view class='line1'></view>
+    <view class='classfiy_select_item_main'> 
+             <text class='classfiy_select_item_style'>卧室</text>
+    </view>
+    <view class='line1'></view>
+    <view class='classfiy_select_item_main'> 
+             <text class='classfiy_select_item_style'>餐厅</text>
+    </view>
+    <view class='line1'></view>
+    <view class='classfiy_select_item_main'> 
+             <text class='classfiy_select_item_style'>户外</text>
+    </view>
+  </view>
+     <image class="classfiy_select_icon_size1" src="../photo/right3.png"></image>
+</view>
+</view>
+
+<!--
+<view bindtap='back_main' class='back_main'>
+   <image class="back_main_size"    src="../photo/main_select3.png"></image>
+</view>
+-->

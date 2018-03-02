@@ -1,0 +1,102 @@
+<!--pages/my_collect/my_collect.wxml-->
+<view  class='good_details_recommand_title_main'>
+   <view  bindtap='top_select' id='1'  class='good_details_recommand_title_details'>
+         <view wx:if='{{collect_good_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>商品</text>
+        </view> 
+        <view wx:if='{{!collect_good_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>商品</text>
+        </view>     
+   </view>
+   <view bindtap='top_select' id='2' class='good_details_recommand_title_recommand'>
+        <view wx:if='{{collect_case_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>家装案例</text>
+        </view>   
+        <view wx:if='{{!collect_case_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>家装案例</text>
+        </view>  
+   </view>
+   <view bindtap='top_select' id='3' class='good_details_recommand_title_recommand'>
+        <view wx:if='{{collect_news_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>家装资讯</text>
+        </view>   
+        <view wx:if='{{!collect_news_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>家装资讯</text>
+        </view>  
+   </view>
+</view>
+
+<!--商品-->
+<view wx:if='{{collect_good_flag}}'>
+<view class='main'>
+    <view wx:for='{{goods}}'>
+        <view class='good_mian_left' bindtap='bindtap'>
+            <image class="image" src="../photo/NORYA2.jpg"  ></image>
+            <view class='name_text'>
+                 <text class='name_text_style'> 商品名称</text>
+            </view>
+            <view class='old_price'>
+                 <text class='old_price_style'>¥ 78</text>
+            </view>    
+        </view>
+   </view>
+</view>
+</view>
+
+<!--家装案例界面-->
+<view class='case_main'  wx:if='{{collect_case_flag}}'>
+<view wx:for='{{goods}}'>
+    <view  class='case_item_main'>
+       <view bindtap='case_detail' class='case_item_image_main'>
+           <image class="case_item_image_main" src="../photo/NORYA1.jpg"></image>
+       </view>
+       <view class='case_item_text_main'>
+           <view class='case_info_main'>
+            <view class='case_item_text1_main'>
+                <text class='case_item_name_style'>中式简装</text>
+            </view>
+            <view class='case_item_text2_main'>
+                <text class='case_item_info_style'>三居室|中式|90-120平米|费用：8万左右</text>
+            </view>
+            <!--
+            <view class='case_item_text2_main'>
+                <text class='case_item_info_style'></text>
+            </view>
+            -->
+            </view>
+            <!--
+            <view bindtap='desinger_info' class='desinger_info_main'>
+                <view class='desinger_image_main'>
+                  <image class="desinger_image_size" src="../photo/2.jpg"  ></image>
+               </view>
+               <view class='desinger_name_main'>
+                   <text class='desinger_name_style'>某某某</text>
+               </view>
+           </view>
+           -->
+       </view>
+    </view>
+    <view class='KKKKK'></view>
+  </view>
+  <view class='KK'></view>
+</view>
+<!--家装资讯界面-->
+
+<view class='news_main' wx:if='{{collect_news_flag}}'>
+<view wx:for='{{news}}'>
+<view bindtap='news_select' class='news_item_main'>
+  <view class='news_item_info_image_main'>
+     <image class="news_item_info_image_size" src="../photo/NORYA3.jpg" ></image>
+  </view>
+  <view class='news_item_info_text_main'>
+     <view class='news_item_info_text_title_main'>
+        <text class='news_item_info_text_title_style'>新闻标题新闻标题新闻标题新闻标题</text>
+     </view>
+     <view class='news_item_info_text_detail_main'>
+        <text class='news_item_info_text_detail_style'>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</text>
+     </view>
+  </view>
+</view>
+</view>
+<view class='KK'></view>
+</view>

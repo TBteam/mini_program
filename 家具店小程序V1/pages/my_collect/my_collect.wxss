@@ -1,0 +1,245 @@
+/* pages/my_collect/my_collect.wxss */
+/********顶部选择栏********/
+.good_details_recommand_title_main{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  position: fixed;
+  top: -1rpx;
+  z-index: 999;
+  background-color: white
+}
+.good_details_recommand_title_details{
+  width: 33.3%;
+  height: 80rpx;
+  text-align: center;
+}
+.good_details_recommand_title_recommand{
+  width: 33.3%;
+  height: 80rpx;
+  text-align: center;
+}
+.good_details_recommand_title_unchecked_style{
+   font-size: 35rpx;
+   height: 80rpx;
+   width: 100%;
+   font-family:"", Times, serif;
+   line-height: 80rpx;
+   vertical-align: middle;
+   color:black;
+   border-bottom-style:solid;
+   border-color: #ebebeb;
+   border-width: 3rpx;
+}
+.good_details_recommand_title_checked_style{
+   font-size: 35rpx;
+   height: 80rpx;
+   width: 100%;
+   font-family:"", Times, serif;
+   line-height: 80rpx;
+   vertical-align: middle;
+   color:#fc5874;
+   border-bottom-style:solid;
+   border-color: #fc5874;
+   border-width: 3rpx;
+}
+/***********商品列表***********/
+.main{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 80rpx;
+}
+.good_mian_left{
+  width: 356rpx;
+  margin-top: 10rpx;
+  margin-left: 15rpx;
+  background-color: white;
+}
+
+.image{
+  width: 100%;
+  height: 267rpx;
+}
+.name_text{
+  margin-top: 10rpx;
+  display: flex;
+  word-break:  break-all;  /**文本自动换行**/
+}
+.name_text_style{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+   font-size: 25rpx;
+   font-family:"", Times, serif;
+}
+.old_price{
+  margin-top: 10rpx;
+  display: flex;
+  direction: row;
+}
+.old_price_style{
+  padding-left: 20rpx;
+   font-size: 30rpx;
+   font-family:"", Times, serif;
+   color: #fc5874;
+}
+.new_price{
+  margin-top: 10rpx;
+  display: flex;
+  direction: row;
+}
+.new_price_style{
+  padding-left: 20rpx;
+   font-size: 35rpx;
+   font-family:"", Times, serif;
+   color: #fc5874;
+}
+/************家装案例界面*************/
+.case_main{
+  width: 100%;
+  margin-top: 90rpx;
+}
+.case_item_main{
+  width: 96%;
+  height: 505rpx;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:white;
+}
+.case_item_image_main{
+  width: 100%;
+  height: 405rpx;
+}
+.case_item_text_main{
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+}
+
+.case_info_main{
+  width: 80%;
+  height: 100%;
+}
+.case_item_text1_main{
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+}
+.case_item_text2_main{
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+}
+.case_item_name_style{
+  font-size: 30rpx;
+  font-family:"", Times, serif;
+  padding-left: 20rpx;
+  color: #fc5874;
+  line-height: 60rpx;
+  vertical-align: middle;
+}
+.case_item_info_style{
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color: #9c9595;
+  padding-left: 20rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+}
+.KKKKK{
+  height: 25rpx;
+  width: 100%;
+}
+
+.desinger_info_main{
+  width: 20%;
+  height: 100%;
+}
+.desinger_image_main{
+  width: 100%;
+  height: 95rpx;
+  text-align: center;
+}
+.desinger_name_main{
+  width: 100%;
+  height: 45rpx;
+  display: inline-flex;
+  align-items: center;
+}
+.desinger_name_style{
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color: #9c9595;
+  width: 100%;
+  text-align: center;
+}
+.desinger_image_size{
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 5rpx;
+  border-radius: 50%;
+}
+/**************家装资讯界面*****************/
+.news_main{
+  width: 100%;
+  margin-top: 90rpx;
+}
+.news_item_main{
+  width: 100%;
+  height: 230rpx;
+  display: flex;
+}
+.news_item_info_image_main{
+  width: 30%;
+  height: 100%;
+  display: flex;
+}
+.news_item_info_image_size{
+  width: 200rpx;
+  height: 200rpx;
+  margin: auto 
+}
+.news_item_info_text_main{
+  width: 70%;
+  height: 200rpx;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.news_item_info_text_title_main{
+  width: 100%;
+  height: 50%;
+  display: flex;
+}
+.news_item_info_text_title_style{
+  width: 98%;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 35rpx;
+  font-family:"", Times, serif;
+  line-height: 50rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+}
+.news_item_info_text_detail_main{
+  width: 100%;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+}
+.news_item_info_text_detail_style{
+  width: 98%;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  line-height: 30rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3;
+  color:  grey
+}

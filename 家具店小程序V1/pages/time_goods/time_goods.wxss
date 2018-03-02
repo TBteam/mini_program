@@ -1,0 +1,72 @@
+/* pages/time_goods/time_goods.wxss */
+.main{
+  width: 100%;
+  display: flex;
+  direction: row;
+}
+.main2{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  direction: row;
+}
+.main1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  direction: row;
+}
+.left_mian{
+  width: 375rpx;
+  height: 100%;
+}
+
+.good_mian_left{
+  width: 95%;
+  margin-top: 10rpx;
+  margin-left: 3.7%;
+  background-color: white;
+}
+.good_mian_right{
+  width: 95%;
+  margin-top: 10rpx;
+  margin-left: 1.3%;
+  background-color: white;
+}
+.image{
+  width: 100%;
+  height: 267rpx;
+}
+.name_text{
+  margin-top: 10rpx;
+  display: flex;
+  word-break:  break-all;  /**文本自动换行**/
+}
+.name_text_style{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+   font-size: 25rpx;
+   font-family:"", Times, serif;
+}
+.old_price{
+  margin-top: 10rpx;
+  display: flex;
+  direction: row;
+}
+.old_price_style{
+  padding-left: 20rpx;
+   font-size: 30rpx;
+   font-family:"", Times, serif;
+   color: #fc5874;
+}
+.new_price{
+  margin-top: 10rpx;
+  display: flex;
+  direction: row;
+}
+.new_price_style{
+  padding-left: 20rpx;
+   font-size: 35rpx;
+   font-family:"", Times, serif;
+   color: #fc5874;
+}

@@ -1,0 +1,17 @@
+<!--pages/integral_detail/integral_detail.wxml-->
+<view wx:for='{{add_inte}}'>
+<view class='inte_item_main'>
+   <view class='inte_item_left_main'>
+       <view class='inte_item_reason_main'>
+           <text class='inte_item_reason_style'>{{item.reason}}</text>
+       </view>
+       <view class='inte_item_time_main'>
+           <text class='inte_item_time_style'>{{item.time}}</text>
+       </view>
+   </view>
+   <view class='inte_item_right_main'>
+        <text class='add_inte_style'>+{{item.add_score}}</text>
+   </view>
+</view>
+<view class='line'></view>
+</view>

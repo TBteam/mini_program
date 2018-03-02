@@ -1,0 +1,292 @@
+<!--pages/cate_info/cate_info.wxml-->
+<view wx:if='{{cate_select}}'>
+<view class='brand_select_K'></view>
+<view class='brand_select_main'>
+
+   <view bindtap='brand_select_main' id='1' class='brand_select_text_main'>
+       <view class='brand_select_text'>
+           <text class='brand_select_text_style'>品牌</text>
+       </view>
+       <view class='brand_select_icon'>
+          <image class="brand_select_icon_size1"         src="../photo/22.png"></image>
+       </view>
+   </view>
+
+   <view class='line'></view>
+   <view bindtap='brand_select_main' id='2' class='brand_select_text_main'>
+       <view class='brand_select_text'>
+           <text class='brand_select_text_style'>使用场景</text>
+       </view>
+       <view class='brand_select_icon'>
+          <image class="brand_select_icon_size1"         src="../photo/22.png"></image>
+       </view>
+   </view>
+ <view class='line'></view>
+   <view bindtap='brand_select_main' id='3' class='brand_select_text_main'>
+       <view class='brand_select_text'>
+           <text class='brand_select_text_style'>分类</text>
+       </view>
+       <view class='brand_select_icon'>
+          <image class="brand_select_icon_size1"         src="../photo/22.png"></image>
+       </view>
+   </view>
+
+</view>
+
+<view wx:if='{{brand_select}}' class='brand_select_info_main'>
+<view class='brand_select_info_main1'>
+  <view wx:for='{{brands}}'>
+    <view wx:if='{{!item.select_flag}}'     class='brand_select_info_border'>
+       <view bindtap='brands_check' id='{{index}}' class='brand_select_info_border_text'>
+          <text class='brand_select_info_border_text_style'>{{item.brand}}</text>
+       </view>
+     </view>
+     <view wx:if='{{item.select_flag}}'  class='brand_select_info_border1'>
+       <view  bindtap='brands_check' id='{{index}}' class='brand_select_info_border_text'>
+          <text class='brand_select_info_border_text_style1'>{{item.brand}}</text>
+       </view>
+     </view>
+   </view>
+  </view> 
+  <view class='brand_select_complete_main'>
+     <view bindtap='brand_select_complet' class='brand_select_complete_border'>
+        <text class='brand_select_complete_text_style'>完成</text>
+     </view>
+  </view>
+</view>
+
+
+<view class='main'>
+   <scroll-view scroll-y='true' class='main2'>
+   <view class='main1'>
+        <view class='left_mian'>
+          <view wx:for='{{goods}}'>
+            <view class='good_mian_left' bindtap='bindtap'>
+                <image class="image" src="../photo/NORYA2.jpg"                            ></image>
+                <view class='name_text'>
+                    <text class='name_text_style'> 商品名称</text>
+                </view>
+                <view class='old_price'>
+                    <text class='old_price_style'>¥ 78</text>
+                </view>    
+            </view>
+          </view>
+        </view> 
+
+
+      <view class='left_mian'>
+          <view wx:for='{{goods}}'>
+            <view class='good_mian_right' bindtap='bindtap'>
+                <image class="image" src="../photo/NORYA1.jpg"                            ></image>
+                <view class='name_text'>
+                    <text class='name_text_style'>商品名称</text>
+                </view>
+                <view class='old_price'>
+                    <text class='old_price_style'>¥ 78</text>
+                </view>  
+            </view>
+          </view>
+        </view>   
+      </view>  
+   </scroll-view>
+</view>
+</view>
+<!--家装案例-->
+
+<view wx:if='{{case_select}}'>
+<view wx:for='{{goods}}'>
+    <view  class='case_item_main'>
+       <view bindtap='case_detail' class='case_item_image_main'>
+           <image class="case_item_image_main" src="../photo/NORYA1.jpg"></image>
+       </view>
+       <view class='case_item_text_main'>
+          
+           <view class='case_info_main'>
+            <view class='case_item_text1_main'>
+                <text class='case_item_name_style'>中式简装</text>
+            </view>
+            <view class='case_item_text2_main'>
+                <text class='case_item_info_style'>三居室|中式|90-120平米|费用：8万左右</text>
+            </view>
+            <!--
+            <view class='case_item_text2_main'>
+                <text class='case_item_info_style'>费用：8万左右</text>
+            </view>
+            -->
+            </view>
+            <!--
+            <view bindtap='desinger_info' class='desinger_info_main'>
+                <view class='desinger_image_main'>
+                  <image class="desinger_image_size" src="../photo/2.jpg"  ></image>
+               </view>
+               <view class='desinger_name_main'>
+                   <text class='desinger_name_style'>某某某</text>
+               </view>
+           </view>
+           -->
+       </view>
+    </view>
+    <view class='KKKKK'></view>
+  </view>
+  <view class='KK'></view>
+</view>
+<!--我-->
+<view wx:if='{{about_us_select}}'>
+<view class='me_info_main'>
+   <view class='me_info_image_main'>
+       <image class='me_info_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
+   </view>
+   <view class='me_info_name_main'>
+       <text class='me_info_name_style'>{{user_wechat_info.nickName}}</text>
+   </view>
+</view>
+<view class='me_K'></view>
+
+
+<view class='.me_item_all_mian'>
+   <view class='me_item_main'>
+      <view class='me_item_image_main'>
+         <image bindtap=''mode='scaleToFill'  class="me_item_image_size" src="../photo/star.png" background-size="cover"></image>
+      </view>
+      <view class='me_item_text_main'>
+          <text class='me_item_text_style'>我的收藏</text>
+      </view>
+      <view class='me_item_right_image_main'>
+         <image bindtap='' mode='scaleToFill' class="me_item_right_image_size" src="../photo/33.png" background-size="cover"></image>
+      </view>
+   </view>
+
+    <view class='me_item_line'></view>
+
+   <view class='me_item_main'>
+      <view class='me_item_image_main'>
+         <image bindtap=''mode='scaleToFill' class="me_item_image_size_font" src="../photo/font.png" background-size="cover"></image>
+      </view>
+      <view class='me_item_text_main'>
+          <text class='me_item_text_style'>我的优惠券</text>
+      </view>
+      <view class='me_item_right_image_main'>
+         <image bindtap='' mode='scaleToFill' class="me_item_right_image_size" src="../photo/33.png" background-size="cover"></image>
+      </view>
+   </view>
+   <view class='me_item_line'></view>
+   <view class='me_item_main'>
+      <view class='me_item_image_main'>
+         <image bindtap=''mode='scaleToFill' class="me_item_image_size" src="../photo/integral.png" background-size="cover"></image>
+      </view>
+      <view class='me_item_text_main'>
+          <text class='me_item_text_style'>我的积分</text>
+      </view>
+      <view class='me_item_right_image_main'>
+         <image bindtap='' mode='scaleToFill' class="me_item_right_image_size" src="../photo/33.png" background-size="cover"></image>
+      </view>
+   </view>
+
+  <view class='me_item_line'></view>
+
+   <view class='me_item_main'>
+      <view class='me_item_image_main'>
+         <image bindtap='' mode='scaleToFill' class="me_item_image_size" src="../photo/phone3.png" background-size="cover"></image>
+      </view>
+      <view class='me_item_text_main'>
+          <text class='me_item_text_style'>联系我们</text>
+      </view>
+      <view class='me_item_right_image_main'>
+         <image bindtap='' mode='scaleToFill' class="me_item_right_image_size" src="../photo/33.png" background-size="cover"></image>
+      </view>
+   </view>
+   <view class='me_item_line'></view>
+
+   <view class='me_item_main'>
+      <view class='me_item_image_main'>
+         <image bindtap='' class="me_item_image_size" src="../photo/about_us.png" background-size="cover"></image>
+      </view>
+      <view class='me_item_text_main'>
+          <text class='me_item_text_style'>关于我们</text>
+      </view>
+      <view class='me_item_right_image_main'>
+         <image bindtap='' mode='scaleToFill' class="me_item_right_image_size" src="../photo/33.png" background-size="cover"></image>
+      </view>
+   </view>
+   
+
+</view>
+</view>
+<!--底部导航栏-->
+<view class='bottom_main'>
+   <view bindtap='bottom_select' id='1' class='bottom_item_main'>
+   <view wx:if="{{main_select}}">
+      <view  class='bottom_item_image_main'>
+          <image class="bottom_item_image_size"         src="../photo/main_select3.png"></image>
+      </view>
+      <view class='bottom_item_text_main'>
+          <text class='bottom_item_text_select_style'>主页</text>
+      </view>
+     </view>
+     <view wx:if="{{!main_select}}">
+      <view  class='bottom_item_image_main'>
+          <image class="bottom_item_image_size"         src="../photo/main_unselect.png"></image>
+      </view>
+      <view class='bottom_item_text_main'>
+          <text class='bottom_item_text_unselect_style'>主页</text>
+      </view>
+     </view>
+    </view>
+
+    <view bindtap='bottom_select' id='2' class='bottom_item_main'>
+   <view wx:if="{{cate_select}}">
+      <view  class='bottom_item_image_main1'>
+          <image class="bottom_item_image_size1"         src="../photo/NORYA_selected.jpg"></image>
+      </view>
+      <view class='bottom_item_text_main'>
+          <text class='bottom_item_text_select_style'>挪亚家-D5</text>
+      </view>
+     </view>
+     <view wx:if="{{!cate_select}}">
+      <view  class='bottom_item_image_main1'>
+          <image class="bottom_item_image_size1"         src="../photo/NORYA_unselected.jpg"></image>
+      </view>
+      <view class='bottom_item_text_main'>
+          <text class='bottom_item_text_unselect_style'>挪亚家-D5</text>
+      </view>
+     </view>
+    </view>
+
+    <view bindtap='bottom_select' id='3' class='bottom_item_main'>
+   <view wx:if="{{case_select}}">
+      <view  class='bottom_item_image_main'>
+          <image class="bottom_item_image_size"         src="../photo/case_select3.png"></image>
+      </view>
+      <view class='bottom_item_text_main'>
+          <text class='bottom_item_text_select_style'>家装案例</text>
+      </view>
+     </view>
+     <view wx:if="{{!case_select}}">
+      <view  class='bottom_item_image_main'>
+          <image class="bottom_item_image_size"         src="../photo/case_unselect1.png"></image>
+      </view>
+      <view class='bottom_item_text_main'>
+          <text class='bottom_item_text_unselect_style'>家装案例</text>
+      </view>
+     </view>
+    </view>
+
+    <view bindtap='bottom_select' id='4' class='bottom_item_main'>
+   <view wx:if="{{about_us_select}}">
+      <view  class='bottom_item_image_main'>
+          <image class="bottom_item_image_size"         src="../photo/people_checked.png"></image>
+      </view>
+      <view class='bottom_item_text_main'>
+          <text class='bottom_item_text_select_style'>我</text>
+      </view>
+     </view>
+     <view wx:if="{{!about_us_select}}">
+      <view  class='bottom_item_image_main'>
+          <image class="bottom_item_image_size"         src="../photo/people_unchecked.png"></image>
+      </view>
+      <view class='bottom_item_text_main'>
+          <text class='bottom_item_text_unselect_style'>我</text>
+      </view>
+     </view>
+    </view>
+</view>

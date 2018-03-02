@@ -1,0 +1,48 @@
+<!--pages/about_store_detail/about_store_detail.wxml-->
+
+<view class='store_image_mian'>
+  <image class="store_image" src="../photo/NORYA1.jpg" ></image>
+</view>
+
+<view class='about_us_K'></view>
+<view class='about_us_info_title_mian'>
+   <text class='about_us_info_title_text_style'>XXXX家具简介</text>
+</view>
+
+<view class='about_us_main'>
+<view class='text_mian'>
+  <text class='text_style'>地址：XXXXXXXXXXXXXXX</text>
+</view>
+<view class='icon_mian'>
+     <image bindtap='show_map' class="icon_style" src="../photo/address.png" background-size="cover"></image>
+</view>
+</view>
+<view wx:if="{{show_map_flag}}" >
+   <map id="map" longitude="114.06667" latitude="22.61667" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 250px;"></map>
+</view>
+
+
+<view class='about_us_KK'></view>
+
+<view class='about_us_main'>
+   <view class='text_mian'>
+      <text class='text_style'>电话：12345678999</text>
+   </view>
+    <view class='icon_mian'>
+     <image bindtap='call_phone' class="icon_style" src="../photo/phone2.png" background-size="cover"></image>
+     </view>
+</view>
+
+<view class='about_us_KK'></view>
+<view class='about_us_main'>
+<view class='text_mian'>
+  <text class='text_style'>微信：12345678999</text>
+</view>
+<view bindtap='copy' class='copy_button_main'>
+       <view class='copy_button_size'>
+       <text class='copy_button_text_style'>复制</text>
+       </view>
+   </view>
+</view>
+<view class='KK'></view>
+

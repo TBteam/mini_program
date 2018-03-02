@@ -1,0 +1,192 @@
+<!--pages/good_detail/good_detail.wxml-->
+<view wx:if='{{!bottom_info_flag}}'>
+
+<view class='image_mian'>
+   <swiper indicator-dots="true" class="image_mian1" circular="true" autoplay="true" interval="3000"  >
+    <block wx:for="{{imgUrls}}">
+       <swiper-item>
+      <image wx:if='{{bottom_info_flag}}' src="{{item}}" mode='scaleToFill' class="top_image_size"  />
+      <image wx:if='{{!bottom_info_flag}}' src="{{item}}" mode='scaleToFill' class="top_image_size1"  />
+    </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class='good_name_price_collect_main'>
+    <view class='good_name_price_main'>
+       <view class='good_name_main'>
+           <text class='good_name_style'>商品名称商品名称商品名称商品名称商品名称商品名称</text>
+       </view>
+        <view class='good_new_price_main'>
+             <text class='good_new_price_style'>¥ {{price}}</text>
+        </view>
+    </view>
+    <view bindtap='collect'  class='good_collect_main'>
+       <view class='good_collect_icon_main'>
+         <image wx:if='{{!collect_flag}}' bindtap='' mode='scaleToFill'  class="good_collect_icon_size" src="../photo/star1.png" background-size="cover"></image>
+         <image wx:if='{{collect_flag}}' bindtap='' mode='scaleToFill'  class="good_collect_icon_size" src="../photo/star.png" background-size="cover"></image>
+       </view>
+       <view class='good_collect_text_main'>
+           <text  wx:if='{{!collect_flag}}' class='good_collect_text_style_uncollect'>收藏</text>
+           <text  wx:if='{{collect_flag}}' class='good_collect_text_style_uncollect'>已收藏</text>
+       </view>
+    </view>
+    
+</view>
+<view class='K'></view>
+    <view class='KK'></view>
+
+<view bindtap='bindtap' id='1' class='good_info_main'>
+  <view class='good_info_text_main'>
+     <text class='good_info_text_style'>规格/型号</text>
+  </view>
+  <view class='good_info_icon_main'>
+     <image class="good_info_icon_size"  src="../photo/ellipsis.png"></image>
+  </view>
+</view>
+
+
+
+<view class='KK'></view>
+
+
+
+<view bindtap='bindtap' id='2' class='good_info_main'>
+  <view class='good_info_text_main'>
+     <text class='good_info_text_style'>优惠活动</text>
+  </view>
+  <view class='good_info_icon_main'>
+     <image class="good_info_icon_size" src="../photo/ellipsis.png"></image>
+  </view>
+</view>
+
+<view class='KK'></view>
+
+<view class='KK'></view>
+<view class='KK'></view>
+<view class='KK'></view>
+<view class='KK'></view>
+
+
+
+
+<!--商品详情&为您推荐-->
+<view class='good_details_recommand_title_main'>
+   <view  bindtap='good_details_recommand_select' id='1'  class='good_details_recommand_title_details'>
+         <view wx:if='{{detail_info_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>商品详情</text>
+        </view> 
+        <view wx:if='{{!detail_info_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>商品详情</text>
+        </view>     
+   </view>
+   <view bindtap='good_details_recommand_select' id='2'   class='good_details_recommand_title_recommand'>
+        <view wx:if='{{recommand_flag}}' class='good_details_recommand_title_checked_style'>
+          <text class=''>为您推荐</text>
+        </view>   
+        <view wx:if='{{!recommand_flag}}' class='good_details_recommand_title_unchecked_style'>
+          <text class=''>为您推荐</text>
+        </view>  
+   </view>
+</view>
+
+<view class='K'></view>
+
+
+<!--商品详情-->
+<view wx:if='{{detail_info_flag}}'>
+<view class='KKK'></view>
+<view class="good_details_info_main" wx:for='{{imgUrls1}}'>
+          <view class='good_details_info_image_main'>
+              <image src="{{item}}" mode='scaleToFill' class="good_details_info_image_main" />
+          </view>
+         
+         <!--
+         <view class='good_details_info_text_main'>
+            <text class='good_details_info_text_style'>介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍介绍</text>
+         </view>
+         -->
+         <view class='good_details_info_K'> </view>
+        </view> 
+</view>
+
+<!--为您推荐-->
+<view wx:if='{{recommand_flag}}'>
+<view class='recommand_main'>
+    <view wx:for='{{goods}}'>
+        <view class='recommand_good_mian_left' bindtap='bindtap'>
+            <image class="recommand_image" src="{{item.url}}"  ></image>
+            <view class='recommand_name_text'>
+                 <text class='recommand_name_text_style'> 商品名称</text>
+            </view>
+            <view class='recommand_old_price'>
+                 <text class='recommand_old_price_style'>¥ 78</text>
+            </view>    
+        </view>
+   </view>
+</view>
+</view>
+</view>
+
+
+
+<!--底部未弹起-->
+<view wx:if='{{bottom_info_flag}}'>
+<view class='image_mian'>
+   <swiper indicator-dots="true" class="image_mian1" circular="true" autoplay="true" interval="3000"  >
+    <block wx:for="{{imgUrls}}">
+       <swiper-item>
+      <image wx:if='{{bottom_info_flag}}' src="{{item}}" mode='scaleToFill' class="top_image_size"  />
+      <image wx:if='{{!bottom_info_flag}}' src="{{item}}" mode='scaleToFill' class="top_image_size1"  />
+    </swiper-item>
+    </block>
+  </swiper>
+</view>
+</view>
+
+
+<!--优惠活动-->
+<view wx:if="{{bottom_info_flag&&preferential_info_flag}}" class='bottom_main'>
+      <view class='cancle_main'>
+      <view class='cancle_text_main'>
+          <text class='cancle_text_style'>优惠活动</text>
+      </view>
+      <view bindtap='cancel' class='cancle_icon_main'>
+         <image class="cancle_icon_size" src="../photo/cross.png"></image>
+      </view>
+  </view>
+</view>
+
+<!--规格型号-->
+<view wx:if="{{bottom_info_flag&&format_flag}}" class='bottom_main'>
+  <view class='format_bottom_title_main'>
+      <view class='format_bottom_title_info'>
+          <view class='format_bottom_title_info_image'>
+               <image class="format_bottom_title_info_image_size" src="../photo/NORYA2.jpg"></image>
+          </view>
+          <view class='format_bottom_title_info_text'>
+             <text class='good_new_price_style'>¥ {{price}}</text>
+          </view>
+      </view>
+      <view bindtap='cancel' class='cancle_icon_main'>
+         <image class="cancle_icon_size" src="../photo/cross.png"></image>
+      </view>
+  </view>
+  <view class='K'></view>
+  <view class='format_line'></view>
+
+  <view  class='format_main'>
+   <view class='format_K'></view>
+   <view class='format_K'></view>
+   <view wx:for="{{formats}}">
+      <view bindtap='format_checked' id='{{index}}' wx:if="{{!item.checked}}" class='format_item_main'>
+          <text class='format_item_text_style'>{{item.format}}</text>
+      </view>
+
+      <view bindtap='format_checked' id='{{index}}' wx:if="{{item.checked}}" class='format_item_main_checked'>
+          <text class='format_item_text_style_checked'>{{item.format}}</text>
+      </view>
+   </view>
+   <view class='format_K'></view>
+  </view> 
+</view>

@@ -1,0 +1,91 @@
+<!--pages/all_goods/all_goods.wxml-->
+<view class='brand_select_K'></view>
+<view class='brand_select_main'>
+
+   <view bindtap='brand_select_main' id='1' class='brand_select_text_main'>
+       <view class='brand_select_text'>
+           <text class='brand_select_text_style'>品牌</text>
+       </view>
+       <view class='brand_select_icon'>
+          <image class="brand_select_icon_size1"         src="../photo/22.png"></image>
+       </view>
+   </view>
+
+   <view class='line'></view>
+   <view bindtap='brand_select_main' id='2' class='brand_select_text_main'>
+       <view class='brand_select_text'>
+           <text class='brand_select_text_style'>使用场景</text>
+       </view>
+       <view class='brand_select_icon'>
+          <image class="brand_select_icon_size1"         src="../photo/22.png"></image>
+       </view>
+   </view>
+ <view class='line'></view>
+   <view bindtap='brand_select_main' id='3' class='brand_select_text_main'>
+       <view class='brand_select_text'>
+           <text class='brand_select_text_style'>分类</text>
+       </view>
+       <view class='brand_select_icon'>
+          <image class="brand_select_icon_size1"         src="../photo/22.png"></image>
+       </view>
+   </view>
+
+</view>
+
+<view wx:if='{{brand_select}}' class='brand_select_info_main'>
+<view class='brand_select_info_main1'>
+  <view wx:for='{{brands}}'>
+    <view wx:if='{{!item.select_flag}}'     class='brand_select_info_border'>
+       <view bindtap='brands_check' id='{{index}}' class='brand_select_info_border_text'>
+          <text class='brand_select_info_border_text_style'>{{item.brand}}</text>
+       </view>
+     </view>
+     <view wx:if='{{item.select_flag}}'  class='brand_select_info_border1'>
+       <view  bindtap='brands_check' id='{{index}}' class='brand_select_info_border_text'>
+          <text class='brand_select_info_border_text_style1'>{{item.brand}}</text>
+       </view>
+     </view>
+   </view>
+  </view> 
+  <view class='brand_select_complete_main'>
+     <view bindtap='brand_select_complet' class='brand_select_complete_border'>
+        <text class='brand_select_complete_text_style'>完成</text>
+     </view>
+  </view>
+</view>
+
+
+<view class='main'>
+   <scroll-view scroll-y='true' class='main2'>
+   <view class='main1'>
+        <view class='left_mian'>
+          <view wx:for='{{goods}}'>
+            <view class='good_mian_left' bindtap='bindtap'>
+                <image class="image" src="../photo/NORYA2.jpg"                            ></image>
+                <view class='name_text'>
+                    <text class='name_text_style'> 商品名称</text>
+                </view>
+                <view class='old_price'>
+                    <text class='old_price_style'>¥ 78</text>
+                </view>    
+            </view>
+          </view>
+        </view> 
+
+
+      <view class='left_mian'>
+          <view wx:for='{{goods}}'>
+            <view class='good_mian_right' bindtap='bindtap'>
+                <image class="image" src="../photo/NORYA2.jpg"                            ></image>
+                <view class='name_text'>
+                    <text class='name_text_style'>商品名称</text>
+                </view>
+                <view class='old_price'>
+                    <text class='old_price_style'>¥ 78</text>
+                </view>  
+            </view>
+          </view>
+        </view>   
+      </view>  
+   </scroll-view>
+</view>

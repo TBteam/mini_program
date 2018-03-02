@@ -1,0 +1,56 @@
+/* pages/integral_detail/integral_detail.wxss */
+.inte_item_main{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+}
+.inte_item_left_main{
+  width: 630rpx;
+  height: 100rpx;
+}
+.inte_item_reason_main{
+  width: 100%;
+  height: 65rpx;
+  display: flex;
+  align-items: center;
+}
+.inte_item_reason_style{
+  margin-left: 20rpx;
+  font-size: 35rpx;
+  font-family:"", Times, serif; 
+  color:  black;
+}
+.inte_item_time_main{
+  width: 100%;
+  height: 35rpx;
+  display: flex;
+  align-items: center;
+}
+.inte_item_time_style{
+  margin-left: 20rpx;
+  font-size: 25rpx;
+  font-family:"", Times, serif; 
+  color:#9c9595;
+}
+.inte_item_right_main{
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.add_inte_style{
+  width: 120rpx;
+  text-align: center;
+  font-size: 50rpx;
+  font-family:"", Times, serif; 
+  color:  #fc5874
+}
+.line{
+  width: 100%;
+  border-top-style:solid;
+  border-right-style:none;
+  border-bottom-style:none;
+  border-left-style:none;
+  border-width:1rpx;
+  border-color:gainsboro;
+}

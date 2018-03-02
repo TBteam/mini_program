@@ -1,0 +1,93 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": false,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.5.3",
+	"appid": "wx130aaeb8ba909d09",
+	"projectname": "%E5%AE%B6%E5%85%B7%E5%BA%97demo_v3",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "test",
+					"pathName": "pages/about_store_detail/about_store_detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "news",
+					"pathName": "pages/home_decoration_news/home_decoration_news",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "news_details",
+					"pathName": "pages/home_decoration_news_datails/home_decoration_news_datails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "good_details",
+					"pathName": "pages/good_details/good_details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "main",
+					"pathName": "pages/main/main",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "test1",
+					"pathName": "pages/my_integral/my_integral",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my_collect",
+					"pathName": "pages/my_collect/my_collect",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "case_detail",
+					"pathName": "pages/case_detail/case_detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "inte_detail",
+					"pathName": "pages/integral_detail/integral_detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "coupons_center",
+					"pathName": "pages/coupons_center/coupons_center",
+					"query": ""
+				}
+			]
+		}
+	}
+}

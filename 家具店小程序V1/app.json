@@ -1,0 +1,28 @@
+{
+  "pages":[
+    "pages/first/first",
+    "pages/main/main",
+    "pages/good_details/good_details",
+    "pages/case_detail/case_detail",
+    "pages/hot_goods/hot_goods",
+    "pages/new_goods/new_goods",
+    "pages/time_goods/time_goods",
+    "pages/all_goods/all_goods",
+    "pages/cate_info/cate_info",
+    "pages/cate_info_test/cate_info_test",
+    "pages/home_decoration_news_datails/home_decoration_news_datails",
+    "pages/my_integral/my_integral",
+    "pages/integral_detail/integral_detail",
+    "pages/my_collect/my_collect",
+    "pages/about_store_detail/about_store_detail",
+    "pages/coupons_center/coupons_center"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":"false"
+  }
+}

@@ -1,0 +1,15 @@
+/* pages/coupons_center/coupons_center.wxss */
+page{
+  background-color: gainsboro;
+}
+.item_main{
+  width: 720rpx;
+  height:240rpx;
+  margin-top: 10rpx;
+  margin-left: auto;
+  margin-right: auto; 
+}
+.item_image_size{
+  width: 720rpx;
+  height:240rpx;
+}

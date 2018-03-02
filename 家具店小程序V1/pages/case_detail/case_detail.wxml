@@ -1,0 +1,69 @@
+<!--pages/case_detail/case_detail.wxml-->
+<!--设计师信息-->
+<!--
+<view class='desinger_K'></view>
+
+<view class='desinger_main'>
+   <view class='desinger_image_main'>
+       <image class="desinger_image_size" src="../photo/2.jpg"></image>
+   </view>
+   <view class='desinger_info_main'>
+    <view class='desinger_info_name_main'>
+           <text class='desinger_info_name_style'>XXX(设计师)</text>
+    </view>
+    <view class='desinger_info_detail_main'>
+           <text class='desinger_info_detail_style'>中式装修设计、欧式装修设计、中式装修设计、欧式装修设计</text>
+    </view>
+   </view>
+   <view bindtap='desinger_info' class='desinger_order_main'>
+       <view class='desinger_order_button_size'>
+       <text class='desinger_order_button_text_style'>了解</text>
+       </view>
+   </view>
+</view>
+
+
+<view class='desinger_K'></view>
+-->
+<view class='case_title_main'>
+ <text class='case_title_style'>家装案例名称家装案例名称家装案例名称家装案例名称</text>
+</view>
+<!--作者&收藏-->
+<view class='autor_collect_main'>
+<view class='autor_main'>
+   <text class='autor_text_style'>家具品牌</text>
+</view>
+<view class='collect_main' bindtap='collect'>
+   <view class='collect_icon_main'>
+         <image wx:if='{{!collect_flag}}' bindtap='' mode='scaleToFill'  class="collect_icon_size" src="../photo/star1.png" background-size="cover"></image>
+         <image wx:if='{{collect_flag}}' bindtap='' mode='scaleToFill'  class="collect_icon_size" src="../photo/star.png" background-size="cover"></image>
+   </view>
+   <view class='collect_text_main'>
+           <text  wx:if='{{!collect_flag}}' class='collect_text_style_uncollect'>收藏</text>
+           <text  wx:if='{{collect_flag}}' class='collect_text_style_uncollect'>已收藏</text>
+   </view>
+</view>
+</view>
+<!--家装图片-->
+<view wx:for='{{case1}}'>
+    <view  class='case_item_main'>
+       <view class='case_item_image_main'>
+           <image class="case_item_image_main" src="{{item}}"></image>
+       </view>
+       <view class='case_item_text_main'>
+          <text class='case_item_text_style'>本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、</text>
+       </view>
+       <!--
+       <view class='case_item_text_main'>
+            <view class='case_item_text1_main'>
+                <text class='case_item_name_style'>中式简装</text>
+            </view>
+            <view class='case_item_text1_main'>
+                <text class='case_item_info_style'>三居室|中式|90-120平米</text>
+            </view>
+       </view> -->
+    </view>
+    <view class='KKKKK'></view>
+  </view>
+
+

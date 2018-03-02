@@ -1,0 +1,31 @@
+<!--pages/home_decoration_news_datails/home_decoration_news_datails.wxml-->
+<view class='news_details_title_main'>
+   <text class='news_details_title_style'>新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</text>
+</view>
+<!--作者&收藏-->
+<view class='autor_collect_main'>
+<view class='autor_main'>
+   <text class='autor_text_style'>新闻作者</text>
+</view>
+<view class='collect_main' bindtap='collect'>
+   <view class='collect_icon_main'>
+         <image wx:if='{{!collect_flag}}' bindtap='' mode='scaleToFill'  class="collect_icon_size" src="../photo/star1.png" background-size="cover"></image>
+         <image wx:if='{{collect_flag}}' bindtap='' mode='scaleToFill'  class="collect_icon_size" src="../photo/star.png" background-size="cover"></image>
+   </view>
+   <view class='collect_text_main'>
+           <text  wx:if='{{!collect_flag}}' class='collect_text_style_uncollect'>收藏</text>
+           <text  wx:if='{{collect_flag}}' class='collect_text_style_uncollect'>已收藏</text>
+   </view>
+</view>
+</view>
+<!--新闻内容-->
+<view class='news_details_text_main'>
+   <text class='news_details_text_style'>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</text>
+   
+   <view wx:for='{{news_details}}'>
+   <view class='news_details_image_main'>
+       <image class="news_details_image_size" src="{{item}}" ></image>
+   </view>
+   <text class='news_details_text_style'>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</text>
+   </view>
+</view>
