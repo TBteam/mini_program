@@ -12,6 +12,7 @@ Page({
     new_good_flag: false,
     classfiy_flag:false,
     secne_flag: false,
+    item: ['1', '1', '1', '1', '1', '1', '1', '1', '1'],
     classfiy: ['沙发', '床', '餐桌', '梳妆台', '电视柜', '写字台', '沙发', '沙发', '沙发', '沙发', '沙发', '沙发', '沙发',],
     classfiy1: ['客厅', '卧室', '餐厅', '户外'],
     goods: [

@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/home_page/home_page",
     "pages/first/first",
     "pages/main/main",
     "pages/good_details/good_details",
@@ -16,13 +17,12 @@
     "pages/my_collect/my_collect",
     "pages/about_store_detail/about_store_detail",
     "pages/coupons_center/coupons_center"
-
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#fc5874",
+    "navigationBarTitleText": "平台名称",
     "navigationBarTextStyle":"black",
-    "enablePullDownRefresh":"false"
+    "enablePullDownRefresh":false
   }
 }

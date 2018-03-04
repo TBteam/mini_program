@@ -1,0 +1,145 @@
+<!--pages/home_page/home_page.wxml-->
+<view class="page">  
+    <view  class="bottom"> 
+        <view class='me_main'>
+            <view class='me_image'>
+                <image class='me_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
+            </view>
+            <view class='me_name_text'>
+                <text class='me_name_text_style'>{{user_wechat_info.nickName}}</text>
+            </view>
+
+            <view class='me_KK'></view>
+
+            <view class='me_item_main' bindtap='my_collect'>
+                  <view class='me_item_image_main'>
+                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/star.png" background-size="cover"></image>
+                  </view>
+                  <view class='me_item_text_main'>
+                       <text class='me_item_text_style'>我的收藏</text>
+                  </view>
+            </view>
+            <view class='me_item_line'></view>
+
+            <view class='me_item_main' bindtap='my_collect'>
+                  <view class='me_item_image_main'>
+                      <image mode='scaleToFill'  class="me_item_image_size_font" src="../photo/font.png" background-size="cover"></image>
+                  </view>
+                  <view class='me_item_text_main'>
+                       <text class='me_item_text_style'>我的优惠券</text>
+                  </view>
+            </view>
+            <view class='me_item_line'></view>
+
+            <view class='me_item_main' bindtap='my_collect'>
+                  <view class='me_item_image_main'>
+                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/integral.png" background-size="cover"></image>
+                  </view>
+                  <view class='me_item_text_main'>
+                       <text class='me_item_text_style'>我的积分</text>
+                  </view>
+            </view>
+            <view class='me_item_line'></view>
+
+            <view class='me_item_main' bindtap='my_collect'>
+                  <view class='me_item_image_main'>
+                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/phone3.png" background-size="cover"></image>
+                  </view>
+                  <view class='me_item_text_main'>
+                       <text class='me_item_text_style'>联系我们</text>
+                  </view>
+            </view>
+            <view class='me_item_line'></view>
+
+            <view class='me_item_main' bindtap='my_collect'>
+                  <view class='me_item_image_main'>
+                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/about_us.png" background-size="cover"></image>
+                  </view>
+                  <view class='me_item_text_main'>
+                       <text class='me_item_text_style'>关于我们</text>
+                  </view>
+            </view>
+            <view class='me_item_line'></view>
+            
+        </view> 
+    </view>  
+    <view class="top " bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style="{{translate}}">  
+       
+        <scroll-view scroll-y style='{{style}}'>
+        <view class='topbar'>
+            <view class='topbar_image'>
+               <image bindtap="tap_ch" class='topbar_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
+            </view>
+            <view class='search_border'>
+                  <view class='search_icon_main'>
+                      <image class='search_icon_size' src="../photo/search.png"></image>
+                  </view>
+                  <view class='search_text_main'>
+                      <text class='search_text_style'>搜索家装案例</text>
+                  </view>
+            </view>
+            <view wx:if="{{new_flag}}" bindtap='hot_new_bintap' id='1' class='topbar_item_border_checked'>
+                <view class='topbar_text_main_checked'>
+                    <text class='topbar_text_style_checked'>最新</text>
+                </view>
+            </view>
+            <view wx:if="{{!new_flag}}" bindtap='hot_new_bintap' id='1' class='topbar_item_border'>
+                <view class='topbar_text_main'>
+                    <text class='topbar_text_style'>最新</text>
+                </view>
+            </view>
+            <view wx:if="{{hot_flag}}" bindtap='hot_new_bintap' id='2'  class='topbar_item_border_checked'>
+                <view class='topbar_text_main_checked'>
+                    <text class='topbar_text_style_checked'>最热</text>
+                </view>
+            </view>
+            <view wx:if="{{!hot_flag}}" bindtap='hot_new_bintap' id='2'  class='topbar_item_border'>
+                <view class='topbar_text_main'>
+                    <text class='topbar_text_style'>最热</text>
+                </view>
+            </view>
+        </view>
+        
+        <view class='case_item_K'></view>
+        <view class='case_item_K'></view>
+        <view class='case_item_K'></view>
+        <view class='case_item_K'></view>
+
+        <view wx:for="{{item}}">
+        
+        <view class='case_item_main'>
+            <view bindtap='bintap' id='2' class='case_item_image_main'>
+                 <image mode='scaleToFill'  class="case_item_image_size" src="../photo/NORYA1.jpg" background-size="cover"></image>
+            </view>
+            <view class='case_item_text_main'>
+                <view class='case_item_text_left_main'>
+                     <view class='case_item_text_title_main'>
+                         <text class='case_item_text_title_style'>中式简装</text>
+                     </view>
+                     <view class='case_item_text_info_main'>
+                         <text class='case_item_text_info_style1'>90-120平米</text>
+                         <text class='case_item_text_info_style2'>|</text>
+                         <text class='case_item_text_info_style2'>三居室</text>
+                         <text class='case_item_text_info_style2'>|</text>
+                         <text class='case_item_text_info_style3'>8万左右</text>
+                     </view>
+                </view>
+                <view bindtap='bintap' id='1' class='case_item_text_right_main'>
+                    <view class='case_item_brand_image_main'>
+                        <image mode='aspectFit'  class="case_item_brand_image_size" src="../photo/NORYA_selected.jpg" background-size="cover"></image>
+                    </view>
+                    <view class='case_item_brand_name_main'>
+                         <text class='case_item_brand_name_style'>挪亚家D5</text>
+                     </view>
+                </view>
+            </view>
+        </view>
+        <view class='case_item_K'></view>
+        </view>
+
+        <view bindtap='add_more' class='add_more_main'>
+            <text class='add_more_text_style'>加载更多. . .</text>
+        </view>
+    </scroll-view>
+    </view>  
+</view>

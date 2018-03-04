@@ -1,32 +1,9 @@
 <!--pages/case_detail/case_detail.wxml-->
-<!--设计师信息-->
-<!--
-<view class='desinger_K'></view>
 
-<view class='desinger_main'>
-   <view class='desinger_image_main'>
-       <image class="desinger_image_size" src="../photo/2.jpg"></image>
-   </view>
-   <view class='desinger_info_main'>
-    <view class='desinger_info_name_main'>
-           <text class='desinger_info_name_style'>XXX(设计师)</text>
-    </view>
-    <view class='desinger_info_detail_main'>
-           <text class='desinger_info_detail_style'>中式装修设计、欧式装修设计、中式装修设计、欧式装修设计</text>
-    </view>
-   </view>
-   <view bindtap='desinger_info' class='desinger_order_main'>
-       <view class='desinger_order_button_size'>
-       <text class='desinger_order_button_text_style'>了解</text>
-       </view>
-   </view>
-</view>
-
-
-<view class='desinger_K'></view>
--->
 <view class='case_title_main'>
- <text class='case_title_style'>家装案例名称家装案例名称家装案例名称家装案例名称</text>
+   <view class='case_title_main1'>
+       <text class='case_title_style'>家装案例名称家装案例名称家装案例名称家装案例名称</text>
+   </view>
 </view>
 <!--作者&收藏-->
 <view class='autor_collect_main'>
@@ -53,17 +30,39 @@
        <view class='case_item_text_main'>
           <text class='case_item_text_style'>本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、</text>
        </view>
-       <!--
-       <view class='case_item_text_main'>
-            <view class='case_item_text1_main'>
-                <text class='case_item_name_style'>中式简装</text>
-            </view>
-            <view class='case_item_text1_main'>
-                <text class='case_item_info_style'>三居室|中式|90-120平米</text>
-            </view>
-       </view> -->
     </view>
     <view class='KKKKK'></view>
   </view>
 
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
+<view class='KKKKK'></view>
 
+<view class='brand_info_main'>
+    <view class='brand_info_image_main'>
+        <view class='brand_info_image_style'>
+            <image mode='aspectFit'  class="brand_info_image_size" src="../photo/NORYA_selected.jpg" background-size="cover"></image>
+        </view>
+    </view>
+ 
+    <view bindtap='enter_brand' class='brand_info_text_main'>
+       <view class='brand_info_text_brandname_main'>
+           <text class='brand_info_text_brandname_style'>挪亚家D5郑州旗舰店</text>
+       </view>
+       <view class='brand_info_text_brandinfo_main'>
+           <text class='brand_info_text_brandinfo_style'>主营：新中式家具新中式家具新中式家具新中式家具新中式家具新中式家具</text>
+       </view>
+    </view>
+</view>

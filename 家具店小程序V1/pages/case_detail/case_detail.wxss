@@ -1,6 +1,6 @@
 /* pages/case_detail/case_detail.wxss */
 page{
-  background-color:  white;
+  background-color: gainsboro;
 }
 /************设计师*************/
 .desinger_K{
@@ -88,6 +88,11 @@ page{
 }
 /*********************/
 .case_title_main{
+  width: 100%;
+  display: flex;
+  background-color: white;
+}
+.case_title_main1{
   width: 96%;
   display: flex;
   margin-left: auto;
@@ -114,6 +119,7 @@ page{
 .case_item_text_main{
   width: 100%;
   margin-top: 10rpx;
+  background-color: whitesmoke;
 }
 .case_item_text_style{
   display: flex;
@@ -184,4 +190,67 @@ page{
   font-size: 30rpx;
   font-family:"", Times, serif;
   color: #9c9595
+}
+/***********品牌简介***********/
+.brand_info_main{
+  width: 100%;
+  height: 160rpx;
+  position: fixed;
+  bottom: -1rpx;
+  background-color: white;
+  display: flex;
+  z-index: 999;
+}
+.brand_info_image_main{
+  width: 200rpx;
+  height: 100%;
+}
+.brand_info_image_style{
+  width: 140rpx;
+  height: 140rpx;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width: 2rpx;
+  border-color: whitesmoke;
+  border-radius: 20rpx;
+  margin-left: 30rpx;
+  margin-top: 8rpx;
+}
+.brand_info_image_size{
+  width: 130rpx;
+  height: 130rpx;
+  margin-left: 5rpx;
+}
+.brand_info_text_main{
+  width: 520rpx;
+  height: 100%;
+  margin-left: 0rpx;
+}
+.brand_info_text_brandname_main{
+  width: 100%;
+  height: 60rpx;
+  margin-top: 5rpx;
+}
+.brand_info_text_brandname_style{
+   width: 100%;
+   height: 45rpx;
+   line-height: 70rpx;
+   vertical-align: middle;
+   font-size: 35rpx;
+   font-family:"", Times, serif;
+}
+.brand_info_text_brandinfo_main{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  flex-wrap: wrap
+}
+.brand_info_text_brandinfo_style{
+   line-height: 40rpx;
+   vertical-align: middle;
+   font-size: 28rpx;
+   font-family:"", Times, serif;
+   color: #9c9595;
 }

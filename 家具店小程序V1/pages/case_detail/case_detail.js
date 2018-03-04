@@ -7,16 +7,16 @@ Page({
   data: {
     collect_flag:false,
     case1: [
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG4.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG5.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG6.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG7.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG8.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG9.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG10.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG11.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG12.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG13.jpg'
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg',
+      '../photo/NORYA1.jpg'
     ],
   },
   desinger_info: function () {
@@ -32,6 +32,14 @@ Page({
     collect_flag = !collect_flag
     this.setData({
       collect_flag: collect_flag
+    })
+  },
+  enter_brand:function(){
+    wx.navigateTo({
+      url: '../cate_info_test/cate_info_test',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   },
   /**

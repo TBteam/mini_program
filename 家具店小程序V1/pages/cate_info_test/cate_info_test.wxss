@@ -25,10 +25,10 @@
 }
 .good_details_recommand_title_unchecked_style{
    font-size: 35rpx;
-   height: 80rpx;
+   height: 78rpx;
    width: 100%;
    font-family:"", Times, serif;
-   line-height: 80rpx;
+   line-height: 78rpx;
    vertical-align: middle;
    color:black;
    border-bottom-style:solid;
@@ -37,10 +37,10 @@
 }
 .good_details_recommand_title_checked_style{
    font-size: 35rpx;
-   height: 80rpx;
+   height: 78rpx;
    width: 100%;
    font-family:"", Times, serif;
-   line-height: 80rpx;
+   line-height: 78rpx;
    vertical-align: middle;
    color:#fc5874;
    border-bottom-style:solid;
@@ -101,6 +101,113 @@
 .brand_info_K{
   width: 100%;
   height: 10rpx;
+}
+/************家装案例************/
+.case_item_KK{
+  width: 100%;
+  height: 90rpx;
+}
+.case_item_main{
+  width: 97%;
+  height: 500rpx;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: whitesmoke
+}
+.case_item_image_main{
+  width: 100%;
+  height: 400rpx;
+}
+.case_item_image_size{
+  width: 100%;
+  height: 400rpx;
+}
+.case_item_text_main{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+}
+.case_item_text_left_main{
+  width: 70%;
+  height: 100%;
+}
+.case_item_text_right_main{
+  width: 30%;
+  height: 100%;
+}
+.case_item_text_title_main{
+  width: 100%;
+  height: 55rpx;
+  display: flex;
+  align-items: center;
+}
+.case_item_text_title_style{
+  margin-left: 20rpx;
+  font-size: 35rpx;
+  font-family:"", Times, serif;
+}
+.case_item_text_info_main{
+  width: 100%;
+  height: 45rpx;
+  display: flex;
+  align-items: center;
+}
+.case_item_text_info_style1{
+  margin-left: 20rpx;
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color:  #fc5874
+}
+.case_item_text_info_style2{
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color: #9c9595
+}
+.case_item_text_info_style3{
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color: #fc5874
+}
+.case_item_brand_image_main{
+  width: 110rpx;
+  height: 110rpx;
+  margin-top: -60rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width: 5rpx;
+  border-color: white;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  z-index: 4;
+}
+.case_item_brand_image_size{
+  width: 100rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.case_item_brand_name_main{
+  width: 100%;
+  height: 45rpx;
+  text-align: center;
+}
+.case_item_brand_name_style{
+  width: 100%;
+  height: 45rpx;
+  line-height: 35rpx;
+  vertical-align: middle;
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color: #9c9595
+}
+.case_item_K{
+  width: 100%;
+  height: 20rpx;
 }
 /************商品列表*************/
 /***********商品列表***********/
