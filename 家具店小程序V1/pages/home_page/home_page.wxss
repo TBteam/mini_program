@@ -35,6 +35,7 @@
   position: fixed;
   top: -1rpx;
   background-color: white;
+  z-index: 4;
 }
 .topbar_image{
   width: 60rpx;
@@ -89,7 +90,7 @@
   height: 60rpx;
 }
 .topbar_item_border{
-  width: 150rpx;
+  width: 135rpx;
   height: 60rpx;
   background-color: whitee;
   margin-top: 10rpx;
@@ -103,7 +104,7 @@
   border-color: whitesmoke;
 }
 .topbar_item_border_checked{
-  width: 150rpx;
+  width: 135rpx;
   height: 60rpx;
   background-color: whitee;
   margin-top: 10rpx;
@@ -118,6 +119,21 @@
 }
 
 .topbar_item_border1{
+  width: 170rpx;
+  height: 60rpx;
+  background-color: whitee;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width:1rpx;
+  border-color: whitesmoke;
+  display: flex;
+}
+.topbar_item_border1_checked{
   width: 170rpx;
   height: 60rpx;
   background-color: whitee;
@@ -394,4 +410,134 @@
   font-size: 30rpx;
   font-family:"", Times, serif;
   color: #9c9595
+}
+
+/*********筛选栏**********/
+.filter_main{
+  width: 80%;
+  height: 100%;
+  position: fixed;
+  right: -1rpx;
+  background-color: #ebebeb;
+  z-index: 5
+}
+.filter_title_main{
+  width: 100%;
+  height: 70rpx;
+  margin-top: 30rpx;
+}
+.filter_title_text_main{
+  width: 580rpx;
+  height: 100%;
+  margin-left: 20rpx;
+}
+.filter_title_text_style{
+  line-height: 70rpx;
+  vertical-align: middle;
+  font-size: 35rpx;
+  font-family:"", Times, serif;
+  color: black
+}
+.filter_select_main{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.filter_select_item_border{
+  width: 173rpx;
+  height: 60rpx;
+  background-color: whitesmoke;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width:1rpx;
+  border-color: #9c9595;
+  text-align: center;
+}
+.filter_select_item_text_style{
+  line-height: 60rpx;
+  vertical-align: middle;
+  font-size: 30rpx;
+  font-family:"", Times, serif;
+  color: #9c9595
+}
+
+.filter_select_item_border_checked{
+  width: 173rpx;
+  height: 60rpx;
+  background-color: whitesmoke;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width:1rpx;
+  border-color: #fc5874;
+  text-align: center;
+}
+.filter_select_item_text_style_checked{
+  line-height: 60rpx;
+  vertical-align: middle;
+  font-size: 30rpx;
+  font-family:"", Times, serif;
+  color: #fc5874
+}
+
+
+.filter_button_main{
+  width: 100%;
+  height:90rpx;
+  position: fixed;
+  bottom: -1rpx;
+  display: flex;
+}
+.filter_button_border{
+  width: 300rpx;
+  height: 90rpx;
+  background-color: #ebebeb;
+  margin-top: 0rpx;
+  border-radius: 0rpx;
+  margin-left: 0rpx;
+  border-top-style:solid;
+  border-right-style:none;
+  border-bottom-style:none;
+  border-left-style:none;
+  border-width:0.1rpx;
+  border-color: #9c9595;
+  text-align: center;
+}
+.filter_button_border1{
+  width: 300rpx;
+  height: 92rpx;
+  background-color: #fc5874;
+  margin-top: 0rpx;
+  border-radius: 0rpx;
+  margin-left: 0rpx;
+  border-top-style:none;
+  border-right-style:none;
+  border-bottom-style:none;
+  border-left-style:none;
+  border-width:0.1rpx;
+  border-color: #9c9595;
+  text-align: center;
+}
+.filter_button_text{
+  line-height: 90rpx;
+  vertical-align: middle;
+  font-size: 35rpx;
+  font-family:"", Times, serif;
+  color: black
+}
+.filter_button_text1{
+  line-height: 90rpx;
+  vertical-align: middle;
+  font-size: 35rpx;
+  font-family:"", Times, serif;
+  color: white
 }

@@ -10,6 +10,36 @@ Page({
     open: false,
     hot_flag:false,
     new_flag:false,
+    colligate_flag:true,      //综合标志位
+    filter_is_open_flag:false,
+    filter_is_selected:false,
+    filter_item: [
+      {item_name:"5万以下",selected:false},
+      { item_name: "5-8万", selected: false }, 
+      { item_name: "8-10万", selected: false }, 
+      { item_name: "10-15万", selected: false }, 
+      { item_name: "15万以上", selected: false },  
+     ],
+    filter_item1: [
+      { item_name: "二居室", selected: false },
+      { item_name: "三居室", selected: false },
+      { item_name: "四居室", selected: false },
+      { item_name: "四居室以上", selected: false },
+      ],
+    filter_item2: [
+      { item_name: "70平以下", selected: true },  
+      { item_name: "70-90平", selected: false },  
+      { item_name: "90-120平", selected: false },  
+      { item_name: "120-150平", selected: false },  
+      { item_name: "150平以上", selected: false },  
+     ],
+    filter_item3: [
+      { item_name: "中式", selected: false },
+      { item_name: "新中式", selected: false },
+      { item_name: "欧式", selected: false },
+      { item_name: "美式", selected: false },
+      ],
+    filter_item4: ["二居室", "三居室", "四居室", "四居室以上"],
     user_wechat_info: '',
     mark: 0,
     newmark: 0,
@@ -163,18 +193,166 @@ Page({
     var new_flag = that.data.new_flag
     if (res.currentTarget.id == '2') {
       hot_flag=!hot_flag
+      that.reset()
       that.setData({
         hot_flag:hot_flag,
-        new_flag:false
+        colligate_flag:false,
+        new_flag:false,
+        filter_is_open_flag:false,
+        filter_is_selected: false
       })
     } else if (res.currentTarget.id == '1') {
       new_flag = !new_flag
+      that.reset()
       that.setData({
         new_flag:new_flag,
-        hot_flag:false
+        hot_flag:false,
+        colligate_flag:false,
+        filter_is_open_flag: false,
+        filter_is_selected:false
+      })
+    }
+    else if (res.currentTarget.id == '3') {
+      //colligate_flag = !colligate_flag
+      that.reset()
+      that.setData({
+        colligate_flag: true,
+        new_flag: false,
+        hot_flag: false,
+        filter_is_open_flag: false,
+        filter_is_selected: false
       })
     }
   },
+  filter:function(e){
+    console.log(e)
+    var filter_is_open_flag = this.data.filter_is_open_flag
+      this.setData({
+        filter_is_open_flag:true
+      })
+  },
+  /*******筛选页面项目选择函数********/
+  filter_item_select:function(res){
+    var that=this
+    console.log(res.currentTarget.dataset.id)
+    console.log(res.currentTarget.id)
+    if (res.currentTarget.dataset.id=="one"){
+        var filter_item=that.data.filter_item
+        console.log(filter_item)
+        for (var i = 0; i < filter_item.length;i++){
+          filter_item[i].selected=false
+        }
+        filter_item[res.currentTarget.id].selected = !filter_item[res.currentTarget.id].selected
+        console.log(filter_item)
+        that.setData({
+          filter_item: filter_item
+        })
+    } else if (res.currentTarget.dataset.id == "two") {
+      var filter_item1 = that.data.filter_item1
+      for (var i = 0; i < filter_item1.length; i++) {
+        filter_item1[i].selected = false
+      }
+      filter_item1[res.currentTarget.id].selected = !filter_item1[res.currentTarget.id].selected
+      that.setData({
+        filter_item1: filter_item1
+      })
+    } else if (res.currentTarget.dataset.id == "three") {
+      var filter_item2 = that.data.filter_item2
+      for (var i = 0; i < filter_item2.length; i++) {
+        filter_item2[i].selected = false
+      }
+      filter_item2[res.currentTarget.id].selected = !filter_item2[res.currentTarget.id].selected
+      that.setData({
+        filter_item2: filter_item2
+      })
+    } else if (res.currentTarget.dataset.id == "four") {
+      var filter_item3 = that.data.filter_item3
+      for (var i = 0; i < filter_item3.length; i++) {
+        filter_item3[i].selected = false
+      }
+      filter_item3[res.currentTarget.id].selected = !filter_item3[res.currentTarget.id].selected
+      that.setData({
+        filter_item3: filter_item3
+      })
+    }
+  },
+/************重置&确定函数**************/
+reset_ensure:function(res){
+  var that=this
+  console.log(res)
+  if (res.currentTarget.dataset.type == "reset") {
+    that.reset();
+  } else if (res.currentTarget.dataset.type == "ensure") {
+    var filter_item = that.data.filter_item
+    var filter_item1 = that.data.filter_item1
+    var filter_item2 = that.data.filter_item2
+    var filter_item3 = that.data.filter_item3
+    var filter_is_selected = that.data.filter_is_selected
+    filter_item = filter_item.concat(filter_item1)
+    filter_item = filter_item.concat(filter_item2)
+    filter_item = filter_item.concat(filter_item3)
+    console.log(filter_item)
+    var filter_is_selected_flag=false
+    for (var i = 0; i < filter_item.length; i++) {
+      if (filter_item[i].selected){
+        filter_is_selected_flag=true
+      }
+    }
+    if (filter_is_selected_flag){
+      filter_is_selected=true;
+      var new_flag=false;
+      var hot_flag = false;
+    }else{
+      filter_is_selected = false;
+      var new_flag = that.data.new_flag;
+      var hot_flag = that.data.hot_flag;
+    }
+    
+    that.setData({
+      filter_is_selected: filter_is_selected,
+      filter_is_open_flag:false,
+      new_flag: new_flag,
+      hot_flag: hot_flag,
+    })
+  }
+  
+},
+reset:function(){
+  var that=this
+  var filter_item = that.data.filter_item
+  var filter_item1 = that.data.filter_item1
+  var filter_item2 = that.data.filter_item2
+  var filter_item3 = that.data.filter_item3
+  for (var i = 0; i < filter_item.length; i++) {
+    filter_item[i].selected = false
+  }
+  for (var i = 0; i < filter_item1.length; i++) {
+    filter_item1[i].selected = false
+  }
+  for (var i = 0; i < filter_item2.length; i++) {
+    filter_item2[i].selected = false
+  }
+  for (var i = 0; i < filter_item3.length; i++) {
+    filter_item3[i].selected = false
+  }
+  that.setData({
+    filter_item: filter_item,
+    filter_item1: filter_item1,
+    filter_item2: filter_item2,
+    filter_item3: filter_item3
+  })
+},
+
+/********从筛选页面返回主页面********/
+back_top:function(e){      
+  console.log(e)
+  var filter_is_open_flag = this.data.filter_is_open_flag
+  if (filter_is_open_flag){
+    this.setData({
+      filter_is_open_flag: false
+    })
+  }
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -208,12 +386,19 @@ Page({
         complete: function (res) { },
       })
     } else if (res.currentTarget.id == '2') {
+      var filter_is_open_flag = that.data.filter_is_open_flag
+      if (filter_is_open_flag){
+          that.setData({
+            filter_is_open_flag:false
+          })
+      }else {
       wx.navigateTo({
         url: '../case_detail/case_detail',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },
-      })
+        })
+      }
     }
   },
   me_bintap:function(res){
