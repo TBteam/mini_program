@@ -27,11 +27,13 @@ Page({
         translate: 'transform: translateX(0px)'
       })
       this.data.open = false;
+      this.data.staus = 1
     } else {
       this.setData({
-        translate: 'transform: translateX(' + this.data.windowWidth * 0.75 + 'px)'
+        translate: 'transform: translateX(' + this.data.windowWidth * 0.6 + 'px)'
       })
       this.data.open = true;
+      this.data.staus = 2
     }
   },
   tap_start: function (e) {
@@ -57,6 +59,11 @@ Page({
           this.setData({
             translate: 'transform: translateX(' + (this.data.newmark - this.data.startmark) + 'px)'
           })
+        }else{
+          this.setData({
+            translate: 'transform: translateX(' + this.data.windowWidth * 0.6 + 'px)'
+          })
+          this.data.staus = 2;
         }
       }
 
@@ -72,7 +79,7 @@ Page({
         })
       } else if (this.data.staus == 2 && this.data.startmark - this.data.newmark < this.data.windowWidth * 0.6) {
         this.setData({
-          translate: 'transform: translateX(' + (this.data.newmark + this.data.windowWidth * 0.75 - this.data.startmark) + 'px)'
+          translate: 'transform: translateX(' + (this.data.newmark + this.data.windowWidth * 0.6 - this.data.startmark) + 'px)'
         })
       }
 
@@ -96,7 +103,7 @@ Page({
         this.data.staus = 1;
       } else {
         this.setData({
-          translate: 'transform: translateX(' + this.data.windowWidth * 0.75 + 'px)'
+          translate: 'transform: translateX(' + this.data.windowWidth * 0.6 + 'px)'
         })
         this.data.staus = 2;
       }
@@ -207,6 +214,45 @@ Page({
         fail: function (res) { },
         complete: function (res) { },
       })
+    }
+  },
+  me_bintap:function(res){
+    var that = this;
+    if (res.currentTarget.id == '1') {
+      wx.navigateTo({
+        url: '../my_collect/my_collect',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else if (res.currentTarget.id == '2') {
+      wx.navigateTo({
+        url: '../coupons_center/coupons_center',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else if (res.currentTarget.id == '3') {
+      wx.navigateTo({
+        url: '../my_integral/my_integral',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else if (res.currentTarget.id == '4') {
+     /* wx.navigateTo({
+        url: '../case_detail/case_detail',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })*/
+    } else if (res.currentTarget.id == '5') {
+      /*wx.navigateTo({
+        url: '../case_detail/case_detail',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })*/
     }
   },
   /**

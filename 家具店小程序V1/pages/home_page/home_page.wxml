@@ -15,7 +15,7 @@
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/star.png" background-size="cover"></image>
                   </view>
-                  <view class='me_item_text_main'>
+                  <view bindtap='me_bintap' id='1' class='me_item_text_main'>
                        <text class='me_item_text_style'>我的收藏</text>
                   </view>
             </view>
@@ -25,7 +25,7 @@
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size_font" src="../photo/font.png" background-size="cover"></image>
                   </view>
-                  <view class='me_item_text_main'>
+                  <view bindtap='me_bintap' id='2' class='me_item_text_main'>
                        <text class='me_item_text_style'>我的优惠券</text>
                   </view>
             </view>
@@ -35,7 +35,7 @@
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/integral.png" background-size="cover"></image>
                   </view>
-                  <view class='me_item_text_main'>
+                  <view bindtap='me_bintap' id='3' class='me_item_text_main'>
                        <text class='me_item_text_style'>我的积分</text>
                   </view>
             </view>
@@ -45,7 +45,7 @@
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/phone3.png" background-size="cover"></image>
                   </view>
-                  <view class='me_item_text_main'>
+                  <view bindtap='me_bintap' id='4' class='me_item_text_main'>
                        <text class='me_item_text_style'>联系我们</text>
                   </view>
             </view>
@@ -55,7 +55,7 @@
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/about_us.png" background-size="cover"></image>
                   </view>
-                  <view class='me_item_text_main'>
+                  <view bindtap='me_bintap' id='5' class='me_item_text_main'>
                        <text class='me_item_text_style'>关于我们</text>
                   </view>
             </view>
@@ -70,6 +70,7 @@
             <view class='topbar_image'>
                <image bindtap="tap_ch" class='topbar_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
             </view>
+            <!--
             <view class='search_border'>
                   <view class='search_icon_main'>
                       <image class='search_icon_size' src="../photo/search.png"></image>
@@ -78,6 +79,8 @@
                       <text class='search_text_style'>搜索家装案例</text>
                   </view>
             </view>
+            -->
+            <view class='topbar_K'></view>
             <view wx:if="{{new_flag}}" bindtap='hot_new_bintap' id='1' class='topbar_item_border_checked'>
                 <view class='topbar_text_main_checked'>
                     <text class='topbar_text_style_checked'>最新</text>
@@ -98,6 +101,17 @@
                     <text class='topbar_text_style'>最热</text>
                 </view>
             </view>
+
+
+            <view wx:if="{{!hot_flag}}" bindtap='hot_new_bintap' id='2'  class='topbar_item_border1'>
+                <view class='topbar_text_main1'>
+                    <text class='topbar_text_style'>筛选</text>
+                </view>
+                <view class='topbar_icon_main'>
+                     <image class='topbar_icon_size' src="../photo/filter_unchecked.png"></image>
+                </view>
+            </view>
+
         </view>
         
         <view class='case_item_K'></view>

@@ -1,6 +1,6 @@
 /* pages/case_detail/case_detail.wxss */
 page{
-  background-color: gainsboro;
+  background-color: #d9d9d9;
 }
 /************设计师*************/
 .desinger_K{
@@ -110,7 +110,7 @@ page{
   width: 96%;
   margin-left:auto;
   margin-right:auto;
-  background-color:white;
+  background-color:whitesmoke;
 }
 .case_item_image_main{
   width: 100%;

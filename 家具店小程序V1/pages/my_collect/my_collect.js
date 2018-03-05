@@ -8,7 +8,7 @@ Page({
     collect_good_flag: true,
     collect_case_flag: false,
     collect_news_flag: false,
-    news: ['1', '2', '3', '4', '5', '3', '4', '5', '3', '4', '5'],
+    item: ['1', '1', '1', '1', '1', '1', '1', '1', '1'],
     goods: [
       { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
       { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
@@ -70,7 +70,25 @@ Page({
       })
     }
   },
-
+  bintap: function (res) {
+    //console.log(res);
+    var that = this;
+    if (res.currentTarget.id == '1') {
+      wx.navigateTo({
+        url: '../cate_info_test/cate_info_test',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else if (res.currentTarget.id == '2') {
+      wx.navigateTo({
+        url: '../case_detail/case_detail',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面显示
    */

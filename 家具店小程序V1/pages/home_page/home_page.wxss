@@ -68,7 +68,7 @@
   width: 40rpx;
   height: 40rpx;
   margin-top: 10rpx;
-  margin-left: 40rpx;
+  margin-left: 20rpx;
 }
 .search_icon_size{
   width: 40rpx;
@@ -84,14 +84,17 @@
   line-height: 60rpx;
   vertical-align: middle;
 }
-
+.topbar_K{
+  width: 120rpx;
+  height: 60rpx;
+}
 .topbar_item_border{
-  width: 125rpx;
+  width: 150rpx;
   height: 60rpx;
   background-color: whitee;
   margin-top: 10rpx;
   border-radius: 10rpx;
-  margin-left: 25rpx;
+  margin-left: 20rpx;
   border-top-style:solid;
   border-right-style:solid;
   border-bottom-style:solid;
@@ -100,12 +103,12 @@
   border-color: whitesmoke;
 }
 .topbar_item_border_checked{
-  width: 125rpx;
+  width: 150rpx;
   height: 60rpx;
   background-color: whitee;
   margin-top: 10rpx;
   border-radius: 10rpx;
-  margin-left: 25rpx;
+  margin-left: 20rpx;
   border-top-style:solid;
   border-right-style:solid;
   border-bottom-style:solid;
@@ -114,7 +117,37 @@
   border-color: #fc5874;
 }
 
+.topbar_item_border1{
+  width: 170rpx;
+  height: 60rpx;
+  background-color: whitee;
+  margin-top: 10rpx;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width:1rpx;
+  border-color: whitesmoke;
+  display: flex;
+}
+.topbar_icon_main{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 10rpx;
+}
+.topbar_icon_size{
+  width: 40rpx;
+  height: 40rpx;
+}
 
+.topbar_text_main1{
+  width: 60rpx;
+  height: 100%;
+  text-align: center;
+  margin-left: 35rpx;
+}
 
 .topbar_text_main{
   width: 100%;
@@ -143,7 +176,7 @@
 
 /***************我**************/
 .me_main{
-  width: 75%;
+  width: 60%;
   height: 100%;
   text-align: center;
 }
@@ -190,7 +223,7 @@
   width:300rpx;
   height: 100rpx;
   display: flex;
-  margin-left: 131rpx;
+  margin-left: 75rpx;     /******0.75---->131rpx******//******0.6---->75rpx******/
 }
 .me_item_image_main{
   width: 80rpx;

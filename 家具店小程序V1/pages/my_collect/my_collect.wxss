@@ -10,12 +10,12 @@
   background-color: white
 }
 .good_details_recommand_title_details{
-  width: 33.3%;
+  width: 50%;
   height: 80rpx;
   text-align: center;
 }
 .good_details_recommand_title_recommand{
-  width: 33.3%;
+  width: 50%;
   height: 80rpx;
   text-align: center;
 }
@@ -94,152 +94,111 @@
    font-family:"", Times, serif;
    color: #fc5874;
 }
-/************家装案例界面*************/
-.case_main{
-  width: 100%;
-  margin-top: 90rpx;
-}
+/************家装案例************/
 .case_item_main{
-  width: 96%;
-  height: 505rpx;
-  margin-left:auto;
-  margin-right:auto;
-  background-color:white;
+  width: 97%;
+  height: 500rpx;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: whitesmoke
 }
 .case_item_image_main{
   width: 100%;
-  height: 405rpx;
+  height: 400rpx;
+}
+.case_item_image_size{
+  width: 100%;
+  height: 400rpx;
 }
 .case_item_text_main{
   width: 100%;
-  height: 110rpx;
-  display: flex;
-}
-
-.case_info_main{
-  width: 80%;
-  height: 100%;
-}
-.case_item_text1_main{
-  width: 100%;
-  height: 60rpx;
-  display: flex;
-  align-items: center;
-}
-.case_item_text2_main{
-  width: 100%;
-  height: 40rpx;
-  display: flex;
-  align-items: center;
-}
-.case_item_name_style{
-  font-size: 30rpx;
-  font-family:"", Times, serif;
-  padding-left: 20rpx;
-  color: #fc5874;
-  line-height: 60rpx;
-  vertical-align: middle;
-}
-.case_item_info_style{
-  font-size: 25rpx;
-  font-family:"", Times, serif;
-  color: #9c9595;
-  padding-left: 20rpx;
-  line-height: 40rpx;
-  vertical-align: middle;
-}
-.KKKKK{
-  height: 25rpx;
-  width: 100%;
-}
-
-.desinger_info_main{
-  width: 20%;
-  height: 100%;
-}
-.desinger_image_main{
-  width: 100%;
-  height: 95rpx;
-  text-align: center;
-}
-.desinger_name_main{
-  width: 100%;
-  height: 45rpx;
-  display: inline-flex;
-  align-items: center;
-}
-.desinger_name_style{
-  font-size: 25rpx;
-  font-family:"", Times, serif;
-  color: #9c9595;
-  width: 100%;
-  text-align: center;
-}
-.desinger_image_size{
-  width: 100rpx;
   height: 100rpx;
-  margin-top: 5rpx;
-  border-radius: 50%;
-}
-/**************家装资讯界面*****************/
-.news_main{
-  width: 100%;
-  margin-top: 90rpx;
-}
-.news_item_main{
-  width: 100%;
-  height: 230rpx;
   display: flex;
 }
-.news_item_info_image_main{
+.case_item_text_left_main{
+  width: 70%;
+  height: 100%;
+}
+.case_item_text_right_main{
   width: 30%;
   height: 100%;
-  display: flex;
 }
-.news_item_info_image_size{
-  width: 200rpx;
-  height: 200rpx;
-  margin: auto 
-}
-.news_item_info_text_main{
-  width: 70%;
-  height: 200rpx;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-.news_item_info_text_title_main{
+.case_item_text_title_main{
   width: 100%;
-  height: 50%;
+  height: 55rpx;
   display: flex;
+  align-items: center;
 }
-.news_item_info_text_title_style{
-  width: 98%;
-  display: -webkit-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
+.case_item_text_title_style{
+  margin-left: 20rpx;
   font-size: 35rpx;
   font-family:"", Times, serif;
-  line-height: 50rpx;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;
 }
-.news_item_info_text_detail_main{
+.case_item_text_info_main{
   width: 100%;
-  margin-top: 10rpx;
-  margin-bottom: 20rpx;
+  height: 45rpx;
   display: flex;
+  align-items: center;
 }
-.news_item_info_text_detail_style{
-  width: 98%;
-  display: -webkit-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
+.case_item_text_info_style1{
+  margin-left: 20rpx;
   font-size: 25rpx;
   font-family:"", Times, serif;
-  line-height: 30rpx;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:3;
-  color:  grey
+  color:  #fc5874
 }
+.case_item_text_info_style2{
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color: #9c9595
+}
+.case_item_text_info_style3{
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color: #fc5874
+}
+.case_item_brand_image_main{
+  width: 110rpx;
+  height: 110rpx;
+  margin-top: -60rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width: 5rpx;
+  border-color: white;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  z-index: 4;
+}
+.case_item_brand_image_size{
+  width: 100rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+.case_item_brand_name_main{
+  width: 100%;
+  height: 45rpx;
+  text-align: center;
+}
+.case_item_brand_name_style{
+  width: 100%;
+  height: 45rpx;
+  line-height: 35rpx;
+  vertical-align: middle;
+  font-size: 25rpx;
+  font-family:"", Times, serif;
+  color: #9c9595
+}
+.case_item_K{
+  width: 100%;
+  height: 20rpx;
+}
+.case_item_KK{
+  width: 100%;
+  height: 15rpx;
+}
+
