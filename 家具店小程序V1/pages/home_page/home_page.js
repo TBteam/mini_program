@@ -467,15 +467,23 @@ back_top:function(e){
         complete: function (res) { },
       })
     } else if (res.currentTarget.id == '4') {
-     /* wx.navigateTo({
-        url: '../case_detail/case_detail',
+      wx.navigateTo({
+        url: '../apply_enter/apply_enter',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },
-      })*/
+      })
     } else if (res.currentTarget.id == '5') {
+      wx.navigateTo({
+        url: '../message_suggest/message_suggest',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    else if (res.currentTarget.id == '6') {
       /*wx.navigateTo({
-        url: '../case_detail/case_detail',
+        url: '../message_suggest/message_suggest',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

@@ -86,6 +86,18 @@
 					"name": "coupons_center",
 					"pathName": "pages/coupons_center/coupons_center",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "apply_enter",
+					"pathName": "pages/apply_enter/apply_enter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "message_suggest",
+					"pathName": "pages/message_suggest/message_suggest",
+					"query": ""
 				}
 			]
 		}

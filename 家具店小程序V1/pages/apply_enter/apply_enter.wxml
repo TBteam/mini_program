@@ -1,0 +1,87 @@
+<!--pages/apply_enter/apply_enter.wxml-->
+<view class='K'></view>
+<view class='line'></view>
+<view class='apply_info_item_main'>
+    <view class='apply_info_item_title_main'>
+        <text class='apply_info_item_title_text_style'>姓名</text>
+    </view>
+    <view class='apply_info_item_input_main'>
+        <input placeholder='请输入联系人姓名'  class='apply_info_item_input_style' ></input>
+    </view>
+    <view class='apply_info_right_icon_main'>
+        <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
+    </view>
+</view>
+<view class='line'></view>
+
+<view class='K'></view>
+<view class='line'></view>
+<view class='apply_info_item_main'>
+    <view class='apply_info_item_title_main'>
+        <text class='apply_info_item_title_text_style'>联系方式</text>
+    </view>
+    <view class='apply_info_item_input_main'>
+        <input placeholder='请输入联系方式'  class='apply_info_item_input_style' ></input>
+    </view>
+    <view class='apply_info_right_icon_main'>
+        <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
+    </view>
+</view>
+<view class='line'></view>
+
+<view class='K'></view>
+<view class='line'></view>
+<view class='apply_info_item_main'>
+    <view class='apply_info_item_title_main'>
+        <text class='apply_info_item_title_text_style'>地址(选填)</text>
+    </view>
+    <view class='apply_info_item_input_main'>
+        <input placeholder='请输入地址'  class='apply_info_item_input_style' ></input>
+    </view>
+    <view class='apply_info_right_icon_main'>
+        <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
+    </view>
+</view>
+<view class='line'></view>
+
+
+<view class='K'></view>
+<view class='line'></view>
+<view class='apply_info_item_main'>
+    <view class='apply_info_item_title_main'>
+        <text class='apply_info_item_title_text_style'>家具品牌</text>
+    </view>
+    <view class='apply_info_item_input_main'>
+        <input placeholder='请输入家具品牌名称'  class='apply_info_item_input_style' ></input>
+    </view>
+    <view class='apply_info_right_icon_main'>
+        <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
+    </view>
+</view>
+<view class='line'></view>
+
+<view class='K'></view>
+<view class='line'></view>
+<view class='apply_info_item_main'>
+    <view class='apply_info_item_title_main'>
+        <text class='apply_info_item_title_text_style'>家具风格</text>
+    </view>
+    <picker bindchange="style_select"  value="{{index}}" range="{{style}}">
+        <view class='apply_info_item_input_main1'>
+           <text class='apply_info_item_input_style1'>{{style[style_index]}}</text>
+        </view>
+    </picker>
+    
+    <view class='apply_info_right_icon_main'>
+        <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
+    </view>
+</view>
+<view class='line'></view>
+
+
+<view class='apply_button_main'>
+   <view class='apply_button_size'>
+      <text class='apply_button_style'>提交申请</text>
+   </view>
+</view>
+
