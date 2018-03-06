@@ -3,15 +3,17 @@
     <view  class="bottom"> 
         <view class='me_main'>
             <view class='me_image'>
-                <image class='me_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
+                <image wx:if="{{user_allow_login}}" class='me_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
+                <image wx:if="{{!user_allow_login}}" bindtap='allow_login' class='me_image_size' src="../photo/user.png"></image>
             </view>
             <view class='me_name_text'>
-                <text class='me_name_text_style'>{{user_wechat_info.nickName}}</text>
+                <text wx:if="{{user_allow_login}}" class='me_name_text_style'>{{user_wechat_info.nickName}}</text>
+                <text wx:if="{{!user_allow_login}}" class='me_name_text_style'>请登录</text>
             </view>
 
             <view class='me_KK'></view>
 
-            <view class='me_item_main' bindtap='my_collect'>
+            <view class='me_item_main' >
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/star.png" background-size="cover"></image>
                   </view>
@@ -21,11 +23,11 @@
             </view>
             <view class='me_item_line'></view>
 
-            <view class='me_item_main' bindtap='my_collect'>
+            <view class='me_item_main' >
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size_font" src="../photo/font.png" background-size="cover"></image>
                   </view>
-                  <view bindtap='me_bintap' id='2' class='me_item_text_main'>
+                  <view bindtap='me_bintap' id='2'   class='me_item_text_main'>
                        <text class='me_item_text_style'>我的优惠券</text>
                   </view>
             </view>
@@ -43,9 +45,19 @@
 
             <view class='me_item_main' bindtap='my_collect'>
                   <view class='me_item_image_main'>
-                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/phone3.png" background-size="cover"></image>
+                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/apply.png" background-size="cover"></image>
                   </view>
                   <view bindtap='me_bintap' id='4' class='me_item_text_main'>
+                       <text class='me_item_text_style'>申请入驻</text>
+                  </view>
+            </view>
+            <view class='me_item_line'></view>
+
+            <view class='me_item_main' bindtap='my_collect'>
+                  <view class='me_item_image_main'>
+                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/phone3.png" background-size="cover"></image>
+                  </view>
+                  <view bindtap='me_bintap' id='5' class='me_item_text_main'>
                        <text class='me_item_text_style'>联系我们</text>
                   </view>
             </view>
@@ -55,7 +67,7 @@
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/about_us.png" background-size="cover"></image>
                   </view>
-                  <view bindtap='me_bintap' id='5' class='me_item_text_main'>
+                  <view bindtap='me_bintap' id='6' class='me_item_text_main'>
                        <text class='me_item_text_style'>关于我们</text>
                   </view>
             </view>
@@ -68,7 +80,8 @@
         <scroll-view  scroll-y style='{{style}}'>
         <view class='topbar'>
             <view class='topbar_image'>
-               <image bindtap="tap_ch" class='topbar_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
+               <image wx:if="{{user_allow_login}}" bindtap="tap_ch" class='topbar_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
+               <image wx:if="{{!user_allow_login}}" bindtap="tap_ch" class='topbar_image_size' src="../photo/user.png"></image>
             </view>
             <!--
             <view class='search_border'>

@@ -13,6 +13,7 @@ Page({
     colligate_flag:true,      //综合标志位
     filter_is_open_flag:false,
     filter_is_selected:false,
+    user_allow_login:false,
     filter_item: [
       {item_name:"5万以下",selected:false},
       { item_name: "5-8万", selected: false }, 
@@ -302,17 +303,19 @@ reset_ensure:function(res){
       filter_is_selected=true;
       var new_flag=false;
       var hot_flag = false;
+      var colligate_flag=false
     }else{
       filter_is_selected = false;
       var new_flag = that.data.new_flag;
       var hot_flag = that.data.hot_flag;
+      var colligate_flag = that.data.colligate_flag;
     }
-    
     that.setData({
       filter_is_selected: filter_is_selected,
       filter_is_open_flag:false,
       new_flag: new_flag,
       hot_flag: hot_flag,
+      colligate_flag: colligate_flag
     })
   }
   
@@ -364,15 +367,54 @@ back_top:function(e){
       success: function (res) {
         that.setData({
           user_wechat_info: res.userInfo,
+          user_allow_login:true,
         })
         console.log('用户允许获取信息')
         console.log(res)    
+      },
+      fail:function(res){
+        user_allow_login:false    
       }
     })
     var style = "height:" + wx.getSystemInfoSync().windowHeight+"px"
     that.setData({
       user_wechat_info: app.globalData.userInfo,
       style:style
+    })
+  },
+  allow_login: function () {
+    var that = this;
+    wx.openSetting({
+      success: function (res) {
+        console.log(res)
+        console.log(res.authSetting["scope.userInfo"])
+        if (res.authSetting["scope.userInfo"]) {
+          wx.getUserInfo({
+            success: function (res) {
+              console.log('用户允许获取信息')
+              console.log(res)
+              app.globalData.allow_login_flag = true;
+              app.globalData.userInfo = res.userInfo
+              that.setData({
+                allow_login_flag: app.globalData.allow_login_flag,
+                user_wechat_info: app.globalData.userInfo,
+                user_allow_login: true,
+              })
+              wx.checkSession({
+                success: function () {
+                },
+                fail: function () {
+                }
+              })
+            },
+            fail: function () {
+              app.globalData.allow_login_flag = false;
+              console.log('用户不允许获取信息')
+            }
+
+          })
+        }
+      }
     })
   },
   bintap: function (res) {

@@ -6,14 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-     tickets:[
-       {select: false, image1: '../photo/1000_unselect.jpg', image2: '../photo/1000_select.jpg'},
-       {select: false, image1: '../photo/500_unselect.jpg', image2: '../photo/500_select.jpg'},
-       { select: false, image1: '../photo/1000_unselect.jpg', image2: '../photo/1000_select.jpg' },
-       { select: false, image1: '../photo/500_unselect.jpg', image2: '../photo/500_select.jpg' },
-       { select: false, image1: '../photo/1000_unselect.jpg', image2: '../photo/1000_select.jpg' },
-       { select: false, image1: '../photo/500_unselect.jpg', image2: '../photo/500_select.jpg' }
-     ],
+  
      tickets1: [
        {  image2: '../photo/1000_select.jpg' },
        {  image2: '../photo/500_select.jpg' },
@@ -32,28 +25,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var flag = app.globalData.coubons_flag
-    if (!flag){
-      wx.setNavigationBarTitle({
-        title: '领券中心'
-      })
-    }
-    if (flag) {
-      wx.setNavigationBarTitle({
-        title: '我的优惠券'
-      })
-    }
-    this.setData({
-      flag: flag
-    })
+
   },
   coupons:function(res){
-    console.log(res)
-    var tickets = this.data.tickets;
-    tickets[res.currentTarget.id].select=true;
-    this.setData({
-      tickets: tickets
-    })
+   
   },
   /**
    * 生命周期函数--监听页面显示

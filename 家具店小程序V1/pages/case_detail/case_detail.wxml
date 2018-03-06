@@ -57,12 +57,17 @@
         </view>
     </view>
  
-    <view bindtap='enter_brand' class='brand_info_text_main'>
+    <view  class='brand_info_text_main'>
        <view class='brand_info_text_brandname_main'>
            <text class='brand_info_text_brandname_style'>挪亚家D5郑州旗舰店</text>
        </view>
        <view class='brand_info_text_brandinfo_main'>
-           <text class='brand_info_text_brandinfo_style'>主营：新中式家具新中式家具新中式家具新中式家具新中式家具新中式家具</text>
+           <text class='brand_info_text_brandinfo_style'>主营：新中式家具新中式家具新中式家具</text>
        </view>
     </view>
+     <view class='brand_enter_button_main'>
+            <view bindtap='enter_brand'  class='brand_enter_button_size'>
+                 <text class='brand_enter_button_text_style'>进入</text>
+            </view>
+      </view>
 </view>

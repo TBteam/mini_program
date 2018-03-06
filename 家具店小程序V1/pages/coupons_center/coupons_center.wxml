@@ -1,17 +1,9 @@
 <!--pages/coupons_center/coupons_center.wxml-->
-<view wx:if='{{!flag}}'>
-<view wx:for='{{tickets}}'>
-<view class='item_main' bindtap='coupons' id='{{index}}'>
-   <image wx:if='{{!item.select}}' class="item_image_size" src="{{item.image1}}"></image>
-   <image wx:if='{{item.select}}' class="item_image_size" src="{{item.image2}}"></image>
-</view>
-</view>
-</view>
 
-<view wx:if='{{flag}}'>
+
+
 <view wx:for='{{tickets1}}'>
 <view class='item_main' bindtap='coupons' id='{{index}}'>
    <image class="item_image_size" src="{{item.image2}}"></image>
-</view>
 </view>
 </view>
