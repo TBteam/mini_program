@@ -22,7 +22,11 @@ Page({
       'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG6.jpg'
     ],
     imgUrls1: [
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG7.jpg',
+      '../photo/NORYA2.jpg',
+      '../photo/NORYA2.jpg',
+      '../photo/NORYA2.jpg',
+      '../photo/NORYA2.jpg',
+      '../photo/NORYA2.jpg',
       'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG8.jpg',
       'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG9.jpg',
       'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG10.jpg',

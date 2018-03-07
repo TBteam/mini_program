@@ -77,17 +77,17 @@
 }
 .KK{
   widows: 100%;
-  height: 5rpx;
-  background-color: gainsboro;
+  height: 1rpx;
+  background-color: #ededed;
 }
 .K{
   widows: 100%;
   height: 20rpx;
 }
-
 .KKK{
-  widows: 100%;
-  height: 10rpx;
+  width: 100%;
+  height: 50rpx;
+  background-color: whitesmoke;
 }
 
 .good_new_price_main{
@@ -101,297 +101,150 @@
   color: #fc5874;
   font-family:"", Times, serif;
 }
+.service_info_main{
+  width: 100%;
+  height: 55rpx;
+  display: flex;
+}
+.service_info_item_main{
+  height: 55rpx;
+  display: flex;
+}
+.service_info_icon_main{
+  width: 55rpx;
+  height: 55rpx;
+  margin-left: 10rpx;
+  text-align: center;
+}
+.service_info_icon_size{
+  width: 35rpx;
+  height: 35rpx;
+  margin-top: 10rpx;
+}
+.service_info_text_main{
+  height: 55rpx;
+}
+.service_info_text_style{
+  line-height: 60rpx;
+  vertical-align: middle;
+  font-size: 28rpx;
+  font-family:"", Times, serif;
+  color: black
+}
 
-/*********详情选择框**********/
-.good_info_main{
+.good_info_item_main{
   width: 100%;
   height: 80rpx;
   display: flex;
-  align-items: center;
 }
-.good_info_text_main{
-  width: 90%;
+
+.good_info_item_title_main{
+  width: 40%;
   height: 100%;
-  display: flex;
-  align-items: center;
 }
-.good_info_icon_main{
-  width: 10%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-.good_info_icon_size{
-  width: 40rpx;
-  height: 40rpx;
-}
-.good_info_text_style{
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  font-size: 35rpx;
+.good_info_item_title_style{
+  line-height: 80rpx;
+  vertical-align: middle;
+  font-size: 32rpx;
   font-family:"", Times, serif;
+  margin-left: 30rpx;
+  color: gray
 }
 
-
-/****************底部显示****************/
-.bottom_main{
-  width: 100%;
-  height: 75%;
-  position: fixed;
-  bottom: -1rpx;
-  background-color: white;
-  border-top-style:none;
+.good_info_item_text_main{
+  width: 60%;
+  height: 100%;
+  text-align: right;
+}
+.good_info_item_text_style{
+  line-height: 80rpx;
+  vertical-align: middle;
+  font-size: 32rpx;
+  font-family:"", Times, serif;
+  margin-right: 30rpx;
+  color:  gray
+}
+.good_info_line{
+  width: 690rpx;
+  height: 0rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-style:solid;
   border-right-style:none;
   border-bottom-style:none;
   border-left-style:none;
-  border-width:1rpx;
-  border-color:gainsboro;
-  z-index: 999
+  border-width: 0.5rpx;
+  border-color: #ededed;
 }
-.cancle_main{
+.good_info_details_title_main{
   width: 100%;
-  height: 80rpx;
-  display: flex;
+  height: 70rpx;
+  background-color: whitesmoke;
+  display: flex
 }
-.cancle_text_main{
-  width: 90%;
-  height: 80rpx;
-  text-align: center;
-  line-height:80rpx;
-  vertical-align:middle;    /******左右居中*****/
-}
-.cancle_text_style{
-  padding-left: 75rpx;
-  font-size: 35rpx;
-  font-family:"", Times, serif;
-}
-.cancle_icon_main{
-  width: 10%;
-  height: 80rpx;
+.good_info_details_title_left{
+  width: 300rpx;
+  height: 70rpx;
   display: flex;
   align-items: center;
 }
-.cancle_icon_size{
-  width: 40rpx;
-  height: 40rpx;
+.good_info_details_title_left_line{
+  width: 250rpx;
+  height: 0rpx;
+  margin-left: 50rpx;
+  border-top-style:dotted;
+  border-right-style:none;
+  border-bottom-style:none;
+  border-left-style:none;
+  border-width: 0.5rpx;
+  border-color: #9c9595;
 }
-.scroll_size{
-  width: 100%;
-  height: 830rpx;
-  background-color: #ebebeb;
+.good_info_details_title_middle{
+  width: 150rpx;
+  height: 70rpx;
+  text-align: center;
+}
+.good_info_details_title_style{
+  line-height: 70rpx;
+  vertical-align: middle;
+  font-size: 30rpx;
+  font-family:"", Times, serif;
+  color:  gray
+}
+.good_info_details_title_right{
+  width: 300rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+}
+.good_info_details_title_right_line{
+  width: 250rpx;
+  height: 0rpx;
+  border-top-style:dotted;
+  border-right-style:none;
+  border-bottom-style:none;
+  border-left-style:none;
+  border-width: 0.5rpx;
+  border-color: #9c9595;
 }
 /*************商品详情************/
 .good_details_info_main{
-  width: 96%;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
   background-color: white
 }
 .good_details_info_image_main{
   width: 100%;
-  height: 405rpx;
-}
-.good_details_info_text_main{
-  width: 100%;
-  
-}
-.good_details_info_text_style{
-  padding-left: 60rpx;
-  font-size: 30rpx;
-  line-height: 35rpx;
-  vertical-align: middle;
-  font-family:"", Times, serif;
+  height: 422rpx;
 }
 .image_size{
   width: 100%;
-  height: 405rpx;
+  height: 422rpx;
   background-color: #ebebeb
 }
 .good_details_info_K{
   width: 100%;
   height: 10rpx;
   background-color: #ebebeb;
-}
-/****************规格显示****************/
-.format_bottom_title_main{
-  width: 100%;
-  height: 150rpx;
-  display: flex;
-}
-.format_bottom_title_info{
-  width: 90%;
-  height: 100%;
-  display: flex;
-}
-.format_bottom_title_info_image{
-  width: 290rpx;
-  height: 230rpx;
-  margin-top: -80rpx;
-  margin-left: 30rpx;
-}
-.format_bottom_title_info_image_size{
-  width: 280rpx;
-  height: 230rpx;
-  border-radius: 20rpx;
-}
-.format_bottom_title_info_text{
-  width: 380rpx;
-  height: 70rpx;
-  margin-top: 80rpx;
-}
-.format_line{
-  widows: 100%;
-  height: 1rpx;
-  background-color: gainsboro;
-}
-.format_main{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  
-}
-.format_item_main{
-  height: 70rpx;
-  width: fit-content;
-  margin-left: 20rpx;
-  margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  border-top-style:solid;
-  border-right-style:solid;
-  border-bottom-style:solid;
-  border-left-style:solid;
-  border-radius: 10rpx;
-  border-width: 1rpx;
-  background-color: white;
-  border-color: darkgray;
-}
-.format_item_text_style{
-   font-size: 30rpx;
-   font-family:"", Times, serif;
-   padding-left: 30rpx;
-   padding-right: 30rpx;
-   line-height: 70rpx;
-   vertical-align: middle;
-   color:#3d3636;
-}
-.format_item_main_checked{
-  height: 70rpx;
-  width: fit-content;
-  margin-left: 20rpx;
-  margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  border-top-style:solid;
-  border-right-style:solid;
-  border-bottom-style:solid;
-  border-left-style:solid;
-  border-radius: 10rpx;
-  border-width: 1rpx;
-  background-color: white;
-  border-color: #fc5874;
-}
-.format_item_text_style_checked{
-   font-size: 30rpx;
-   font-family:"", Times, serif;
-   padding-left: 30rpx;
-   padding-right: 30rpx;
-   line-height: 70rpx;
-   vertical-align: middle;
-   color:#fc5874;
-}
-.format_K{
-  width: 100%;
-  height: 20rpx;
-}
-
-/************为您推荐 商品列表 **********/
-/**********************/
-.recommand_main{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-}
-.recommand_good_mian_left{
-  width: 356rpx;
-  margin-top: 10rpx;
-  margin-left: 14rpx;
-  background-color: white;
-}
-
-.recommand_image{
-  width: 100%;
-  height: 267rpx;
-}
-.recommand_name_text{
-  margin-top: 10rpx;
-  display: flex;
-  word-break:  break-all;  /**文本自动换行**/
-}
-.recommand_name_text_style{
-  padding-left: 20rpx;
-  padding-right: 20rpx;
-   font-size: 25rpx;
-   font-family:"", Times, serif;
-}
-.recommand_old_price{
-  margin-top: 10rpx;
-  display: flex;
-  direction: row;
-}
-.recommand_old_price_style{
-  padding-left: 20rpx;
-   font-size: 30rpx;
-   font-family:"", Times, serif;
-   color: #fc5874;
-}
-.recommand_new_price{
-  margin-top: 10rpx;
-  display: flex;
-  direction: row;
-}
-.recommand_new_price_style{
-  padding-left: 20rpx;
-   font-size: 35rpx;
-   font-family:"", Times, serif;
-   color: #fc5874;
-}
-
-/**********商品详情&为你推荐***********/
-.good_details_recommand_title_main{
-  width: 100%;
-  height: 80rpx;
-  display: flex;
-}
-.good_details_recommand_title_details{
-  width: 50%;
-  height: 80rpx;
-  text-align: center;
-}
-.good_details_recommand_title_recommand{
-  width: 50%;
-  height: 80rpx;
-  text-align: center;
-}
-.good_details_recommand_title_unchecked_style{
-   font-size: 35rpx;
-   height: 80rpx;
-   width: 100%;
-   font-family:"", Times, serif;
-   line-height: 80rpx;
-   vertical-align: middle;
-   color:black;
-   border-bottom-style:solid;
-   border-color: #ebebeb;
-   border-width: 3rpx;
-}
-.good_details_recommand_title_checked_style{
-   font-size: 35rpx;
-   height: 80rpx;
-   width: 100%;
-   font-family:"", Times, serif;
-   line-height: 80rpx;
-   vertical-align: middle;
-   color:#fc5874;
-   border-bottom-style:solid;
-   border-color: #fc5874;
-   border-width: 3rpx;
 }
