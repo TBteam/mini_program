@@ -364,6 +364,7 @@
 }
 .case_item_brand_image_size{
   width: 100rpx;
+  height: 100rpx;
   margin-left: auto;
   margin-right: auto;
 }
@@ -390,6 +391,7 @@
   width: 300rpx;
   height: 80rpx;
   margin-top: 20rpx;
+  margin-bottom: 30rpx;
   margin-left: auto;
   margin-right: auto;
   border-top-style:solid;

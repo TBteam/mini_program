@@ -68,13 +68,14 @@
 </view>
 </view>
 <!--家装案例-->
-<view wx:if='{{all_good_flag}}'>
-   <view class='case_item_KK'></view>
+<view class='case_main' wx:if='{{all_good_flag}}'>
 <view wx:for="{{item}}">
         <view class='case_item_main'>
+        
             <view bindtap='bintap' id='2' class='case_item_image_main'>
-                 <image mode='scaleToFill'  class="case_item_image_size" src="../photo/NORYA1.jpg" background-size="cover"></image>
+                 <image mode='scaleToFill'  class="case_item_image_size" src="../photo/NORYA1.jpg" ></image>
             </view>
+            
             <view class='case_item_text_main'>
                 <view class='case_item_text_left_main'>
                      <view class='case_item_text_title_main'>
@@ -97,6 +98,7 @@
                      </view>
                 </view>
             </view>
+            
         </view>
         <view class='case_item_K'></view>
         </view>
