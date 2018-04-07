@@ -1,4 +1,5 @@
 // pages/cate_info_test/cate_info_test.js
+var app=getApp()
 Page({
 
   /**
@@ -76,7 +77,24 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var brand_id = app.globalData.brand_detail_brand_id
+    var all_product=[]
+    var cases=[]
+    
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_brand_info/',
+      method: 'GET',
+      data: {
+        'brand_id': brand_id
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+      }
+
+    })
   },
   good_details_recommand_select: function (res) {
     console.log(res)

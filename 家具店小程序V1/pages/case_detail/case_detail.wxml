@@ -2,33 +2,33 @@
 
 <view class='case_title_main'>
    <view class='case_title_main1'>
-       <text class='case_title_style'>家装案例名称家装案例名称家装案例名称家装案例名称</text>
+       <text class='case_title_style'>案例名称案例名称案</text>
    </view>
 </view>
 <!--作者&收藏-->
 <view class='autor_collect_main'>
 <view class='autor_main'>
-   <text class='autor_text_style'>家具品牌</text>
+   <text class='autor_text_style'>{{brand_info.brand_name}}</text>
 </view>
 <view class='collect_main' bindtap='collect'>
    <view class='collect_icon_main'>
-         <image wx:if='{{!collect_flag}}' bindtap='' mode='scaleToFill'  class="collect_icon_size" src="../photo/star1.png" background-size="cover"></image>
-         <image wx:if='{{collect_flag}}' bindtap='' mode='scaleToFill'  class="collect_icon_size" src="../photo/star.png" background-size="cover"></image>
+         <image wx:if='{{!case_info.collect}}' bindtap='' mode='scaleToFill'  class="collect_icon_size" src="../photo/star1.png" background-size="cover"></image>
+         <image wx:if='{{case_info.collect}}' bindtap='' mode='scaleToFill'  class="collect_icon_size" src="../photo/star.png" background-size="cover"></image>
    </view>
    <view class='collect_text_main'>
-           <text  wx:if='{{!collect_flag}}' class='collect_text_style_uncollect'>收藏</text>
-           <text  wx:if='{{collect_flag}}' class='collect_text_style_uncollect'>已收藏</text>
+           <text  wx:if='{{!case_info.collect}}' class='collect_text_style_uncollect'>收藏</text>
+           <text  wx:if='{{case_info.collect}}' class='collect_text_style_uncollect'>已收藏</text>
    </view>
 </view>
 </view>
 <!--家装图片-->
-<view wx:for='{{case1}}'>
+<view wx:for='{{case_info.pics}}'>
     <view  class='case_item_main'>
        <view class='case_item_image_main'>
-           <image class="case_item_image_main" src="{{item}}"></image>
+           <image class="case_item_image_main" mode='aspectFit' src="{{item.url}}"></image>
        </view>
        <view class='case_item_text_main'>
-          <text class='case_item_text_style'>本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、本张图片介绍、</text>
+          <text class='case_item_text_style'>文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</text>
        </view>
     </view>
     <view class='KKKKK'></view>
@@ -53,16 +53,16 @@
 <view class='brand_info_main'>
     <view class='brand_info_image_main'>
         <view class='brand_info_image_style'>
-            <image mode='aspectFit'  class="brand_info_image_size" src="../photo/NORYA_selected.jpg" background-size="cover"></image>
+            <image mode='aspectFit'  class="brand_info_image_size" src="{{brand_info.brand_logo}}" background-size="cover"></image>
         </view>
     </view>
  
     <view  class='brand_info_text_main'>
        <view class='brand_info_text_brandname_main'>
-           <text class='brand_info_text_brandname_style'>挪亚家D5郑州旗舰店</text>
+           <text class='brand_info_text_brandname_style'>{{brand_info.shop_name}}</text>
        </view>
        <view class='brand_info_text_brandinfo_main'>
-           <text class='brand_info_text_brandinfo_style'>主营：新中式家具新中式家具新中式家具</text>
+           <text class='brand_info_text_brandinfo_style'>主营：{{brand_info.description}}</text>
        </view>
     </view>
      <view class='brand_enter_button_main'>

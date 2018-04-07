@@ -1,5 +1,6 @@
 // pages/home_page/home_page.js
 var app=getApp()
+var login = require('../../utils/login.js');
 Page({
 
   /**
@@ -14,6 +15,11 @@ Page({
     filter_is_open_flag:false,
     filter_is_selected:false,
     user_allow_login:false,
+    all_area:[],
+    all_price:[],
+    all_style:[],
+    all_house_style:[],
+    cases:[],
     filter_item: [
       {item_name:"5万以下",selected:false},
       { item_name: "5-8万", selected: false }, 
@@ -362,24 +368,102 @@ back_top:function(e){
    */
   onReady: function () {
     var that=this
-    console.log(wx.getSystemInfoSync().windowHeight)
-    wx.getUserInfo({
-      success: function (res) {
-        that.setData({
-          user_wechat_info: res.userInfo,
-          user_allow_login:true,
-        })
-        console.log('用户允许获取信息')
-        console.log(res)    
-      },
-      fail:function(res){
-        user_allow_login:false    
-      }
-    })
+    var all_area = []
+    var all_house_style = []
+    var all_price = []
+    var all_style = []
+    var cases = []
+    var user_wechat_info
+    that.login_first()     //登陆
     var style = "height:" + wx.getSystemInfoSync().windowHeight+"px"
     that.setData({
-      user_wechat_info: app.globalData.userInfo,
-      style:style
+      style: style,
+    })
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_first_page_info/',
+      method: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        console.log(res.data.all_area.length)
+        for (var i = 0; i < res.data.all_area.length;i++){
+          var area={}
+          area.name = decodeURI(res.data.all_area[i].area_name)
+          area.id = res.data.all_area[i].area_id
+          area.checked=false
+          all_area.push(area)
+        }
+        console.log(all_area)
+        for (var i = 0; i < res.data.all_house_style.length; i++) {
+          var house_style = {}
+          house_style.name = decodeURI(res.data.all_house_style[i].house_style_name)
+          house_style.id = res.data.all_house_style[i].house_style_id
+          house_style.checked = false
+          all_house_style.push(house_style)
+        }
+        console.log(all_house_style)
+        for (var i = 0; i < res.data.all_price.length; i++) {
+          var price = {}
+          price.name = decodeURI(res.data.all_price[i].price_name)
+          price.id = res.data.all_price[i].price_id
+          price.checked = false
+          all_price.push(price)
+        }
+        console.log(all_price)
+        for (var i = 0; i < res.data.all_style.length; i++) {
+          var style = {}
+          style.name = decodeURI(res.data.all_style[i].style_name)
+          style.id = res.data.all_style[i].style_id
+          style.checked = false
+          all_style.push(style)
+        }
+        console.log(all_style)
+        for (var i = 0; i < res.data.cases.length; i++) {
+          var case_info = {}
+          case_info.name = decodeURI(res.data.cases[i].case_name)
+          case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
+          case_info.case_id = res.data.cases[i].case_id
+          case_info.item_imgae_url = res.data.cases[i].item_image_url
+          case_info.brand_logo = res.data.cases[i].brand_logo
+          console.log(res.data.cases[i].area_id)
+          console.log(all_area[2].name)
+          for(var j=0;j<all_area.length;j++){
+            if (all_area[j].id == res.data.cases[i].area_id){
+              case_info.area_name = all_area[j].name
+              case_info.area_id = all_area[j].id
+            }
+          }
+          for (var j = 0; j < all_price.length; j++) {
+            if (all_price[j].id == res.data.cases[i].price_id) {
+              case_info.price_name = all_price[j].name
+              case_info.price_id = all_price[j].id
+            }
+          }
+          for (var j = 0; j < all_house_style.length; j++) {
+            if (all_house_style[j].id == res.data.cases[i].house_style_id) {
+              case_info.house_style_name = all_house_style[j].name
+              case_info.house_style_id = all_house_style[j].id
+            }
+          }
+          cases.push(case_info)
+        }
+        console.log(cases)
+      }
+    })
+    app.globalData.all_area=all_area
+    app.globalData.all_price=all_price
+    app.globalData.all_style=all_style
+    app.globalData.all_house_style=all_house_style
+    that.setData({
+      all_area:all_area,
+      all_price:all_price,
+      all_style:all_style,
+      all_house_style:all_house_style,
+      cases:cases
     })
   },
   allow_login: function () {
@@ -530,5 +614,37 @@ back_top:function(e){
    */
   onShareAppMessage: function () {
   
+  },
+  /***登陆***/
+  login_first: function () {
+    var that = this;
+    wx.getUserInfo({
+      success: function (res) {
+        console.log('用户允许获取信息')
+        console.log(res)
+        app.globalData.allow_login_flag = true;
+        app.globalData.userInfo = res.userInfo
+        wx.checkSession({
+          success: function () {
+            login.login_upload_session()
+          },
+          fail: function () {
+            login.login_upload_code();
+          }
+        })
+        that.setData({
+          user_allow_login: true,
+          user_wechat_info: res.userInfo
+        })
+      },
+      fail: function () {
+        app.globalData.allow_login_flag = false;
+        that.setData({
+          user_allow_login: false,
+        })
+        console.log('用户不允许获取信息')
+      }
+    })
   }
+
 })
