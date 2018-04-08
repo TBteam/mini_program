@@ -213,6 +213,13 @@ Page({
     var hot_flag=that.data.hot_flag
     var new_flag = that.data.new_flag
     if (res.currentTarget.id == '2') {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 2000)
       hot_flag=!hot_flag
       that.reset()
       that.setData({
@@ -236,6 +243,13 @@ Page({
         filter_is_selected: false
       })
     } else if (res.currentTarget.id == '1') {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 2000)
       new_flag = !new_flag
       that.reset()
       that.setData({
@@ -260,6 +274,13 @@ Page({
       })
     }
     else if (res.currentTarget.id == '3') {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 2000)
       //colligate_flag = !colligate_flag
       that.reset()
       that.setData({
@@ -375,6 +396,13 @@ reset_ensure:function(res){
     }
     if (filter_is_selected_flag){
       that.get_filter_case(filter_condition,0)
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+      setTimeout(function () {
+        wx.hideLoading()
+      }, 2000)
       filter_is_selected=true;
       var new_flag=false;
       var hot_flag = false;
@@ -454,6 +482,13 @@ back_top:function(e){
     that.setData({
       style: style,
     })
+    wx.showLoading({
+      title: '加载中',
+      mask:true
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 2000)
     wx.request({
       url: 'https://32906079.jxggdxw.com/api/v1/get_first_page_info/',
       method: 'GET',
@@ -766,7 +801,7 @@ back_top:function(e){
              var case_info = {}
              case_info.name = decodeURI(res.data.cases[i].case_name)
              case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
-             //case_info.case_id = res.data.cases[i].case_id
+             case_info.case_id = res.data.cases[i].case_id
              case_info.brand_id = res.data.cases[i].brand_id
              case_info.item_imgae_url = res.data.cases[i].item_image_url
              case_info.brand_logo = res.data.cases[i].brand_logo
@@ -830,7 +865,7 @@ back_top:function(e){
             var case_info = {}
             case_info.name = decodeURI(res.data.cases[i].case_name)
             case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
-            //case_info.case_id = res.data.cases[i].case_id
+            case_info.case_id = res.data.cases[i].case_id
             case_info.brand_id = res.data.cases[i].brand_id
             case_info.item_imgae_url = res.data.cases[i].item_image_url
             case_info.brand_logo = res.data.cases[i].brand_logo
@@ -894,7 +929,7 @@ back_top:function(e){
             var case_info = {}
             case_info.name = decodeURI(res.data.cases[i].case_name)
             case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
-            //case_info.case_id = res.data.cases[i].case_id
+            case_info.case_id = res.data.cases[i].case_id
             case_info.brand_id = res.data.cases[i].brand_id
             case_info.item_imgae_url = res.data.cases[i].item_image_url
             case_info.brand_logo = res.data.cases[i].brand_logo
@@ -963,7 +998,7 @@ back_top:function(e){
             var case_info = {}
             case_info.name = decodeURI(res.data.cases[i].case_name)
             case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
-            //case_info.case_id = res.data.cases[i].case_id
+            case_info.case_id = res.data.cases[i].case_id
             case_info.brand_id = res.data.cases[i].brand_id
             case_info.item_imgae_url = res.data.cases[i].item_image_url
             case_info.brand_logo = res.data.cases[i].brand_logo

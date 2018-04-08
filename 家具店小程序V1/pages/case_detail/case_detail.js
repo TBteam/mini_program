@@ -9,18 +9,6 @@ Page({
     collect_flag:false,
     brand_info:'',
     case_info:'',
-    case1: [
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg',
-      '../photo/NORYA1.jpg'
-    ],
   },
   desinger_info: function () {
     wx.navigateTo({
@@ -161,6 +149,13 @@ Page({
            brand_info: brand_info,
            case_info: case_info
          })
+         wx.showLoading({
+           title: '加载中',
+           mask: true
+         })
+         setTimeout(function () {
+           wx.hideLoading()
+         }, 2000)
 
        }
 
