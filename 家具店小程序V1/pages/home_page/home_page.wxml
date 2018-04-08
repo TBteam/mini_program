@@ -77,7 +77,7 @@
     </view>  
     <view class="top " bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style="{{translate}}" >  
        
-        <scroll-view  scroll-y style='{{style}}'>
+        <scroll-view   scroll-y style='{{style}}' scroll-top='{{scroll_top}}' >
         <view class='topbar'>
             <view class='topbar_image'>
                <image wx:if="{{user_allow_login}}" bindtap="tap_ch" class='topbar_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
@@ -151,41 +151,66 @@
         <view class='case_item_K'></view>
         <view class='case_item_K'></view>
 
-        <view wx:for="{{item}}">
+        <view wx:for="{{cases}}">
         
         <view  class='case_item_main'>
-            <view bindtap='bintap' id='2' class='case_item_image_main'>
-                 <image mode='scaleToFill'  class="case_item_image_size" src="../photo/NORYA1.jpg" background-size="cover"></image>
+            <view bindtap='bintap' id='2' data-case_id="{{index}}" class='case_item_image_main'>
+                 <image mode='scaleToFill'  class="case_item_image_size" src="{{item.item_imgae_url}}" background-size="cover"></image>
             </view>
             <view bindtap='back_top' class='case_item_text_main'>
                 <view class='case_item_text_left_main'>
                      <view class='case_item_text_title_main'>
-                         <text class='case_item_text_title_style'>中式简装</text>
+                         <text class='case_item_text_title_style'>{{item.name}}</text>
                      </view>
                      <view class='case_item_text_info_main'>
-                         <text class='case_item_text_info_style1'>90-120平米</text>
+                         <text class='case_item_text_info_style1'>{{item.area_name}}</text>
                          <text class='case_item_text_info_style2'>|</text>
-                         <text class='case_item_text_info_style2'>三居室</text>
+                         <text class='case_item_text_info_style2'>{{item.house_style_name}}</text>
                          <text class='case_item_text_info_style2'>|</text>
-                         <text class='case_item_text_info_style3'>8万左右</text>
+                         <text class='case_item_text_info_style3'>{{item.price_name}}</text>
                      </view>
                 </view>
-                <view bindtap='bintap' id='1' class='case_item_text_right_main'>
+                <view bindtap='bintap' id='1' data-case_id="{{index}}" class='case_item_text_right_main'>
                     <view class='case_item_brand_image_main'>
-                        <image mode='aspectFit'  class="case_item_brand_image_size" src="../photo/NORYA_selected.jpg" background-size="cover"></image>
+                        <image mode='aspectFit'  class="case_item_brand_image_size" src="{{item.brand_logo}}" background-size="cover"></image>
                     </view>
                     <view class='case_item_brand_name_main'>
-                         <text class='case_item_brand_name_style'>挪亚家D5</text>
+                         <text class='case_item_brand_name_style'>{{item.brand_name}}</text>
                      </view>
                 </view>
             </view>
         </view>
         <view class='case_item_K'></view>
         </view>
-
-        <view bindtap='add_more' class='add_more_main'>
-            <text class='add_more_text_style'>加载更多. . .</text>
+        <view wx:if='{{hot_flag}}'>
+             <view wx:if='{{!hot_case_more_flag}}'> 
+                 <view bindtap='add_more' data-flag='hot' class='add_more_main'>
+                     <text class='add_more_text_style'>加载更多. . .</text>
+                 </view>
+             </view>
         </view>
+        <view wx:if='{{new_flag}}'>
+             <view wx:if='{{!new_case_more_flag}}'> 
+                 <view bindtap='add_more' data-flag='new'  class='add_more_main'>
+                     <text class='add_more_text_style'>加载更多. . .</text>
+                 </view>
+             </view>
+        </view>
+        <view wx:if='{{filter_is_selected}}'>
+             <view wx:if='{{!filter_case_more_flag}}'> 
+                 <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
+                     <text class='add_more_text_style'>加载更多. . .</text>
+                 </view>
+             </view>
+        </view>
+        <view wx:if='{{colligate_flag}}'>
+             <view wx:if='{{!colligate_case_more_flag}}'> 
+                 <view bindtap='add_more' data-flag='colligate' class='add_more_main'>
+                     <text class='add_more_text_style'>加载更多. . .</text>
+                 </view>
+             </view>
+        </view>
+        
     </scroll-view>
     </view>  
 </view>
@@ -199,12 +224,12 @@
            </view>
        </view>
        <view class='filter_select_main'>
-           <view wx:for="{{filter_item}}">
-               <view wx:if="{{!item.selected}}" bindtap='filter_item_select' id="{{index}}" data-id="one" class='filter_select_item_border'>
-                   <text class='filter_select_item_text_style'>{{item.item_name}}</text>
+           <view wx:for="{{all_price}}">
+               <view wx:if="{{!item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="one" class='filter_select_item_border'>
+                   <text class='filter_select_item_text_style'>{{item.name}}</text>
                </view>
-               <view wx:if="{{item.selected}}" bindtap='filter_item_select' id="{{index}}" data-id="one"  class='filter_select_item_border_checked'>
-                   <text class='filter_select_item_text_style_checked'>{{item.item_name}}</text>
+               <view wx:if="{{item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="one"  class='filter_select_item_border_checked'>
+                   <text class='filter_select_item_text_style_checked'>{{item.name}}</text>
                </view>
            </view>
        </view>
@@ -215,12 +240,12 @@
            </view>
        </view>
        <view class='filter_select_main'>
-           <view wx:for="{{filter_item1}}">
-               <view wx:if="{{!item.selected}}" bindtap='filter_item_select' id="{{index}}" data-id="two" class='filter_select_item_border'>
-                   <text class='filter_select_item_text_style'>{{item.item_name}}</text>
+           <view wx:for="{{all_house_style}}">
+               <view wx:if="{{!item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="two" class='filter_select_item_border'>
+                   <text class='filter_select_item_text_style'>{{item.name}}</text>
                </view>
-               <view wx:if="{{item.selected}}" bindtap='filter_item_select' id="{{index}}" data-id="two" class='filter_select_item_border_checked'>
-                   <text class='filter_select_item_text_style_checked'>{{item.item_name}}</text>
+               <view wx:if="{{item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="two" class='filter_select_item_border_checked'>
+                   <text class='filter_select_item_text_style_checked'>{{item.name}}</text>
                </view>
            </view>
        </view>
@@ -231,12 +256,12 @@
            </view>
        </view>
        <view class='filter_select_main'>
-           <view wx:for="{{filter_item2}}">
-               <view wx:if="{{!item.selected}}" bindtap='filter_item_select' id="{{index}}" data-id="three" class='filter_select_item_border'>
-                   <text class='filter_select_item_text_style'>{{item.item_name}}</text>
+           <view wx:for="{{all_area}}">
+               <view wx:if="{{!item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="three" class='filter_select_item_border'>
+                   <text class='filter_select_item_text_style'>{{item.name}}</text>
                </view>
-               <view wx:if="{{item.selected}}" bindtap='filter_item_select' id="{{index}}" data-id="three" class='filter_select_item_border_checked'>
-                   <text class='filter_select_item_text_style_checked'>{{item.item_name}}</text>
+               <view wx:if="{{item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="three" class='filter_select_item_border_checked'>
+                   <text class='filter_select_item_text_style_checked'>{{item.name}}</text>
                </view>
            </view>
        </view>
@@ -247,12 +272,12 @@
            </view>
        </view>
        <view class='filter_select_main'>
-           <view wx:for="{{filter_item3}}">
-               <view wx:if="{{!item.selected}}" bindtap='filter_item_select' id="{{index}}" data-id="four" class='filter_select_item_border'>
-                   <text class='filter_select_item_text_style'>{{item.item_name}}</text>
+           <view wx:for="{{all_style}}">
+               <view wx:if="{{!item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="four" class='filter_select_item_border'>
+                   <text class='filter_select_item_text_style'>{{item.name}}</text>
                </view>
-               <view wx:if="{{item.selected}}" bindtap='filter_item_select' id="{{index}}" data-id="four" class='filter_select_item_border_checked'>
-                   <text class='filter_select_item_text_style_checked'>{{item.item_name}}</text>
+               <view wx:if="{{item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="four" class='filter_select_item_border_checked'>
+                   <text class='filter_select_item_text_style_checked'>{{item.name}}</text>
                </view>
            </view>
        </view>

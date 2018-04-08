@@ -2,7 +2,7 @@
 
 <view class='case_title_main'>
    <view class='case_title_main1'>
-       <text class='case_title_style'>案例名称案例名称案</text>
+       <text class='case_title_style'>{{case_info.case_name}}</text>
    </view>
 </view>
 <!--作者&收藏-->

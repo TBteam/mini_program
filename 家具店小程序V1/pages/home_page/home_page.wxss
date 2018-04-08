@@ -8,8 +8,7 @@
   width: 100%;
   position: fixed;
   background-color:  whitesmoke;
-  left: 0;
-  top: 0;
+
   z-index: 1;
 }
 .page-content{
@@ -22,6 +21,8 @@
   position: fixed;
   background-color:  white;
   z-index: 2;
+  left: 0;
+  top: 0;
 }
 .c-state1{  
   transform: rotate(0deg) scale(1) translate(60%,0%);   
@@ -293,6 +294,8 @@
 .case_item_image_main{
   width: 100%;
   height: 400rpx;
+  display: flex;
+  z-index: 4
 }
 .case_item_image_size{
   width: 100%;
@@ -360,7 +363,7 @@
   border-radius: 50%;
   display: flex;
   align-items: center;
-  z-index: 4;
+  z-index: 5;
 }
 .case_item_brand_image_size{
   width: 100rpx;

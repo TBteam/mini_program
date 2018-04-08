@@ -9,6 +9,7 @@ Page({
 
   data: {
     open: false,
+    scroll_top:0,
     hot_flag:false,
     new_flag:false,
     colligate_flag:true,      //综合标志位
@@ -20,33 +21,19 @@ Page({
     all_style:[],
     all_house_style:[],
     cases:[],
-    filter_item: [
-      {item_name:"5万以下",selected:false},
-      { item_name: "5-8万", selected: false }, 
-      { item_name: "8-10万", selected: false }, 
-      { item_name: "10-15万", selected: false }, 
-      { item_name: "15万以上", selected: false },  
-     ],
-    filter_item1: [
-      { item_name: "二居室", selected: false },
-      { item_name: "三居室", selected: false },
-      { item_name: "四居室", selected: false },
-      { item_name: "四居室以上", selected: false },
-      ],
-    filter_item2: [
-      { item_name: "70平以下", selected: true },  
-      { item_name: "70-90平", selected: false },  
-      { item_name: "90-120平", selected: false },  
-      { item_name: "120-150平", selected: false },  
-      { item_name: "150平以上", selected: false },  
-     ],
-    filter_item3: [
-      { item_name: "中式", selected: false },
-      { item_name: "新中式", selected: false },
-      { item_name: "欧式", selected: false },
-      { item_name: "美式", selected: false },
-      ],
-    filter_item4: ["二居室", "三居室", "四居室", "四居室以上"],
+    new_case_page:0,
+    hot_case_page:0,
+    filter_case_page:0,
+    colligate_case_page:0,
+    new_case_more_flag:false,
+    hot_case_more_flag:false,
+    filter_case_more_flag:false,
+    colligate_case_more_flag:false,
+    new_cases:[],
+    hot_cases:[],
+    colligate_cases:[],
+    filter_cases:[],
+    filter_condition:[],
     user_wechat_info: '',
     mark: 0,
     newmark: 0,
@@ -177,14 +164,41 @@ Page({
     this.data.newmark = 0;
   },
   add_more:function(){
-    var item=this.data.item;
-    item.push('2');
-    item.push('2');
-    item.push('2');
-    item.push('2');
-    this.setData({
-      item:item
-    })
+    var that=this
+    hot_flag = that.data.hot_flag
+    new_flag= that.data.hot_flag
+    colligate_flag=that.data.hot_flag      //综合标志位
+    filter_is_selected= that.data.hot_flag
+    if(hot_flag){
+      var page=that.data.hot_case_page
+      page+=1
+      that.get_hot_case(page)
+      that.setData({
+        hot_case_page: page
+      })
+    }else if(new_flag){
+      var page = that.data.new_case_page
+      page += 1
+      that.get_new_case(page)
+      that.setData({
+        new_case_page: page
+      })
+    }
+    else if (colligate_flag) {
+      var page = that.data.colligate_case_page
+      page += 1
+      that.get_colligate_case(page)
+      that.setData({
+        colligate_case_page: page
+      })
+    } else if (filter_is_selected) {
+      var page = that.data.filter_case_page
+      page += 1
+      that.get_filter_case(page)
+      that.setData({
+        filter_case_page: page
+      })
+    }
   },
   
   /**
@@ -202,7 +216,20 @@ Page({
       hot_flag=!hot_flag
       that.reset()
       that.setData({
-        hot_flag:hot_flag,
+        scroll_top:0
+      })
+      var hot_cases = that.data.hot_cases
+      if (hot_cases.length == 0) {
+        console.log('hot_cases=0')
+        that.get_hot_case(0)
+      } else {
+        console.log('hot_cases!=0')
+        that.setData({
+          cases: hot_cases
+        })
+      }
+      that.setData({
+        hot_flag:true,
         colligate_flag:false,
         new_flag:false,
         filter_is_open_flag:false,
@@ -212,7 +239,20 @@ Page({
       new_flag = !new_flag
       that.reset()
       that.setData({
-        new_flag:new_flag,
+        scroll_top: 0
+      })
+      var new_cases=that.data.new_cases
+      if(new_cases.length==0){
+        console.log('new_cases=0')
+        that.get_new_case(0)
+      }else{
+        console.log('new_cases!=0')
+        that.setData({
+          cases:new_cases
+        })
+      }
+      that.setData({
+        new_flag:true,
         hot_flag:false,
         colligate_flag:false,
         filter_is_open_flag: false,
@@ -222,6 +262,17 @@ Page({
     else if (res.currentTarget.id == '3') {
       //colligate_flag = !colligate_flag
       that.reset()
+      that.setData({
+        scroll_top: 0
+      })
+      var colligate_cases = that.data.colligate_cases
+      if (colligate_cases.length==0){
+
+      }else{
+        that.setData({
+          cases: colligate_cases
+        })
+      }
       that.setData({
         colligate_flag: true,
         new_flag: false,
@@ -244,42 +295,42 @@ Page({
     console.log(res.currentTarget.dataset.id)
     console.log(res.currentTarget.id)
     if (res.currentTarget.dataset.id=="one"){
-        var filter_item=that.data.filter_item
-        console.log(filter_item)
-        for (var i = 0; i < filter_item.length;i++){
-          filter_item[i].selected=false
+        var all_price=that.data.all_price
+        console.log(all_price)
+        for (var i = 0; i < all_price.length;i++){
+          all_price[i].checked=false
         }
-        filter_item[res.currentTarget.id].selected = !filter_item[res.currentTarget.id].selected
-        console.log(filter_item)
+        all_price[res.currentTarget.id].checked = !all_price[res.currentTarget.id].checked
+        console.log(all_price)
         that.setData({
-          filter_item: filter_item
+          all_price: all_price
         })
     } else if (res.currentTarget.dataset.id == "two") {
-      var filter_item1 = that.data.filter_item1
-      for (var i = 0; i < filter_item1.length; i++) {
-        filter_item1[i].selected = false
+      var all_house_style = that.data.all_house_style
+      for (var i = 0; i < all_house_style.length; i++) {
+        all_house_style[i].checked = false
       }
-      filter_item1[res.currentTarget.id].selected = !filter_item1[res.currentTarget.id].selected
+      all_house_style[res.currentTarget.id].checked = !all_house_style[res.currentTarget.id].checked
       that.setData({
-        filter_item1: filter_item1
+        all_house_style: all_house_style
       })
     } else if (res.currentTarget.dataset.id == "three") {
-      var filter_item2 = that.data.filter_item2
-      for (var i = 0; i < filter_item2.length; i++) {
-        filter_item2[i].selected = false
+      var all_area = that.data.all_area
+      for (var i = 0; i < all_area.length; i++) {
+        all_area[i].checked = false
       }
-      filter_item2[res.currentTarget.id].selected = !filter_item2[res.currentTarget.id].selected
+      all_area[res.currentTarget.id].checked = !all_area[res.currentTarget.id].checked
       that.setData({
-        filter_item2: filter_item2
+        all_area: all_area
       })
     } else if (res.currentTarget.dataset.id == "four") {
-      var filter_item3 = that.data.filter_item3
-      for (var i = 0; i < filter_item3.length; i++) {
-        filter_item3[i].selected = false
+      var all_style = that.data.all_style
+      for (var i = 0; i < all_style.length; i++) {
+        all_style[i].checked = false
       }
-      filter_item3[res.currentTarget.id].selected = !filter_item3[res.currentTarget.id].selected
+      all_style[res.currentTarget.id].checked = !all_style[res.currentTarget.id].checked
       that.setData({
-        filter_item3: filter_item3
+        all_style: all_style
       })
     }
   },
@@ -287,25 +338,43 @@ Page({
 reset_ensure:function(res){
   var that=this
   console.log(res)
+  var filter_condition={price_id:'none',house_style_id:'none',area_id:'none',style_id:'none'}
+  var filter_is_selected_flag = false
   if (res.currentTarget.dataset.type == "reset") {
     that.reset();
   } else if (res.currentTarget.dataset.type == "ensure") {
-    var filter_item = that.data.filter_item
-    var filter_item1 = that.data.filter_item1
-    var filter_item2 = that.data.filter_item2
-    var filter_item3 = that.data.filter_item3
+    var all_price = that.data.all_price
+    var all_house_style = that.data.all_house_style
+    var all_area = that.data.all_area
+    var all_style = that.data.all_style
     var filter_is_selected = that.data.filter_is_selected
-    filter_item = filter_item.concat(filter_item1)
-    filter_item = filter_item.concat(filter_item2)
-    filter_item = filter_item.concat(filter_item3)
-    console.log(filter_item)
-    var filter_is_selected_flag=false
-    for (var i = 0; i < filter_item.length; i++) {
-      if (filter_item[i].selected){
+    console.log(all_price)
+    for (var i = 0; i < all_price.length; i++) {
+      if (all_price[i].checked){
+        filter_condition.price_id = all_price[i].id
         filter_is_selected_flag=true
       }
     }
+    for (var i = 0; i < all_house_style.length; i++) {
+      if (all_house_style[i].checked) {
+        filter_condition.house_style_id = all_house_style[i].id
+        filter_is_selected_flag = true
+      }
+    }
+    for (var i = 0; i < all_area.length; i++) {
+      if (all_area[i].checked) {
+        filter_condition.area_id = all_area[i].id
+        filter_is_selected_flag = true
+      }
+    }
+    for (var i = 0; i < all_style.length; i++) {
+      if (all_style[i].checked) {
+        filter_condition.style_id = all_style[i].id
+        filter_is_selected_flag = true
+      }
+    }
     if (filter_is_selected_flag){
+      that.get_filter_case(filter_condition,0)
       filter_is_selected=true;
       var new_flag=false;
       var hot_flag = false;
@@ -317,38 +386,43 @@ reset_ensure:function(res){
       var colligate_flag = that.data.colligate_flag;
     }
     that.setData({
+      scroll_top: 0
+    })
+    that.setData({
       filter_is_selected: filter_is_selected,
       filter_is_open_flag:false,
       new_flag: new_flag,
       hot_flag: hot_flag,
-      colligate_flag: colligate_flag
+      filter_condition:filter_condition,
+      colligate_flag: colligate_flag,
+      filter_cases:[]
     })
   }
   
 },
 reset:function(){
   var that=this
-  var filter_item = that.data.filter_item
-  var filter_item1 = that.data.filter_item1
-  var filter_item2 = that.data.filter_item2
-  var filter_item3 = that.data.filter_item3
-  for (var i = 0; i < filter_item.length; i++) {
-    filter_item[i].selected = false
+  var all_price = that.data.all_price
+  var all_house_style = that.data.all_house_style
+  var all_area = that.data.all_area
+  var all_style = that.data.all_style
+  for (var i = 0; i < all_price.length; i++) {
+    all_price[i].checked = false
   }
-  for (var i = 0; i < filter_item1.length; i++) {
-    filter_item1[i].selected = false
+  for (var i = 0; i < all_house_style.length; i++) {
+    all_house_style[i].checked = false
   }
-  for (var i = 0; i < filter_item2.length; i++) {
-    filter_item2[i].selected = false
+  for (var i = 0; i < all_area.length; i++) {
+    all_area[i].checked = false
   }
-  for (var i = 0; i < filter_item3.length; i++) {
-    filter_item3[i].selected = false
+  for (var i = 0; i < all_style.length; i++) {
+    all_style[i].checked = false
   }
   that.setData({
-    filter_item: filter_item,
-    filter_item1: filter_item1,
-    filter_item2: filter_item2,
-    filter_item3: filter_item3
+    all_price: all_price,
+    all_house_style: all_house_style,
+    all_area: all_area,
+    all_style: all_style
   })
 },
 
@@ -374,6 +448,7 @@ back_top:function(e){
     var all_style = []
     var cases = []
     var user_wechat_info
+    var colligate_case_more_flag = that.data.colligate_case_more_flag
     that.login_first()     //登陆
     var style = "height:" + wx.getSystemInfoSync().windowHeight+"px"
     that.setData({
@@ -422,11 +497,15 @@ back_top:function(e){
           all_style.push(style)
         }
         console.log(all_style)
+        if (res.data.cases.length < 10) {
+          colligate_case_more_flag = true
+        }
         for (var i = 0; i < res.data.cases.length; i++) {
           var case_info = {}
           case_info.name = decodeURI(res.data.cases[i].case_name)
           case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
           case_info.case_id = res.data.cases[i].case_id
+          case_info.brand_id = res.data.cases[i].brand_id
           case_info.item_imgae_url = res.data.cases[i].item_image_url
           case_info.brand_logo = res.data.cases[i].brand_logo
           console.log(res.data.cases[i].area_id)
@@ -452,19 +531,22 @@ back_top:function(e){
           cases.push(case_info)
         }
         console.log(cases)
+        app.globalData.all_area = all_area
+        app.globalData.all_price = all_price
+        app.globalData.all_style = all_style
+        app.globalData.all_house_style = all_house_style
+        that.setData({
+          all_area: all_area,
+          all_price: all_price,
+          all_style: all_style,
+          all_house_style: all_house_style,
+          cases: cases,
+          colligate_cases:cases,
+          colligate_case_more_flag: colligate_case_more_flag,
+        })
       }
     })
-    app.globalData.all_area=all_area
-    app.globalData.all_price=all_price
-    app.globalData.all_style=all_style
-    app.globalData.all_house_style=all_house_style
-    that.setData({
-      all_area:all_area,
-      all_price:all_price,
-      all_style:all_style,
-      all_house_style:all_house_style,
-      cases:cases
-    })
+    
   },
   allow_login: function () {
     var that = this;
@@ -505,6 +587,11 @@ back_top:function(e){
     //console.log(res);
     var that = this;
     if (res.currentTarget.id == '1') {
+      console.log(res.currentTarget.dataset.case_id)
+      var brand_id = res.currentTarget.dataset.case_id
+      var cases = that.data.cases
+      app.globalData.brand_detail_brand_id = cases[brand_id].brand_id
+      console.log(app.globalData.brand_detail_brand_id)
       wx.navigateTo({
         url: '../cate_info_test/cate_info_test',
         success: function (res) { },
@@ -518,6 +605,11 @@ back_top:function(e){
             filter_is_open_flag:false
           })
       }else {
+        console.log(res.currentTarget.dataset.case_id)
+        var case_id = res.currentTarget.dataset.case_id
+        var cases=that.data.cases
+        app.globalData.case_detail_case_id = cases[case_id].case_id
+        console.log(app.globalData.case_detail_case_id)
       wx.navigateTo({
         url: '../case_detail/case_detail',
         success: function (res) { },
@@ -643,6 +735,267 @@ back_top:function(e){
           user_allow_login: false,
         })
         console.log('用户不允许获取信息')
+      }
+    })
+  },
+  get_new_case:function(page){
+     var that=this
+     var page=page
+     var all_area = app.globalData.all_area
+     var all_style = app.globalData.all_style
+     var all_house_style = app.globalData.all_house_style
+     var all_price = app.globalData.all_price
+     var new_case_more_flag = that.data.new_case_more_flag
+     wx.request({
+       url: 'https://32906079.jxggdxw.com/api/v1/get_new_case/',
+       method: 'GET',
+       data: {
+         'page': page
+       },
+       header: {
+         'content-type': 'application/json'
+       },
+       success: function (res) {
+         console.log(res)
+         var cases = that.data.new_cases
+         if(res.data.ret=='succ'){
+           if (res.data.cases.length < 10) {
+             new_case_more_flag = true
+           }
+           for (var i = 0; i < res.data.cases.length; i++) {
+             var case_info = {}
+             case_info.name = decodeURI(res.data.cases[i].case_name)
+             case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
+             //case_info.case_id = res.data.cases[i].case_id
+             case_info.brand_id = res.data.cases[i].brand_id
+             case_info.item_imgae_url = res.data.cases[i].item_image_url
+             case_info.brand_logo = res.data.cases[i].brand_logo
+             console.log(res.data.cases[i].area_id)
+             console.log(all_area[2].name)
+             for (var j = 0; j < all_area.length; j++) {
+               if (all_area[j].id == res.data.cases[i].area_id) {
+                 case_info.area_name = all_area[j].name
+                 case_info.area_id = all_area[j].id
+               }
+             }
+             for (var j = 0; j < all_price.length; j++) {
+               if (all_price[j].id == res.data.cases[i].price_id) {
+                 case_info.price_name = all_price[j].name
+                 case_info.price_id = all_price[j].id
+               }
+             }
+             for (var j = 0; j < all_house_style.length; j++) {
+               if (all_house_style[j].id == res.data.cases[i].house_style_id) {
+                 case_info.house_style_name = all_house_style[j].name
+                 case_info.house_style_id = all_house_style[j].id
+               }
+             }
+             cases.push(case_info)
+           }
+           console.log(cases)
+           that.setData({
+             cases:cases,
+             new_cases:cases,
+             new_case_more_flag: new_case_more_flag
+           })
+         }
+       }
+     })
+  },
+  get_hot_case: function (page) {
+    var that = this
+    var page = page
+    var all_area = app.globalData.all_area
+    var all_style = app.globalData.all_style
+    var all_house_style = app.globalData.all_house_style
+    var all_price = app.globalData.all_price
+    var hot_case_more_flag = that.data.hot_case_more_flag
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_hot_case/',
+      method: 'GET',
+      data: {
+        'page': page
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        var cases = that.data.hot_cases
+        if (res.data.ret == 'succ') {
+          if (res.data.cases.length < 10) {
+            hot_case_more_flag = true
+          }
+          for (var i = 0; i < res.data.cases.length; i++) {
+            var case_info = {}
+            case_info.name = decodeURI(res.data.cases[i].case_name)
+            case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
+            //case_info.case_id = res.data.cases[i].case_id
+            case_info.brand_id = res.data.cases[i].brand_id
+            case_info.item_imgae_url = res.data.cases[i].item_image_url
+            case_info.brand_logo = res.data.cases[i].brand_logo
+            console.log(res.data.cases[i].area_id)
+            console.log(all_area[2].name)
+            for (var j = 0; j < all_area.length; j++) {
+              if (all_area[j].id == res.data.cases[i].area_id) {
+                case_info.area_name = all_area[j].name
+                case_info.area_id = all_area[j].id
+              }
+            }
+            for (var j = 0; j < all_price.length; j++) {
+              if (all_price[j].id == res.data.cases[i].price_id) {
+                case_info.price_name = all_price[j].name
+                case_info.price_id = all_price[j].id
+              }
+            }
+            for (var j = 0; j < all_house_style.length; j++) {
+              if (all_house_style[j].id == res.data.cases[i].house_style_id) {
+                case_info.house_style_name = all_house_style[j].name
+                case_info.house_style_id = all_house_style[j].id
+              }
+            }
+            cases.push(case_info)
+          }
+          console.log(cases)
+          that.setData({
+            cases: cases,
+            hot_cases: cases,
+            hot_case_more_flag: hot_case_more_flag
+          })
+        }
+      }
+    })
+  },
+  get_colligate_case: function (page) {
+    var that = this
+    var page = page
+    var all_area = app.globalData.all_area
+    var all_style = app.globalData.all_style
+    var all_house_style = app.globalData.all_house_style
+    var all_price = app.globalData.all_price
+    var colligate_case_more_flag = that.data.colligate_case_more_flag
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_colligate_case/',
+      method: 'GET',
+      data: {
+        'page': page
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        var cases = that.data.colligate_cases
+        if (res.data.ret == 'succ') {
+          if (res.data.cases.length < 10) {
+            colligate_case_more_flag = true
+          }
+          for (var i = 0; i < res.data.cases.length; i++) {
+            var case_info = {}
+            case_info.name = decodeURI(res.data.cases[i].case_name)
+            case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
+            //case_info.case_id = res.data.cases[i].case_id
+            case_info.brand_id = res.data.cases[i].brand_id
+            case_info.item_imgae_url = res.data.cases[i].item_image_url
+            case_info.brand_logo = res.data.cases[i].brand_logo
+            console.log(res.data.cases[i].area_id)
+            console.log(all_area[2].name)
+            for (var j = 0; j < all_area.length; j++) {
+              if (all_area[j].id == res.data.cases[i].area_id) {
+                case_info.area_name = all_area[j].name
+                case_info.area_id = all_area[j].id
+              }
+            }
+            for (var j = 0; j < all_price.length; j++) {
+              if (all_price[j].id == res.data.cases[i].price_id) {
+                case_info.price_name = all_price[j].name
+                case_info.price_id = all_price[j].id
+              }
+            }
+            for (var j = 0; j < all_house_style.length; j++) {
+              if (all_house_style[j].id == res.data.cases[i].house_style_id) {
+                case_info.house_style_name = all_house_style[j].name
+                case_info.house_style_id = all_house_style[j].id
+              }
+            }
+            cases.push(case_info)
+          }
+          console.log(cases)
+          that.setData({
+            cases: cases,
+            colligate_cases: cases,
+            colligate_case_more_flag: colligate_case_more_flag
+          })
+        }
+      }
+    })
+  },
+  get_filter_case: function (filter_condition,page) {
+    var that = this
+    console.log(filter_condition)
+    var page = page
+    var all_area = app.globalData.all_area
+    var all_style = app.globalData.all_style
+    var all_house_style = app.globalData.all_house_style
+    var all_price = app.globalData.all_price
+    var filter_case_more_flag = that.data.filter_case_more_flag
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_condition_case/',
+      method: 'GET',
+      data: {
+        'page': page,
+        'area_id':filter_condition.area_id,
+        'price_id': filter_condition.price_id,
+        'style_id': filter_condition.style_id,
+        'house_style_id': filter_condition.house_style_id,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        var cases = that.data.filter_cases
+        if (res.data.ret == 'succ') {
+          if (res.data.cases.length<10){
+            filter_case_more_flag=true
+          }
+          for (var i = 0; i < res.data.cases.length; i++) {
+            var case_info = {}
+            case_info.name = decodeURI(res.data.cases[i].case_name)
+            case_info.brand_name = decodeURI(res.data.cases[i].brand_name)
+            //case_info.case_id = res.data.cases[i].case_id
+            case_info.brand_id = res.data.cases[i].brand_id
+            case_info.item_imgae_url = res.data.cases[i].item_image_url
+            case_info.brand_logo = res.data.cases[i].brand_logo
+            console.log(res.data.cases[i].area_id)
+            console.log(all_area[2].name)
+            for (var j = 0; j < all_area.length; j++) {
+              if (all_area[j].id == res.data.cases[i].area_id) {
+                case_info.area_name = all_area[j].name
+                case_info.area_id = all_area[j].id
+              }
+            }
+            for (var j = 0; j < all_price.length; j++) {
+              if (all_price[j].id == res.data.cases[i].price_id) {
+                case_info.price_name = all_price[j].name
+                case_info.price_id = all_price[j].id
+              }
+            }
+            for (var j = 0; j < all_house_style.length; j++) {
+              if (all_house_style[j].id == res.data.cases[i].house_style_id) {
+                case_info.house_style_name = all_house_style[j].name
+                case_info.house_style_id = all_house_style[j].id
+              }
+            }
+            cases.push(case_info)
+          }
+          console.log(cases)
+          that.setData({
+            cases: cases,
+            filter_cases: cases,
+            filter_case_more_flag: filter_case_more_flag
+          })
+        }
       }
     })
   }
