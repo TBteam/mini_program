@@ -10,18 +10,18 @@
         </view>     
    </view>
    <view bindtap='good_details_recommand_select' id='2'   class='good_details_recommand_title_recommand'>
-        <view wx:if='{{all_good_flag}}' class='good_details_recommand_title_checked_style'>
+        <view wx:if='{{case_flag}}' class='good_details_recommand_title_checked_style'>
           <text class=''>家装案例</text>
         </view>   
-        <view wx:if='{{!all_good_flag}}' class='good_details_recommand_title_unchecked_style'>
+        <view wx:if='{{!case_flag}}' class='good_details_recommand_title_unchecked_style'>
           <text class=''>家装案例</text>
         </view>  
    </view>
    <view bindtap='good_details_recommand_select' id='3'   class='good_details_recommand_title_recommand'>
-        <view wx:if='{{hot_good_flag}}' class='good_details_recommand_title_checked_style'>
+        <view wx:if='{{all_good_flag}}' class='good_details_recommand_title_checked_style'>
           <text class=''>全部商品</text>
         </view>   
-        <view wx:if='{{!hot_good_flag}}' class='good_details_recommand_title_unchecked_style'>
+        <view wx:if='{{!all_good_flag}}' class='good_details_recommand_title_unchecked_style'>
           <text class=''>全部商品</text>
         </view>  
    </view>
@@ -38,13 +38,15 @@
 <view class='K'></view>
 <!--首页-->
 <view wx:if='{{first_flag}}'>
+<!--
 <view class='brand_info_logo_main'  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
     <image class="brand_info_image_size" src="../photo/ttt.jpg"></image>
 </view>
-<view class='brand_info_K'></view>
-<view wx:for='{{imgUrls1}}' wx:ker='key'>
+-->
+<view class='brand_info_KK'></view>
+<view wx:for='{{brand_info}}' wx:ker='key'>
 <view class='brand_info_image_main'>
-    <image class="brand_info_image_size" src="{{item}}"></image>
+    <image class="brand_info_image_size" src="{{item.brand_image_url}}"></image>
 </view>
 <view class='brand_info_K'></view>
 <view class='brand_info_text_main'>
@@ -54,41 +56,42 @@
 <view class='brand_info_K'></view>
 
 <view class='main'>
-    <view wx:for='{{goods}}'>
-        <view class='good_mian_left' bindtap='bindtap'>
-            <image class="image" src="{{item.url}}"  ></image>
+    <view wx:for='{{products}}'>
+        <view class='good_mian_left' bindtap='bindtap'id='{{index}}' data-product_style='hot_product'>
+            <image class="image" src="{{item.item_image_url}}"  ></image>
             <view class='name_text'>
-                 <text class='name_text_style'> 商品名称</text>
+                 <text class='name_text_style'>{{item.product_name}}</text>
             </view>
             <view class='old_price'>
-                 <text class='old_price_style'>¥ 78</text>
+                 <text class='old_price_style'>¥ {{item.product_price}}</text>
             </view>    
         </view>
    </view>
 </view>
 </view>
 <!--家装案例-->
-<view class='case_main' wx:if='{{all_good_flag}}'>
-<view wx:for="{{item}}">
+<view class='case_main' wx:if='{{case_flag}}'>
+<view wx:for="{{cases}}">
         <view class='case_item_main'>
-        
             <view bindtap='bintap' id='2' class='case_item_image_main'>
-                 <image mode='scaleToFill'  class="case_item_image_size" src="../photo/NORYA1.jpg" ></image>
+                 <image mode='scaleToFill'  class="case_item_image_size" src="{{item.item_imgae_url}}" ></image>
             </view>
             
             <view class='case_item_text_main'>
                 <view class='case_item_text_left_main'>
                      <view class='case_item_text_title_main'>
-                         <text class='case_item_text_title_style'>中式简装</text>
+                         <text class='case_item_text_title_style'>{{item.name}}</text>
                      </view>
                      <view class='case_item_text_info_main'>
-                         <text class='case_item_text_info_style1'>90-120平米</text>
+                         <text class='case_item_text_info_style1'>{{item.area_name}}</text>
                          <text class='case_item_text_info_style2'>|</text>
-                         <text class='case_item_text_info_style2'>三居室</text>
+                         <text class='case_item_text_info_style2'>{{item.house_style_name}}</text>
                          <text class='case_item_text_info_style2'>|</text>
-                         <text class='case_item_text_info_style3'>8万左右</text>
+                         <text class='case_item_text_info_style3'>{{item.price_name}}</text>
                      </view>
                 </view>
+                
+                <!--
                 <view bindtap='bintap' id='1' class='case_item_text_right_main'>
                     <view class='case_item_brand_image_main'>
                         <image mode='aspectFit'  class="case_item_brand_image_size" src="../photo/NORYA_selected.jpg" background-size="cover"></image>
@@ -97,46 +100,83 @@
                          <text class='case_item_brand_name_style'>挪亚家D5</text>
                      </view>
                 </view>
+                -->
             </view>
             
         </view>
         <view class='case_item_K'></view>
         </view>
+        <view wx:if='{{case_flag}}'>
+            <view wx:if='{{case_more_flag}}'> 
+                <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
+                    <text class='add_more_text_style'>加载更多. . .</text>
+                </view>
+            </view>
+        </view>
 </view>
 <!--全部商品-->
-<view wx:if='{{hot_good_flag}}'>
+<view wx:if='{{all_good_flag}}'>
 <view class='main'>
-    <view wx:for='{{goods}}'>
-        <view class='good_mian_left' bindtap='bindtap'>
-            <image class="image" src="{{item.url}}"  ></image>
+    <view wx:for='{{products}}'>
+        <view class='good_mian_left' bindtap='bindtap' id='{{index}}' data-product_style='all_product'>
+            <image class="image" src="{{item.item_image_url}}"  ></image>
             <view class='name_text'>
-                 <text class='name_text_style'> 商品名称</text>
+                 <text class='name_text_style'> {{item.product_name}}</text>
             </view>
             <view class='old_price'>
-                 <text class='old_price_style'>¥ 78</text>
+                 <text class='old_price_style'>¥ {{item.product_price}}</text>
             </view>    
         </view>
    </view>
+   <view wx:if='{{all_good_flag && !category_show_flag && !scene_show_flag}}'>
+        <view wx:if='{{!all_good_more_flag}}'> 
+           <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
+              <text class='add_more_text_style'>加载更多. . .</text>
+          </view>
+        </view>
+     </view>
+     <view wx:if='{{all_good_flag && category_show_flag && !scene_show_flag}}'>
+        <view wx:if='{{!category_good_more_flag}}'> 
+           <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
+              <text class='add_more_text_style'>加载更多. . .</text>
+          </view>
+        </view>
+     </view>
+     <view wx:if='{{all_good_flag && !category_show_flag && scene_show_flag}}'>
+        <view wx:if='{{!scene_good_more_flag}}'> 
+           <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
+              <text class='add_more_text_style'>加载更多. . .</text>
+          </view>
+        </view>
+     </view>
+   <view class='all_product_bottom_K'></view>
 </view>
 </view>
 <!--新款-->
 <view wx:if='{{new_good_flag}}'>
 <view class='main'>
-    <view wx:for='{{goods}}'>
-        <view class='good_mian_left' bindtap='bindtap'>
-            <image class="image" src="{{item.url}}"  ></image>
+    <view wx:for='{{products}}'>
+        <view class='good_mian_left' bindtap='bindtap' id='{{index}}' data-product_style='new_product'>
+            <image class="image" src="{{item.item_image_url}}"  ></image>
             <view class='name_text'>
-                 <text class='name_text_style'> 商品名称</text>
+                 <text class='name_text_style'>{{item.product_name}}</text>
             </view>
             <view class='old_price'>
-                 <text class='old_price_style'>¥ 78</text>
+                 <text class='old_price_style'>¥ {{item.product_price}}</text>
             </view>    
         </view>
    </view>
 </view>
+<view wx:if='{{new_good_flag }}'>
+        <view wx:if='{{!new_good_more_flag}}'> 
+           <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
+              <text class='add_more_text_style'>加载更多. . .</text>
+          </view>
+        </view>
+</view>
 </view>
 <!--底部导航栏-->
-<view wx:if='{{hot_good_flag}}'>
+<view wx:if='{{all_good_flag}}'>
 <view class='bottom_main'>
    <view class='bottom_item_main' bindtap='bottom_select' id='1'>
       <view class='bottom_item_text_image_main'>
@@ -170,13 +210,13 @@
 </view>
 </view>
 
-<view wx:if='{{hot_good_flag&&classfiy_flag}}'>
-<view class='classfiy_select_main'>
+<view wx:if='{{all_good_flag&&classfiy_flag}}'>
+<view class='classfiy_select_main' style='{{category_style}}'>
   <view class='classfiy_select_border_main'>
-       <scroll-view scroll-y='true'  class='scroll_view_size'>
-       <view wx:for='{{classfiy}}'>
-         <view class='classfiy_select_item_main'> 
-             <text class='classfiy_select_item_style'>{{item}}</text>
+       <scroll-view scroll-y='true'  style='{{category_style}}'>
+       <view wx:for='{{categorys}}'>
+         <view bindtap='category_bintap' id='{{index}}' class='classfiy_select_item_main'> 
+             <text class='classfiy_select_item_style'>{{item.category_name}}</text>
            </view>
            <view class='line1'></view>
         </view>   
@@ -186,24 +226,17 @@
 </view>
 </view>
 
-<view wx:if='{{hot_good_flag&&secne_flag}}'>
-<view class='classfiy_select_main1'>
-  <view class='classfiy_select_border_main1'>
-    <view class='classfiy_select_item_main'> 
-             <text class='classfiy_select_item_style'>客厅</text>
-    </view>
-    <view class='line1'></view>
-    <view class='classfiy_select_item_main'> 
-             <text class='classfiy_select_item_style'>卧室</text>
-    </view>
-    <view class='line1'></view>
-    <view class='classfiy_select_item_main'> 
-             <text class='classfiy_select_item_style'>餐厅</text>
-    </view>
-    <view class='line1'></view>
-    <view class='classfiy_select_item_main'> 
-             <text class='classfiy_select_item_style'>户外</text>
-    </view>
+<view wx:if='{{all_good_flag&&secne_flag}}'>
+<view class='classfiy_select_main1' style='{{scene_style}}'>
+  <view class='classfiy_select_border_main'>
+       <scroll-view scroll-y='true'  style='{{scene_style}}'>
+       <view wx:for='{{scenes}}'>
+         <view bindtap='scene_bintap' id='{{index}}' class='classfiy_select_item_main'> 
+             <text class='classfiy_select_item_style'>{{item.scene_name}}</text>
+           </view>
+           <view class='line1'></view>
+        </view>   
+       </scroll-view>
   </view>
      <image class="classfiy_select_icon_size1" src="../photo/right3.png"></image>
 </view>

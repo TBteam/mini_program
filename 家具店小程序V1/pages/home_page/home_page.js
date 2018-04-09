@@ -166,9 +166,9 @@ Page({
   add_more:function(){
     var that=this
     hot_flag = that.data.hot_flag
-    new_flag= that.data.hot_flag
-    colligate_flag=that.data.hot_flag      //综合标志位
-    filter_is_selected= that.data.hot_flag
+    new_flag = that.data.new_flag
+    colligate_flag = that.data.colligate_flag      //综合标志位
+    filter_is_selected = that.data.filter_is_selected
     if(hot_flag){
       var page=that.data.hot_case_page
       page+=1

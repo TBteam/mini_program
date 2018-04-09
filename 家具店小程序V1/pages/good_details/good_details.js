@@ -1,11 +1,13 @@
 // pages/good_details/good_details.js
 var Crypto = require('../../utils/cryptojs/cryptojs.js').Crypto
+var app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    good_info:'',
     bottom_info_flag:false,
     good_info_flag:false,
     detail_info_flag:true,
@@ -95,65 +97,6 @@ Page({
     })
   },
  
-  bindtap:function(res){
-    console.log(res)
-    var that = this;
- if (res.currentTarget.id == '2') {
-      that.setData({
-        bottom_info_flag: true,
-        preferential_info_flag: true
-      })
-    } 
-    else if (res.currentTarget.id == '1') {
-      var format_flag = that.data.format_flag;
-      //format_flag = !format_flag;
-      that.setData({
-        bottom_info_flag: true,
-        format_flag: true
-      })
-    } 
-  },
-  cancel:function(res){
-    this.setData({
-      bottom_info_flag: false,
-      preferential_info_flag: false,
-      format_flag: false
-    })
-  },
-  format_checked:function(res){
-    console.log(res);
-    var formats=this.data.formats;
-    var price;
-    for(var i=0;i<formats.length;i++){
-      if (i == res.currentTarget.id){
-        formats[i].checked=true;
-        price = formats[i].price;
-      }
-      else{
-        formats[i].checked = false;
-      }
-    }
-    this.setData({
-      formats:formats,
-      price:price
-    })
-  },
-  good_details_recommand_select:function(res){
-       console.log(res)
-       var that=this;
-       if (res.currentTarget.id == '1') {
-         that.setData({
-           detail_info_flag: true,
-           recommand_flag: false
-         })
-       }
-       else if (res.currentTarget.id == '2') {
-         that.setData({
-           detail_info_flag: false,
-           recommand_flag: true
-         })
-       }
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -165,6 +108,49 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    var product_id = app.globalData.good_detail_product_id
+    var allow_login_flag = app.globalData.allow_login_flag
+    console.log(product_id)
+    console.log(allow_login_flag)
+    if (allow_login_flag){
+      var user_id = app.globalData.user_id
+    }else{
+      user_id='none'
+    }
+    var that = this;
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_product_detailed_info/',
+      method: 'GET',
+      data: {
+        'product_id': 2,
+        'user_id': 1
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        console.log(res.data.detail_images)
+        if(res.data.ret=='succ'){
+          var good_info={}
+          good_info.top_images=res.data.top_images
+          good_info.detail_images=res.data.detail_images
+          good_info.product_name=decodeURI(res.data.name)
+          good_info.product_price = decodeURI(res.data.price)
+          good_info.brand_anme = decodeURI(res.data.brand_anme)
+          good_info.product_size = decodeURI(res.data.size)
+          good_info.product_color = decodeURI(res.data.color)
+          good_info.collect = res.data.collect
+          good_info.install = res.data.install
+          good_info.warranty = res.data.warranty
+         console.log(good_info)
+         that.setData({
+           good_info: good_info
+         })
+        }
+      }
+
+    })
   },
 
 

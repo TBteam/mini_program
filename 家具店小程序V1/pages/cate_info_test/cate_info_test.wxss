@@ -78,7 +78,7 @@
 }
 .brand_info_image_main{
   width: 96%;
-  height: 400rpx;
+  height: 540rpx;
   margin: auto;
 }
 .brand_info_image_size{
@@ -101,6 +101,10 @@
 .brand_info_K{
   width: 100%;
   height: 10rpx;
+}
+.brand_info_KK{
+  width: 100%;
+  height: 90rpx;
 }
 /************家装案例************/
 .case_item_KK{
@@ -330,7 +334,10 @@
   border-width:3rpx;
   border-color:gainsboro;
 }
-
+.all_product_bottom_K{
+  width: 100%;
+  height: 120rpx;
+}
 /*********底部分类选择框***********/
 .classfiy_select_main{
   width: 202rpx;
@@ -366,8 +373,7 @@
 }
 /*********底部场景选择框***********/
 .classfiy_select_main1{
-  width: 152rpx;
-  height: 320rpx;
+  width: 202rpx;
   position: fixed;
   bottom: 140rpx;
   border-top-style:solid;
@@ -377,11 +383,11 @@
   border-width:1rpx;
   border-color:#c7c7c7;
   border-radius: 10rpx;
-  margin-left: 300rpx;
+  margin-left: 275rpx;
   background-color: white
 }
 .classfiy_select_border_main1{
-  width: 150rpx;
+  width: 200rpx;
   height: 320rpx;
   
 }
@@ -392,7 +398,7 @@
 .classfiy_select_icon_size1{
   width: 50rpx;
   height: 30rpx;
-  margin-left: 55rpx;
+  margin-left: 75rpx;
   bottom: 114rpx;
   position: fixed;
 }
@@ -443,4 +449,29 @@
   height: 80rpx;
   margin-left: 10rpx;
   margin-top: 5rpx;
+}
+/***********加载更多***********/
+.add_more_main{
+  width: 300rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+  margin-left: 225rpx;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width: 1rpx;
+  border-color: white;
+  background-color: whitesmoke;
+  border-radius:40rpx ;
+  text-align: center;
+}
+.add_more_text_style{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  vertical-align: middle;
+  font-size: 30rpx;
+  font-family:"", Times, serif;
+  color: #9c9595
 }

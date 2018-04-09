@@ -21,7 +21,8 @@ App({
     all_price:[],
     all_style:[],
     all_house_style:[],
-    case_detail_case_id:1,
+    case_detail_case_id:0,
+    good_detail_product_id:0,
     },
 
   /************以下为自定义的登录函数***************/  

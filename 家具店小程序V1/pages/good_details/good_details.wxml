@@ -1,10 +1,9 @@
 <!--pages/good_detail/good_detail.wxml-->
 <view class='image_mian'>
    <swiper indicator-dots="true" class="image_mian1" circular="true" autoplay="true" interval="3000"  >
-    <block wx:for="{{imgUrls}}">
+    <block wx:for="{{good_info.top_images}}">
        <swiper-item>
-      <image wx:if='{{bottom_info_flag}}' src="{{item}}" mode='scaleToFill' class="top_image_size"  />
-      <image wx:if='{{!bottom_info_flag}}' src="{{item}}" mode='scaleToFill' class="top_image_size1"  />                                               
+      <image  src="{{item}}" mode='scaleToFill' class="top_image_size"  />                               
     </swiper-item>
     </block>
   </swiper>
@@ -98,7 +97,7 @@
 
 
 
-<view class="good_details_info_main" wx:for='{{imgUrls1}}'>
+<view class="good_details_info_main" wx:for='{{good_info.detail_images}}'>
           <view class='good_details_info_image_main'>
               <image src="{{item}}" mode='scaleToFill' class="good_details_info_image_main" />
           </view>
