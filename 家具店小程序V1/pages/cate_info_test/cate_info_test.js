@@ -358,6 +358,8 @@ Page({
        console.log('all_product')
        console.log(id)
        app.globalData.good_detail_product_id = all_products[id].product_id
+       console.log(all_products)
+       console.log(app.globalData.good_detail_product_id)
      } else if (res.currentTarget.dataset.product_style == 'new_product') {
        console.log('new_product')
        console.log(id)
@@ -417,28 +419,44 @@ Page({
       if (!all_good_more_flag){
         var all_good_page = that.data.all_good_page+1
         that.get_all_product_next_page(all_good_page)
+        that.setData({
+          all_good_page: all_good_page
+        })
         }
     } else if(all_good_flag && category_show_flag && !scene_show_flag){
       if (!category_good_more_flag) {
         var category_good_page = that.data.category_good_page + 1
         var cate_id = that.data.cate_id 
         that.get_category_product(cate_id,category_good_page)
+        that.setData({
+          category_good_page: category_good_page
+        })
       }
     } else if (all_good_flag && !category_show_flag && scene_show_flag) {
       if (!scene_good_more_flag) {
         var scene_good_page = that.data.scene_good_page + 1
         var scene_id = that.data.scene_id 
         that.get_scene_product(scene_id,scene_good_page)
+        that.setData({
+          scene_good_page: scene_good_page
+        })
       }
     }  else if (case_flag){
       console.log('case page')
       if (case_more_flag){
         var case_page=that.data.case_page+1
         that.get_case_next_page(case_page)
+        that.setData({
+          case_page: case_page
+        })
       }
     }else if (new_good_flag) {
-      if (!case_more_flag) {
-
+      if (!new_good_more_flag) {
+        var new_good_page = that.data.new_good_page + 1
+        that.get_new_product_next_page(new_good_page)
+        that.setData({
+          new_good_page: new_good_page
+        })
       }
     }
   },
@@ -622,6 +640,45 @@ Page({
        }
 
      })
+  },
+  get_new_product_next_page: function (page) {
+    var that = this
+    var page = page
+    var products = that.data.new_products
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_new_product_next_page/',
+      method: 'GET',
+      data: {
+        'page': page,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.ret == 'succ') {
+          if (res.data.products.length < 10) {
+            var new_good_more_flag = true
+          } else {
+            var new_good_more_flag = false
+          }
+          for (var i = 0; i < res.data.products.length; i++) {
+            var product = {}
+            product.product_name = decodeURI(res.data.products[i].product_name)
+            product.product_price = decodeURI(res.data.products[i].product_price)
+            product.product_id = res.data.products[i].product_id
+            product.item_image_url = res.data.products[i].product_item_url
+            products.push(product)
+          }
+          that.setData({
+            products: products,
+            new_good_more_flag: new_good_more_flag,
+            all_products: products
+          })
+        }
+      }
+
+    })
   },
   get_case_next_page: function (page) {
     var that = this

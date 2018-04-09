@@ -90,11 +90,62 @@ Page({
     text: "￥GU0z04gtxuO￥"
   },
   collect:function(){
-    var collect_flag = this.data.collect_flag;
-    collect_flag = !collect_flag
-    this.setData({
-      collect_flag: collect_flag
-    })
+    var that = this
+    var good_info = that.data.good_info;
+    var product_id = app.globalData.good_detail_product_id
+    var allow_login_flag = app.globalData.allow_login_flag
+    if (allow_login_flag){
+      var user_id = app.globalData.user_id
+      if (!good_info.collect){
+        wx.request({
+          url: 'https://32906079.jxggdxw.com/api/v1/collect_product/',
+          method: 'GET',
+          data: {
+            'product_id': product_id,
+            "user_id": user_id,
+          },
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res)
+            if(res.data.ret=='succ'){
+              good_info.collect=true
+              that.setData({
+                good_info: good_info
+              })
+            }
+          }
+        })
+      }else{
+        wx.request({
+          url: 'https://32906079.jxggdxw.com/api/v1/cancle_collect_product/',
+          method: 'GET',
+          data: {
+            'product_id': product_id,
+            "user_id": user_id,
+          },
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data.ret == 'succ') {
+              good_info.collect = false
+              that.setData({
+                good_info: good_info
+              })
+            }
+          }
+        })
+      }
+    }else{
+      wx.showToast({
+        title: '请登陆',
+        icon: 'none',
+        duration: 1500
+      })
+    }
   },
  
   /**
@@ -122,8 +173,8 @@ Page({
       url: 'https://32906079.jxggdxw.com/api/v1/get_product_detailed_info/',
       method: 'GET',
       data: {
-        'product_id': 2,
-        'user_id': 1
+        'product_id': product_id,
+        'user_id': user_id
       },
       header: {
         'content-type': 'application/json'
@@ -137,7 +188,7 @@ Page({
           good_info.detail_images=res.data.detail_images
           good_info.product_name=decodeURI(res.data.name)
           good_info.product_price = decodeURI(res.data.price)
-          good_info.brand_anme = decodeURI(res.data.brand_anme)
+          good_info.brand_name = decodeURI(res.data.brand_name)
           good_info.product_size = decodeURI(res.data.size)
           good_info.product_color = decodeURI(res.data.color)
           good_info.collect = res.data.collect

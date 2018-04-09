@@ -12,20 +12,20 @@
 <view class='good_name_price_collect_main'>
     <view class='good_name_price_main'>
        <view class='good_name_main'>
-           <text class='good_name_style'>商品名称商品名称商品名称商品名称商品名称商品名称</text>
+           <text class='good_name_style'>{{good_info.product_name}}</text>
        </view>
         <view class='good_new_price_main'>
-             <text class='good_new_price_style'>¥ {{price}}</text>
+             <text class='good_new_price_style'>¥ {{good_info.product_price}}</text>
         </view>
     </view>
     <view bindtap='collect'  class='good_collect_main'>
        <view class='good_collect_icon_main'>
-         <image wx:if='{{!collect_flag}}' bindtap='' mode='scaleToFill'  class="good_collect_icon_size" src="../photo/star1.png" background-size="cover"></image>
-         <image wx:if='{{collect_flag}}' bindtap='' mode='scaleToFill'  class="good_collect_icon_size" src="../photo/star.png" background-size="cover"></image>
+         <image wx:if='{{!good_info.collect}}' bindtap='' mode='scaleToFill'  class="good_collect_icon_size" src="../photo/star1.png" background-size="cover"></image>
+         <image wx:if='{{good_info.collect}}' bindtap='' mode='scaleToFill'  class="good_collect_icon_size" src="../photo/star.png" background-size="cover"></image>
        </view>
        <view class='good_collect_text_main'>
-           <text  wx:if='{{!collect_flag}}' class='good_collect_text_style_uncollect'>收藏</text>
-           <text  wx:if='{{collect_flag}}' class='good_collect_text_style_uncollect'>已收藏</text>
+           <text  wx:if='{{!good_info.collect}}' class='good_collect_text_style_uncollect'>收藏</text>
+           <text  wx:if='{{good_info.collect}}' class='good_collect_text_style_uncollect'>已收藏</text>
        </view>
     </view>
     
@@ -33,7 +33,7 @@
 <view class='K'></view>
 <view class='KK'></view>
 <view class='service_info_main'>
-    <view class='service_info_item_main'>
+    <view wx:if='{{good_info.install}}' class='service_info_item_main'>
         <view class='service_info_icon_main'>
            <image   mode='scaleToFill'  class="service_info_icon_size" src="../photo/correct.png" background-size="cover"></image>
         </view>
@@ -41,7 +41,7 @@
             <text class='service_info_text_style'>上门安装</text>
         </view>
     </view>
-    <view class='service_info_item_main'>
+    <view wx:if='{{good_info.warranty}}' class='service_info_item_main'>
         <view class='service_info_icon_main'>
            <image   mode='scaleToFill'  class="service_info_icon_size" src="../photo/correct.png" background-size="cover"></image>
         </view>
@@ -58,7 +58,7 @@
       <text class='good_info_item_title_style'>品牌</text>
    </view>
    <view class='good_info_item_text_main'>
-      <text class='good_info_item_text_style'>挪亚家D5</text>
+      <text class='good_info_item_text_style'>{{good_info.brand_name}}</text>
    </view>
 </view>
 <view class='good_info_line'></view>
@@ -68,7 +68,7 @@
       <text class='good_info_item_title_style'>尺寸</text>
    </view>
    <view class='good_info_item_text_main'>
-      <text class='good_info_item_text_style'>大致尺寸</text>
+      <text class='good_info_item_text_style'>{{good_info.product_size}}</text>
    </view>
 </view>
 <view class='good_info_line'></view>
@@ -78,7 +78,7 @@
       <text class='good_info_item_title_style'>颜色</text>
    </view>
    <view class='good_info_item_text_main'>
-      <text class='good_info_item_text_style'>红、蓝、白</text>
+      <text class='good_info_item_text_style'>{{good_info.product_color}}</text>
    </view>
 </view>
 <view class='good_info_line'></view>

@@ -102,12 +102,11 @@
                 </view>
                 -->
             </view>
-            
         </view>
         <view class='case_item_K'></view>
         </view>
         <view wx:if='{{case_flag}}'>
-            <view wx:if='{{case_more_flag}}'> 
+            <view wx:if='{{!case_more_flag}}'> 
                 <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
                     <text class='add_more_text_style'>加载更多. . .</text>
                 </view>
@@ -174,6 +173,8 @@
           </view>
         </view>
 </view>
+<view class='brand_info_K'></view>
+<view class='brand_info_K'></view>
 </view>
 <!--底部导航栏-->
 <view wx:if='{{all_good_flag}}'>

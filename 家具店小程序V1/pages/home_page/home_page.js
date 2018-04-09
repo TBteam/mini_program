@@ -40,45 +40,47 @@ Page({
     startmark: 0,
     endmark: 0,
     windowWidth: wx.getSystemInfoSync().windowWidth,
-    staus: 1,
     translate: '',
     item: ['1', '1', '1', '1', '1', '1', '1', '1', '1'],
     style:''
   },
   tap_ch: function (e) {
-    if (this.data.open) {
-      this.setData({
-        translate: 'transform: translateX(0px)'
-      })
-      this.data.open = false;
-      this.data.staus = 1
-    } else {
-      this.setData({
-        translate: 'transform: translateX(' + this.data.windowWidth * 0.6 + 'px)'
-      })
-      this.data.open = true;
-      this.data.staus = 2
+    var filter_is_open_flag = this.data.filter_is_open_flag
+    if (!filter_is_open_flag){
+      if (this.data.open) {
+        this.setData({
+          translate: 'transform: translateX(0px)'
+        })
+        this.data.open = false;
+      } else {
+        this.setData({
+          translate: 'transform: translateX(' + this.data.windowWidth * 0.6 + 'px)'
+        })
+        this.data.open = true;
+      }
     }
   },
   tap_start: function (e) {
-    this.data.mark = this.data.newmark = e.touches[0].pageX;
-    if (this.data.staus == 1) {
-      // staus = 1指默认状态
-      this.data.startmark = e.touches[0].pageX;
-    } else {
-      // staus = 2指屏幕滑动到右边的状态
-      this.data.startmark = e.touches[0].pageX;
+    var filter_is_open_flag = this.data.filter_is_open_flag
+    if (!filter_is_open_flag){
+      this.data.mark = this.data.newmark = e.touches[0].pageX;
+      if (!this.data.open) {
+        this.data.startmark = e.touches[0].pageX;
+      } else {
+        this.data.startmark = e.touches[0].pageX;
+      }
     }
-
   },
   tap_drag: function (e) {
     /*
      * 手指从左向右移动
      * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
      */
+    var filter_is_open_flag = this.data.filter_is_open_flag
+    if (!filter_is_open_flag) {
     this.data.newmark = e.touches[0].pageX;
     if (this.data.mark < this.data.newmark) {
-      if (this.data.staus == 1) {
+      if (!this.data.open ) {
         if (this.data.windowWidth * 0.6 > Math.abs(this.data.newmark - this.data.startmark)) {
           this.setData({
             translate: 'transform: translateX(' + (this.data.newmark - this.data.startmark) + 'px)'
@@ -87,7 +89,7 @@ Page({
           this.setData({
             translate: 'transform: translateX(' + this.data.windowWidth * 0.6 + 'px)'
           })
-          this.data.staus = 2;
+          this.data.open = true;
         }
       }
 
@@ -97,11 +99,11 @@ Page({
      * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
      */
     if (this.data.mark > this.data.newmark) {
-      if (this.data.staus == 1 && (this.data.newmark - this.data.startmark) > 0) {
+      if (!this.data.open  && (this.data.newmark - this.data.startmark) > 0) {
         this.setData({
           translate: 'transform: translateX(' + (this.data.newmark - this.data.startmark) + 'px)'
         })
-      } else if (this.data.staus == 2 && this.data.startmark - this.data.newmark < this.data.windowWidth * 0.6) {
+      } else if (this.data.open  && this.data.startmark - this.data.newmark < this.data.windowWidth * 0.6) {
         this.setData({
           translate: 'transform: translateX(' + (this.data.newmark + this.data.windowWidth * 0.6 - this.data.startmark) + 'px)'
         })
@@ -109,27 +111,29 @@ Page({
 
     }
     this.data.mark = this.data.newmark;
-
+    }
   },
   tap_end: function (e) {
+    var filter_is_open_flag = this.data.filter_is_open_flag
+    if (!filter_is_open_flag) {
     console.log(e)
     if (this.data.startmark > this.data.newmark){
       this.setData({
         translate: 'transform: translateX(0px)',
       })
-      this.data.staus = 1;
+      this.data.open = false;
     }
-    else if (this.data.staus == 1 && this.data.startmark < this.data.newmark){
+    else if (!this.data.open && this.data.startmark < this.data.newmark){
       if (Math.abs(this.data.newmark - this.data.startmark) < (this.data.windowWidth * 0.15)) {
         this.setData({
           translate: 'transform: translateX(0px)'
         })
-        this.data.staus = 1;
+        this.data.open = false;
       } else {
         this.setData({
           translate: 'transform: translateX(' + this.data.windowWidth * 0.6 + 'px)'
         })
-        this.data.staus = 2;
+        this.data.open = true;
       }
     }
     /*
@@ -162,6 +166,7 @@ Page({
 
     this.data.mark = 0;
     this.data.newmark = 0;
+    }
   },
   add_more:function(){
     var that=this
@@ -645,12 +650,15 @@ back_top:function(e){
         var cases=that.data.cases
         app.globalData.case_detail_case_id = cases[case_id].case_id
         console.log(app.globalData.case_detail_case_id)
-      wx.navigateTo({
-        url: '../case_detail/case_detail',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-        })
+        var open = that.data.open
+        if (!open){
+          wx.navigateTo({
+            url: '../case_detail/case_detail',
+            success: function (res) { },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+        }
       }
     }
   },

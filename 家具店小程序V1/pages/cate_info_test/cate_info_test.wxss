@@ -229,9 +229,8 @@
   width: 356rpx;
   margin-top: 10rpx;
   margin-left: 14rpx;
-  background-color: white;
+  background-color: whitesmoke
 }
-
 .image{
   width: 100%;
   height: 267rpx;
