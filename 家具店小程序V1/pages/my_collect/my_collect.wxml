@@ -21,17 +21,22 @@
 <!--商品-->
 <view wx:if='{{collect_good_flag}}'>
 <view class='main'>
-    <view wx:for='{{goods}}'>
-        <view class='good_mian_left' bindtap='bindtap'>
-            <image class="image" src="../photo/NORYA2.jpg"  ></image>
+    <view wx:for='{{collect_good}}'>
+        <view class='good_mian_left' bindtap='good_detail' id='{{index}}'>
+            <image class="image" src="{{item.item_image_url}}"  ></image>
             <view class='name_text'>
-                 <text class='name_text_style'> 商品名称</text>
+                 <text class='name_text_style'>{{item.product_name}}</text>
             </view>
             <view class='old_price'>
-                 <text class='old_price_style'>¥ 78</text>
+                 <text class='old_price_style'>¥ {{item.product_price}}</text>
             </view>    
         </view>
    </view>
+   <view wx:if='{{!collect_good_more_flag}}'> 
+                <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
+                    <text class='add_more_text_style'>加载更多. . .</text>
+                </view>
+    </view>
 </view>
 </view>
 
@@ -41,34 +46,38 @@
 <view class='case_item_K'></view>
 <view class='case_item_K'></view>
 <view class='case_item_KK'></view>
- <view wx:for="{{item}}">
-        
+ <view  wx:if='{{collect_case_flag}}' wx:for="{{collect_case}}">
         <view class='case_item_main'>
-            <view bindtap='bintap' id='2' class='case_item_image_main'>
-                 <image mode='scaleToFill'  class="case_item_image_size" src="../photo/NORYA1.jpg" background-size="cover"></image>
+            <view bindtap='bintap' id='2' data-case_id="{{index}}"  class='case_item_image_main'>
+                 <image mode='scaleToFill'  class="case_item_image_size" src="{{item.item_imgae_url}}" background-size="cover"></image>
             </view>
             <view class='case_item_text_main'>
                 <view class='case_item_text_left_main'>
                      <view class='case_item_text_title_main'>
-                         <text class='case_item_text_title_style'>中式简装</text>
+                         <text class='case_item_text_title_style'>{{item.name}}</text>
                      </view>
                      <view class='case_item_text_info_main'>
-                         <text class='case_item_text_info_style1'>90-120平米</text>
+                         <text class='case_item_text_info_style1'>{{item.area_name}}</text>
                          <text class='case_item_text_info_style2'>|</text>
-                         <text class='case_item_text_info_style2'>三居室</text>
+                         <text class='case_item_text_info_style2'>{{item.house_style_name}}</text>
                          <text class='case_item_text_info_style2'>|</text>
-                         <text class='case_item_text_info_style3'>8万左右</text>
+                         <text class='case_item_text_info_style3'>{{item.price_name}}</text>
                      </view>
                 </view>
-                <view bindtap='bintap' id='1' class='case_item_text_right_main'>
+                <view bindtap='bintap' id='1' data-case_id="{{index}}"  class='case_item_text_right_main'>
                     <view class='case_item_brand_image_main'>
-                        <image mode='aspectFit'  class="case_item_brand_image_size" src="../photo/NORYA_selected.jpg" background-size="cover"></image>
+                        <image mode='aspectFit'  class="case_item_brand_image_size" src="{{item.brand_logo}}" background-size="cover"></image>
                     </view>
                     <view class='case_item_brand_name_main'>
-                         <text class='case_item_brand_name_style'>挪亚家D5</text>
+                         <text class='case_item_brand_name_style'>{{item.brand_name}}</text>
                      </view>
                 </view>
             </view>
         </view>
         <view class='case_item_K'></view>
+        <view wx:if='{{!collect_case_more_flag}}'> 
+                <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
+                    <text class='add_more_text_style'>加载更多. . .</text>
+                </view>
+        </view>
 </view>

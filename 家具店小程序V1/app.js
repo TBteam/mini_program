@@ -23,6 +23,7 @@ App({
     all_house_style:[],
     case_detail_case_id:0,
     good_detail_product_id:0,
+    case_detail_is_show_brand_info:false
     },
 
   /************以下为自定义的登录函数***************/  

@@ -1,27 +1,20 @@
 var app=getApp()
-//  function login_first() {
-//   var that = this;
-//   wx.getUserInfo({
-//     success: function (res) {
-//       console.log('用户允许获取信息')
-//       console.log(res)
-//       app.globalData.allow_login_flag = true;
-//       app.globalData.userInfo = res.userInfo
-//       wx.checkSession({
-//         success: function () {
-//           app.login_upload_session()
-//         },
-//         fail: function () {
-//           app.login_upload_code();
-//         }
-//       })
-//     },
-//     fail: function () {
-//       app.globalData.allow_login_flag = false;
-//       console.log('用户不允许获取信息')
-//     }
-//   })
-// }
+function Login() {
+  var that = this;
+  wx.getUserInfo({
+    success: function (res) {
+      console.log('用户允许获取信息')
+      console.log(res)
+      app.globalData.userInfo = res.userInfo
+      console.log(app.globalData.userInfo )
+      that.login_upload_code1();
+    },
+    fail: function () {
+      app.globalData.allow_login_flag = false;
+      console.log('用户不允许获取信息')
+    }
+  })
+}
 function login_upload_code() {
   var code
   var that = this
@@ -40,17 +33,60 @@ function login_upload_code() {
         },
         success: function (res) {
           console.log(res)
-          var session = res.data.cookie
-          app.globalData.user_id = res.data.user_id
-          try {
-            wx.setStorageSync('session', session)
-          } catch (e) {
-          }
+
+            var session = res.data.cookie
+            app.globalData.user_id = res.data.user_id
+            app.globalData.allow_login_flag = true;
+            try {
+              wx.setStorageSync('session', session)
+            } catch (e) {
+            }
+          
         }
       })
     }
   })
 }
+
+function login_upload_code1() {
+  var code
+  var that = this
+  wx.login({
+    success: function (res) {
+      console.log(res)
+      code = res.code
+      wx.request({
+        url: 'https://32906079.jxggdxw.com/api/v1/webapp_login/',
+        method: 'POST',
+        data: {
+          "code": code
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res)
+            console.log('login succ')
+            var session = res.data.cookie
+            app.globalData.user_id = res.data.user_id
+            console.log(app.globalData.user_id)
+            app.globalData.allow_login_flag = true;
+            wx.showToast({
+              title: '登录成功',
+              icon: 'success',
+              duration: 1500
+            })
+            try {
+              wx.setStorageSync('session', session)
+            } catch (e) {
+            }
+          
+        }
+      })
+    }
+  })
+}
+
 function login_upload_session() {
   var that = this
   try {
@@ -71,6 +107,7 @@ function login_upload_session() {
             that.login_upload_code()
           } else if (res.data.ret == 'succ') {
             app.globalData.user_id = res.data.user_id
+            app.globalData.allow_login_flag = true;
           }
         }
       })
@@ -86,6 +123,7 @@ function login_upload_session() {
 }
 
 
-//module.exports.login_first = login_first
+module.exports.Login = Login
 module.exports.login_upload_code = login_upload_code
+module.exports.login_upload_code1 = login_upload_code1
 module.exports.login_upload_session = login_upload_session

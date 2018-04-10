@@ -1,5 +1,6 @@
 // pages/case_detail/case_detail.js
 var app=getApp()
+var login = require('../../utils/login.js');
 Page({
 
   /**
@@ -9,6 +10,7 @@ Page({
     collect_flag:false,
     brand_info:'',
     case_info:'',
+    show_brand_info:false
   },
   desinger_info: function () {
     wx.navigateTo({
@@ -72,11 +74,12 @@ Page({
         })
       }
     }else{
-      wx.showToast({
-        title: '请登陆',
-        icon: 'none',
-        duration: 1500
-      })
+      that.show_login()
+      // wx.showToast({
+      //   title: '请登陆',
+      //   icon: 'none',
+      //   duration: 1500
+      // })
     }
   },
   enter_brand:function(){
@@ -106,6 +109,15 @@ Page({
     var case_info={}
     console.log(app.globalData.case_detail_case_id)
     var case_id = app.globalData.case_detail_case_id
+    var show_brand_info = app.globalData.case_detail_is_show_brand_info
+    if (case_id == 0) {
+      wx.redirectTo({
+        url: '../home_page/home_page',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
      console.log(case_id)
      var allow_login_flag = app.globalData.allow_login_flag
      var user_id 
@@ -128,34 +140,42 @@ Page({
        },
        success: function (res) {
          console.log(res)
-         brand_info.brand_name = decodeURI(res.data.brand_name)
-         brand_info.shop_name=decodeURI(res.data.brand_info.shop_name)
-         brand_info.brand_logo=res.data.brand_info.logo
-         brand_info.description=decodeURI(res.data.brand_info.description)
-         brand_info.brand_id=res.data.brand_info.brand_id
-         case_info.case_name=decodeURI(res.data.case_name)
-         case_info.collect=res.data.collect
-         var case_pics=[]
-         for(var i=0;i<res.data.case_pics.length;i++){
-           var pic={}
-           pic.url=res.data.case_pics[i].url
-           pic.text = decodeURI(res.data.case_pics[i].text)
-           case_pics.push(pic)
+         if(res.data.ret=='succ'){
+           brand_info.brand_name = decodeURI(res.data.brand_name)
+           brand_info.shop_name = decodeURI(res.data.brand_info.shop_name)
+           brand_info.brand_logo = res.data.brand_info.logo
+           brand_info.description = decodeURI(res.data.brand_info.description)
+           brand_info.brand_id = res.data.brand_info.brand_id
+           case_info.case_name = decodeURI(res.data.case_name)
+           case_info.collect = res.data.collect
+           var case_pics = []
+           for (var i = 0; i < res.data.case_pics.length; i++) {
+             var pic = {}
+             pic.url = res.data.case_pics[i].url
+             pic.text = decodeURI(res.data.case_pics[i].text)
+             case_pics.push(pic)
+           }
+           case_info.pics = case_pics
+           console.log(case_info)
+           console.log(brand_info)
+           that.setData({
+             brand_info: brand_info,
+             case_info: case_info,
+             show_brand_info: show_brand_info
+           })
+           wx.showLoading({
+             title: '加载中',
+             mask: true
+           })
+           setTimeout(function () {
+             wx.hideLoading()
+           }, 2000)
+         } else if (res.data.ret == 'fail') {
+           wx.navigateBack({
+             delta: 1
+           })
          }
-         case_info.pics=case_pics
-         console.log(case_info)
-         console.log(brand_info)
-         that.setData({
-           brand_info: brand_info,
-           case_info: case_info
-         })
-         wx.showLoading({
-           title: '加载中',
-           mask: true
-         })
-         setTimeout(function () {
-           wx.hideLoading()
-         }, 2000)
+         
 
        }
 
@@ -202,5 +222,40 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  show_login:function(){
+    wx.showModal({
+      title: '请登录',
+     // content: '这是一个模态弹窗',
+      success: function (res) {
+        if (res.confirm) {
+          var that = this;
+          wx.openSetting({
+            success: function (res) {
+              console.log(res)
+              console.log(res.authSetting["scope.userInfo"])
+              if (res.authSetting["scope.userInfo"]) {
+                wx.getUserInfo({
+                  success: function (res) {
+                    console.log('用户允许获取信息')
+                    console.log(res)
+                    app.globalData.allow_login_flag = true;
+                    app.globalData.userInfo = res.userInfo
+                    login.Login()
+                  },
+                  fail: function () {
+                    app.globalData.allow_login_flag = false;
+                    console.log('用户不允许获取信息')
+                  }
+
+                })
+              }
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   }
 })

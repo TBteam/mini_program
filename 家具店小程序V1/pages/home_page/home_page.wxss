@@ -546,3 +546,7 @@
   font-family:"", Times, serif;
   color: white
 }
+.filter_bottom_K{
+  width: 100%;
+  height: 150rpx;
+}

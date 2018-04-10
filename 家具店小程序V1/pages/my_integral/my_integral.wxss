@@ -4,19 +4,19 @@ page{
 }
 .my_integral_main{
   width: 100%;
-  height: 400rpx;
+  height: 350rpx;
   display: flex;
   background-color: #fc5874;
 }
 .my_integral_left_main{
   width: 60%;
-  height: 400rpx;
+  height: 350rpx;
   background-color: #fc5874;
 }
 .my_integral_number_tltle{
   width: 100%;
   height: 60rpx;
-  padding-top: 50rpx;
+  padding-top: 65rpx;
 }
 .my_integral_number_title_style{
   font-size: 40rpx;
@@ -44,7 +44,7 @@ page{
   font-size: 120rpx;
   font-family:"", Times, serif; 
   color: white;
-  margin-left: 50rpx;
+  margin-left: 80rpx;
 }
 .my_integral_K{
   width: 100%;
@@ -70,13 +70,13 @@ page{
 }
 .me_info_image_main{
   width: 100%;
-  height: 150rpx;
-  margin-top: 50rpx;
+  height: 180rpx;
+  margin-top: 60rpx;
   background-color: #fc5874;
 }
 .me_info_image_size{
-  width: 150rpx;
-  height: 150rpx;
+  width: 180rpx;
+  height: 180rpx;
   border-radius: 50%;
   margin-left: 75rpx;
 }

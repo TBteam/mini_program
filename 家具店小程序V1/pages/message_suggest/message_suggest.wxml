@@ -3,10 +3,10 @@
 <view class='line'></view>
 <view class='apply_info_item_main'>
     <view class='apply_info_item_title_main'>
-        <text class='apply_info_item_title_text_style'>姓名</text>
+        <text class='apply_info_item_title_text_style' >姓名</text>
     </view>
     <view class='apply_info_item_input_main'>
-        <input placeholder='请输入您的姓名'  class='apply_info_item_input_style' ></input>
+        <input placeholder='请输入您的姓名' bindblur='input' id='1'    class='apply_info_item_input_style' ></input>
     </view>
     <view class='apply_info_right_icon_main'>
         <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
@@ -21,7 +21,7 @@
         <text class='apply_info_item_title_text_style'>联系方式</text>
     </view>
     <view class='apply_info_item_input_main'>
-        <input placeholder='请输入您的联系方式'  class='apply_info_item_input_style' ></input>
+        <input placeholder='请输入您的联系方式' bindblur='input' id='2'    class='apply_info_item_input_style' ></input>
     </view>
     <view class='apply_info_right_icon_main'>
         <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
@@ -34,7 +34,7 @@
 <view class='line'></view>
 <view class='message_main'>
    <view class='message_input_size'>
-      <textarea placeholder='请输入您的建议或留言'  class='message_input_style'></textarea>
+      <textarea placeholder='请输入您的建议或留言' bindblur='input' id='3'   class='message_input_style'></textarea>
    </view>  
 </view>
 <view class='line'></view>
@@ -43,13 +43,13 @@
 <view class='line'></view>
 <view class='message_main'>
    <view class='message_input_size'>
-      <textarea placeholder='请输入您的备注信息(选填)'  class='message_input_style'></textarea>
+      <textarea placeholder='请输入您的备注信息(选填)' bindblur='input' id='4'    class='message_input_style'></textarea>
    </view>  
 </view>
 <view class='line'></view>
 
 <view class='apply_button_main'>
-   <view class='apply_button_size'>
+   <view bindtap='submit' class='apply_button_size'>
       <text class='apply_button_style'>提交</text>
    </view>
 </view>

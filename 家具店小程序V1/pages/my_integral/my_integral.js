@@ -14,7 +14,8 @@ Page({
       '2、积分获取规则，积分获取规则，积分获取规则，积分获取规则，积分获取规则',
       '3、积分获取规则，积分获取规则，积分获取规则，积分获取规则，积分获取规则'
     ],
-    user_wechat_info:''
+    user_wechat_info:'',
+    my_integral:0
   },
 
   /**
@@ -28,10 +29,33 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.setData({
-      allow_login_flag: app.globalData.allow_login_flag,
-      user_wechat_info: app.globalData.userInfo
-    })
+    var that=this
+    var user_id = app.globalData.user_id 
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_user_integrate/',
+      method: 'GET',
+      data: {
+        "user_id": user_id,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        if(res.data.ret=='succ'){
+          var my_integral = res.data.integrate
+          that.setData({
+            allow_login_flag: app.globalData.allow_login_flag,
+            user_wechat_info: app.globalData.userInfo,
+            my_integral: my_integral
+          })
+        } else if (res.data.ret == 'fail' && page == 0) {
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      }
+    })  
   },
   integral_detail:function(){
     wx.navigateTo({

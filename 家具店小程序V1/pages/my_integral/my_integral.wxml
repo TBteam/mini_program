@@ -2,14 +2,16 @@
 <view class='my_integral_main'>
   <view class='my_integral_left_main'>
     <view class='my_integral_number_tltle'>
-       <text class='my_integral_number_title_style'>今日获得积分:</text>
+       <text class='my_integral_number_title_style'>我的积分:</text>
     </view>
     <view class='my_integral_number_main'>
-        <text class='my_integral_number_style'>+5</text>
+        <text class='my_integral_number_style'>{{my_integral}}</text>
     </view>
+    <!--
     <view class='my_integral_number_tltle1'>
        <text class='my_integral_number_title_style1'>总积分:320</text>
     </view>
+    -->
   </view>
   <view class='my_integral_right_main'>
      <view class='me_info_image_main'>
@@ -18,9 +20,11 @@
      <view class='me_info_name_main'>
          <text class='me_info_name_style'>{{user_wechat_info.nickName}}</text>
      </view>
+     <!--
      <view class='integral_detail_main' bindtap='integral_detail'>
         <text class='integral_detail_style'>积分明细</text>
      </view>
+     -->
   </view>  
 </view>
 

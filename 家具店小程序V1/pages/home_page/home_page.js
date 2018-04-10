@@ -20,6 +20,7 @@ Page({
     all_price:[],
     all_style:[],
     all_house_style:[],
+    all_brand: ['品牌1', '品牌1', '品牌1', '品牌1', '品牌1', '品牌1'],
     cases:[],
     new_case_page:0,
     hot_case_page:0,
@@ -602,16 +603,9 @@ back_top:function(e){
               app.globalData.allow_login_flag = true;
               app.globalData.userInfo = res.userInfo
               that.setData({
-                allow_login_flag: app.globalData.allow_login_flag,
                 user_wechat_info: app.globalData.userInfo,
-                user_allow_login: true,
               })
-              wx.checkSession({
-                success: function () {
-                },
-                fail: function () {
-                }
-              })
+              that.login_first()
             },
             fail: function () {
               app.globalData.allow_login_flag = false;
@@ -649,6 +643,7 @@ back_top:function(e){
         var case_id = res.currentTarget.dataset.case_id
         var cases=that.data.cases
         app.globalData.case_detail_case_id = cases[case_id].case_id
+        app.globalData.case_detail_is_show_brand_info=true
         console.log(app.globalData.case_detail_case_id)
         var open = that.data.open
         if (!open){
@@ -664,13 +659,22 @@ back_top:function(e){
   },
   me_bintap:function(res){
     var that = this;
+    var allow_login_flag = app.globalData.allow_login_flag
     if (res.currentTarget.id == '1') {
-      wx.navigateTo({
-        url: '../my_collect/my_collect',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
+      if (allow_login_flag){
+        wx.navigateTo({
+          url: '../my_collect/my_collect',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      } else {
+        wx.showToast({
+          title: '请登陆',
+          icon: 'none',
+          duration: 1500
+        })
+      }
     } else if (res.currentTarget.id == '2') {
       wx.navigateTo({
         url: '../coupons_center/coupons_center',
@@ -679,12 +683,20 @@ back_top:function(e){
         complete: function (res) { },
       })
     } else if (res.currentTarget.id == '3') {
-      wx.navigateTo({
-        url: '../my_integral/my_integral',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
+      if (allow_login_flag){
+        wx.navigateTo({
+          url: '../my_integral/my_integral',
+          success: function (res) { },
+          fail: function (res) { },
+          complete: function (res) { },
+        })
+      } else {
+        wx.showToast({
+          title: '请登陆',
+          icon: 'none',
+          duration: 1500
+        })
+      }
     } else if (res.currentTarget.id == '4') {
       wx.navigateTo({
         url: '../apply_enter/apply_enter',
@@ -713,7 +725,13 @@ back_top:function(e){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log('onshow')
+    console.log(app.globalData.userInfo)
+    console.log(app.globalData.user_id)
+     this.setData({
+       user_wechat_info: app.globalData.userInfo,
+       user_allow_login: app.globalData.allow_login_flag
+     })
   },
 
   /**
@@ -757,7 +775,6 @@ back_top:function(e){
       success: function (res) {
         console.log('用户允许获取信息')
         console.log(res)
-        app.globalData.allow_login_flag = true;
         app.globalData.userInfo = res.userInfo
         wx.checkSession({
           success: function () {

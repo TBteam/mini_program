@@ -23,56 +23,55 @@
             </view>
             <view class='me_item_line'></view>
 
-            <view class='me_item_main' >
+            <view class='me_item_main' bindtap='me_bintap' id='2' >
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size_font" src="../photo/font.png" background-size="cover"></image>
                   </view>
-                  <view bindtap='me_bintap' id='2'   class='me_item_text_main'>
+                  <view    class='me_item_text_main'>
                        <text class='me_item_text_style'>我的优惠券</text>
                   </view>
             </view>
             <view class='me_item_line'></view>
 
-            <view class='me_item_main' bindtap='my_collect'>
+            <view class='me_item_main' bindtap='me_bintap' id='3' >
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/integral.png" background-size="cover"></image>
                   </view>
-                  <view bindtap='me_bintap' id='3' class='me_item_text_main'>
+                  <view  class='me_item_text_main'>
                        <text class='me_item_text_style'>我的积分</text>
                   </view>
             </view>
             <view class='me_item_line'></view>
 
-            <view class='me_item_main' bindtap='my_collect'>
+            <view class='me_item_main' bindtap='me_bintap' id='4'>
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/apply.png" background-size="cover"></image>
                   </view>
-                  <view bindtap='me_bintap' id='4' class='me_item_text_main'>
+                  <view  class='me_item_text_main'>
                        <text class='me_item_text_style'>申请入驻</text>
                   </view>
             </view>
             <view class='me_item_line'></view>
 
-            <view class='me_item_main' bindtap='my_collect'>
+            <view class='me_item_main' bindtap='me_bintap' id='5' >
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/message.png" background-size="cover"></image>
                   </view>
-                  <view bindtap='me_bintap' id='5' class='me_item_text_main'>
+                  <view class='me_item_text_main'>
                        <text class='me_item_text_style'>留言建议</text>
                   </view>
             </view>
             <view class='me_item_line'></view>
 
-            <view class='me_item_main' bindtap='my_collect'>
+            <view class='me_item_main' bindtap='me_bintap' id='6'>
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/about_us.png" background-size="cover"></image>
                   </view>
-                  <view bindtap='me_bintap' id='6' class='me_item_text_main'>
+                  <view  class='me_item_text_main'>
                        <text class='me_item_text_style'>关于我们</text>
                   </view>
             </view>
             <view class='me_item_line'></view>
-            
         </view> 
     </view>  
     <view class="top "  bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style="{{translate}}" >  
@@ -218,6 +217,23 @@
 
 <!--筛选-->
 <view wx:if="{{filter_is_open_flag}}" class='filter_main'>
+    <scroll-view scroll-y style='{{style}}'>
+       <view class='filter_title_main'>
+           <view bindtap=''  class='filter_title_text_main'>
+               <text class='filter_title_text_style'>品牌</text>
+           </view>
+       </view>
+       <view class='filter_select_main'>
+           <view wx:for="{{all_brand}}">
+               <view wx:if="{{!item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="five" class='filter_select_item_border'>
+                   <text class='filter_select_item_text_style'>{{item}}</text>
+               </view>
+               <view wx:if="{{item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="five"  class='filter_select_item_border_checked'>
+                   <text class='filter_select_item_text_style_checked'>{{item}}</text>
+               </view>
+           </view>
+       </view>
+       
        <view class='filter_title_main'>
            <view bindtap=''  class='filter_title_text_main'>
                <text class='filter_title_text_style'>价格区间</text>
@@ -281,7 +297,9 @@
                </view>
            </view>
        </view>
-       
+       <view class='filter_bottom_K'></view>
+    </scroll-view>
+
        <view class='filter_button_main'>
           <view bindtap='reset_ensure' data-type="reset" class='filter_button_border'>
               <text class='filter_button_text'>重置</text>

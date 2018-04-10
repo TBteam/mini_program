@@ -161,6 +161,14 @@ Page({
   onReady: function () {
     var product_id = app.globalData.good_detail_product_id
     var allow_login_flag = app.globalData.allow_login_flag
+    if (product_id == 0) {
+      wx.redirectTo({
+        url: '../home_page/home_page',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
     console.log(product_id)
     console.log(allow_login_flag)
     if (allow_login_flag){
@@ -198,6 +206,10 @@ Page({
          that.setData({
            good_info: good_info
          })
+        }else if(res.data.ret=='fail'){
+          wx.navigateBack({
+            delta: 1
+          })
         }
       }
 

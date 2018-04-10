@@ -44,7 +44,7 @@
 </view>
 -->
 <view class='brand_info_KK'></view>
-<view wx:for='{{brand_info}}' wx:ker='key'>
+<view wx:for='{{brand_info}}' wx:key='key' >
 <view class='brand_info_image_main'>
     <image class="brand_info_image_size" src="{{item.brand_image_url}}"></image>
 </view>
@@ -71,9 +71,10 @@
 </view>
 <!--家装案例-->
 <view class='case_main' wx:if='{{case_flag}}'>
+<view class='case_item_K'></view>
 <view wx:for="{{cases}}">
-        <view class='case_item_main'>
-            <view bindtap='bintap' id='2' class='case_item_image_main'>
+        <view bindtap='case_detail' id='{{index}}' class='case_item_main'>
+            <view  class='case_item_image_main'>
                  <image mode='scaleToFill'  class="case_item_image_size" src="{{item.item_imgae_url}}" ></image>
             </view>
             

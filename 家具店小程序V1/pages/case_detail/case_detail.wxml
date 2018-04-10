@@ -34,9 +34,9 @@
     <view class='KKKKK'></view>
   </view>
 
-<view class='bottom_K'></view>
+<view wx:if='{{show_brand_info}}' class='bottom_K'></view>
 
-<view class='brand_info_main'>
+<view wx:if='{{show_brand_info}}' class='brand_info_main'>
     <view class='brand_info_image_main'>
         <view class='brand_info_image_style'>
             <image mode='aspectFit'  class="brand_info_image_size" src="{{brand_info.brand_logo}}" background-size="cover"></image>

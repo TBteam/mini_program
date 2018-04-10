@@ -372,6 +372,23 @@ Page({
       complete: function (res) { },
     })
   },
+  case_detail:function(res){
+      console.log(res)
+      var that=this
+      var cases = that.data.cases
+      var id = res.currentTarget.id
+      var case_id = cases[id].case_id
+      console.log(case_id)
+      app.globalData.case_detail_case_id = case_id
+      app.globalData.case_detail_is_show_brand_info = false
+      console.log(app.globalData.case_detail_case_id)
+      wx.navigateTo({
+        url: '../case_detail/case_detail',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+  },
   category_bintap:function(res){
     var that=this;
     var categorys = that.data.categorys
@@ -702,6 +719,11 @@ Page({
       success: function (res) {
         console.log(res)
         if(res.data.ret=='succ'){
+          if (res.data.cases.length < 10) {
+            var case_more_flag = true
+          } else {
+            var case_more_flag = false
+          }
           for (var i = 0; i < res.data.cases.length; i++) {
             var case_info = {}
             case_info.name = decodeURI(res.data.cases[i].case_name)
@@ -729,6 +751,10 @@ Page({
               }
             }
             cases.push(case_info)
+            that.setData({
+              cases: cases,
+              case_more_flag: case_more_flag
+            })
           }
           console.log(cases)
         }
