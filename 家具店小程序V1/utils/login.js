@@ -121,9 +121,28 @@ function login_upload_session() {
     console.log('获取错误')
   }
 }
-
+function share_succ(){
+  var allow_login_flag = app.globalData.allow_login_flag
+  if (allow_login_flag){
+    var user_id = app.globalData.user_id
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/share_succ/',
+      method: 'GET',
+      data: {
+        "user_id": user_id,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  }
+}
 
 module.exports.Login = Login
 module.exports.login_upload_code = login_upload_code
 module.exports.login_upload_code1 = login_upload_code1
 module.exports.login_upload_session = login_upload_session
+module.exports.share_succ = share_succ

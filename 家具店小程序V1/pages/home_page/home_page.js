@@ -549,26 +549,31 @@ back_top:function(e){
           case_info.brand_id = res.data.cases[i].brand_id
           case_info.item_imgae_url = res.data.cases[i].item_image_url
           case_info.brand_logo = res.data.cases[i].brand_logo
-          console.log(res.data.cases[i].area_id)
-          console.log(all_area[2].name)
-          for(var j=0;j<all_area.length;j++){
-            if (all_area[j].id == res.data.cases[i].area_id){
-              case_info.area_name = all_area[j].name
-              case_info.area_id = all_area[j].id
-            }
-          }
-          for (var j = 0; j < all_price.length; j++) {
-            if (all_price[j].id == res.data.cases[i].price_id) {
-              case_info.price_name = all_price[j].name
-              case_info.price_id = all_price[j].id
-            }
-          }
-          for (var j = 0; j < all_house_style.length; j++) {
-            if (all_house_style[j].id == res.data.cases[i].house_style_id) {
-              case_info.house_style_name = all_house_style[j].name
-              case_info.house_style_id = all_house_style[j].id
-            }
-          }
+          case_info.area_name = decodeURI(res.data.cases[i].area_name) 
+          case_info.area_id = res.data.cases[i].area_id
+          case_info.price_name = decodeURI(res.data.cases[i].price_name)
+          case_info.price_id = res.data.cases[i].price_id
+          case_info.house_style_name = decodeURI(res.data.cases[i].house_style_name)
+          case_info.house_style_id = res.data.cases[i].house_style_id
+
+          // for(var j=0;j<all_area.length;j++){
+          //   if (all_area[j].id == res.data.cases[i].area_id){
+          //     case_info.area_name = all_area[j].name
+          //     case_info.area_id = all_area[j].id
+          //   }
+          // }
+          // for (var j = 0; j < all_price.length; j++) {
+          //   if (all_price[j].id == res.data.cases[i].price_id) {
+          //     case_info.price_name = all_price[j].name
+          //     case_info.price_id = all_price[j].id
+          //   }
+          // }
+          // for (var j = 0; j < all_house_style.length; j++) {
+          //   if (all_house_style[j].id == res.data.cases[i].house_style_id) {
+          //     case_info.house_style_name = all_house_style[j].name
+          //     case_info.house_style_id = all_house_style[j].id
+          //   }
+          // }
           cases.push(case_info)
         }
         console.log(cases)
@@ -766,7 +771,19 @@ back_top:function(e){
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '平台名称',
+      path: '/pages/home_page/home_page',
+      success: function (res) {
+        // 转发成功
+        console.log(res)
+        login.share_succ()
+
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
   /***登陆***/
   login_first: function () {
@@ -801,10 +818,6 @@ back_top:function(e){
   get_new_case:function(page){
      var that=this
      var page=page
-     var all_area = app.globalData.all_area
-     var all_style = app.globalData.all_style
-     var all_house_style = app.globalData.all_house_style
-     var all_price = app.globalData.all_price
      var new_case_more_flag = that.data.new_case_more_flag
      wx.request({
        url: 'https://32906079.jxggdxw.com/api/v1/get_new_case/',
@@ -830,26 +843,12 @@ back_top:function(e){
              case_info.brand_id = res.data.cases[i].brand_id
              case_info.item_imgae_url = res.data.cases[i].item_image_url
              case_info.brand_logo = res.data.cases[i].brand_logo
-             console.log(res.data.cases[i].area_id)
-             console.log(all_area[2].name)
-             for (var j = 0; j < all_area.length; j++) {
-               if (all_area[j].id == res.data.cases[i].area_id) {
-                 case_info.area_name = all_area[j].name
-                 case_info.area_id = all_area[j].id
-               }
-             }
-             for (var j = 0; j < all_price.length; j++) {
-               if (all_price[j].id == res.data.cases[i].price_id) {
-                 case_info.price_name = all_price[j].name
-                 case_info.price_id = all_price[j].id
-               }
-             }
-             for (var j = 0; j < all_house_style.length; j++) {
-               if (all_house_style[j].id == res.data.cases[i].house_style_id) {
-                 case_info.house_style_name = all_house_style[j].name
-                 case_info.house_style_id = all_house_style[j].id
-               }
-             }
+             case_info.area_name = decodeURI(res.data.cases[i].area_name)
+             case_info.area_id = res.data.cases[i].area_id
+             case_info.price_name = decodeURI(res.data.cases[i].price_name)
+             case_info.price_id = res.data.cases[i].price_id
+             case_info.house_style_name = decodeURI(res.data.cases[i].house_style_name)
+             case_info.house_style_id = res.data.cases[i].house_style_id
              cases.push(case_info)
            }
            console.log(cases)
@@ -865,10 +864,6 @@ back_top:function(e){
   get_hot_case: function (page) {
     var that = this
     var page = page
-    var all_area = app.globalData.all_area
-    var all_style = app.globalData.all_style
-    var all_house_style = app.globalData.all_house_style
-    var all_price = app.globalData.all_price
     var hot_case_more_flag = that.data.hot_case_more_flag
     wx.request({
       url: 'https://32906079.jxggdxw.com/api/v1/get_hot_case/',
@@ -894,26 +889,12 @@ back_top:function(e){
             case_info.brand_id = res.data.cases[i].brand_id
             case_info.item_imgae_url = res.data.cases[i].item_image_url
             case_info.brand_logo = res.data.cases[i].brand_logo
-            console.log(res.data.cases[i].area_id)
-            console.log(all_area[2].name)
-            for (var j = 0; j < all_area.length; j++) {
-              if (all_area[j].id == res.data.cases[i].area_id) {
-                case_info.area_name = all_area[j].name
-                case_info.area_id = all_area[j].id
-              }
-            }
-            for (var j = 0; j < all_price.length; j++) {
-              if (all_price[j].id == res.data.cases[i].price_id) {
-                case_info.price_name = all_price[j].name
-                case_info.price_id = all_price[j].id
-              }
-            }
-            for (var j = 0; j < all_house_style.length; j++) {
-              if (all_house_style[j].id == res.data.cases[i].house_style_id) {
-                case_info.house_style_name = all_house_style[j].name
-                case_info.house_style_id = all_house_style[j].id
-              }
-            }
+            case_info.area_name = decodeURI(res.data.cases[i].area_name)
+            case_info.area_id = res.data.cases[i].area_id
+            case_info.price_name = decodeURI(res.data.cases[i].price_name)
+            case_info.price_id = res.data.cases[i].price_id
+            case_info.house_style_name = decodeURI(res.data.cases[i].house_style_name)
+            case_info.house_style_id = res.data.cases[i].house_style_id
             cases.push(case_info)
           }
           console.log(cases)
@@ -929,10 +910,6 @@ back_top:function(e){
   get_colligate_case: function (page) {
     var that = this
     var page = page
-    var all_area = app.globalData.all_area
-    var all_style = app.globalData.all_style
-    var all_house_style = app.globalData.all_house_style
-    var all_price = app.globalData.all_price
     var colligate_case_more_flag = that.data.colligate_case_more_flag
     wx.request({
       url: 'https://32906079.jxggdxw.com/api/v1/get_colligate_case/',
@@ -958,26 +935,12 @@ back_top:function(e){
             case_info.brand_id = res.data.cases[i].brand_id
             case_info.item_imgae_url = res.data.cases[i].item_image_url
             case_info.brand_logo = res.data.cases[i].brand_logo
-            console.log(res.data.cases[i].area_id)
-            console.log(all_area[2].name)
-            for (var j = 0; j < all_area.length; j++) {
-              if (all_area[j].id == res.data.cases[i].area_id) {
-                case_info.area_name = all_area[j].name
-                case_info.area_id = all_area[j].id
-              }
-            }
-            for (var j = 0; j < all_price.length; j++) {
-              if (all_price[j].id == res.data.cases[i].price_id) {
-                case_info.price_name = all_price[j].name
-                case_info.price_id = all_price[j].id
-              }
-            }
-            for (var j = 0; j < all_house_style.length; j++) {
-              if (all_house_style[j].id == res.data.cases[i].house_style_id) {
-                case_info.house_style_name = all_house_style[j].name
-                case_info.house_style_id = all_house_style[j].id
-              }
-            }
+            case_info.area_name = decodeURI(res.data.cases[i].area_name)
+            case_info.area_id = res.data.cases[i].area_id
+            case_info.price_name = decodeURI(res.data.cases[i].price_name)
+            case_info.price_id = res.data.cases[i].price_id
+            case_info.house_style_name = decodeURI(res.data.cases[i].house_style_name)
+            case_info.house_style_id = res.data.cases[i].house_style_id
             cases.push(case_info)
           }
           console.log(cases)
@@ -994,10 +957,6 @@ back_top:function(e){
     var that = this
     console.log(filter_condition)
     var page = page
-    var all_area = app.globalData.all_area
-    var all_style = app.globalData.all_style
-    var all_house_style = app.globalData.all_house_style
-    var all_price = app.globalData.all_price
     var filter_case_more_flag = that.data.filter_case_more_flag
     wx.request({
       url: 'https://32906079.jxggdxw.com/api/v1/get_condition_case/',
@@ -1027,26 +986,12 @@ back_top:function(e){
             case_info.brand_id = res.data.cases[i].brand_id
             case_info.item_imgae_url = res.data.cases[i].item_image_url
             case_info.brand_logo = res.data.cases[i].brand_logo
-            console.log(res.data.cases[i].area_id)
-            console.log(all_area[2].name)
-            for (var j = 0; j < all_area.length; j++) {
-              if (all_area[j].id == res.data.cases[i].area_id) {
-                case_info.area_name = all_area[j].name
-                case_info.area_id = all_area[j].id
-              }
-            }
-            for (var j = 0; j < all_price.length; j++) {
-              if (all_price[j].id == res.data.cases[i].price_id) {
-                case_info.price_name = all_price[j].name
-                case_info.price_id = all_price[j].id
-              }
-            }
-            for (var j = 0; j < all_house_style.length; j++) {
-              if (all_house_style[j].id == res.data.cases[i].house_style_id) {
-                case_info.house_style_name = all_house_style[j].name
-                case_info.house_style_id = all_house_style[j].id
-              }
-            }
+            case_info.area_name = decodeURI(res.data.cases[i].area_name)
+            case_info.area_id = res.data.cases[i].area_id
+            case_info.price_name = decodeURI(res.data.cases[i].price_name)
+            case_info.price_id = res.data.cases[i].price_id
+            case_info.house_style_name = decodeURI(res.data.cases[i].house_style_name)
+            case_info.house_style_id = res.data.cases[i].house_style_id
             cases.push(case_info)
           }
           console.log(cases)
@@ -1059,5 +1004,4 @@ back_top:function(e){
       }
     })
   }
-
 })

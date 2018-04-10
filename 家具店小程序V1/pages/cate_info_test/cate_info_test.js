@@ -1,5 +1,6 @@
 // pages/cate_info_test/cate_info_test.js
 var app=getApp()
+var login = require('../../utils/login.js');
 Page({
 
   /**
@@ -44,7 +45,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (options.data) {
+      var data = JSON.parse(options.data)
+      console.log(data)
+      app.globalData.brand_detail_brand_id = data.brand_id
+    }
+    //app.globalDat
   },
 
   /**
@@ -69,10 +75,6 @@ Page({
     var categorys=[]
     var scenes=[]
     var brand_info=[]
-    var all_area = app.globalData.all_area
-    var all_style = app.globalData.all_style
-    var all_house_style = app.globalData.all_house_style
-    var all_price = app.globalData.all_price
     wx.request({
       url: 'https://32906079.jxggdxw.com/api/v1/get_brand_info/',
       method: 'GET',
@@ -150,24 +152,12 @@ Page({
             case_info.brand_id = res.data.cases[i].brand_id
             case_info.item_imgae_url = res.data.cases[i].item_image_url
             case_info.brand_logo = res.data.cases[i].brand_logo
-            for (var j = 0; j < all_area.length; j++) {
-              if (all_area[j].id == res.data.cases[i].area_id) {
-                case_info.area_name = all_area[j].name
-                case_info.area_id = all_area[j].id
-              }
-            }
-            for (var j = 0; j < all_price.length; j++) {
-              if (all_price[j].id == res.data.cases[i].price_id) {
-                case_info.price_name = all_price[j].name
-                case_info.price_id = all_price[j].id
-              }
-            }
-            for (var j = 0; j < all_house_style.length; j++) {
-              if (all_house_style[j].id == res.data.cases[i].house_style_id) {
-                case_info.house_style_name = all_house_style[j].name
-                case_info.house_style_id = all_house_style[j].id
-              }
-            }
+            case_info.area_name = decodeURI(res.data.cases[i].area_name)
+            case_info.area_id = res.data.cases[i].area_id
+            case_info.price_name = decodeURI(res.data.cases[i].price_name)
+            case_info.price_id = res.data.cases[i].price_id
+            case_info.house_style_name = decodeURI(res.data.cases[i].house_style_name)
+            case_info.house_style_id = res.data.cases[i].house_style_id
             cases.push(case_info)
           }
           wx.setNavigationBarTitle({
@@ -527,6 +517,20 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var brand_id = app.globalData.brand_detail_brand_id
+    var data={brand_id:brand_id}
+    return {
+      title: '品牌详情',
+      path: '/pages/cate_info_test/cate_info_test?data=' + JSON.stringify(data),
+      success: function (res) {
+        // 转发成功
+        console.log(res)
+        login.share_succ()
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   
   },
   get_category_product: function (category_id,page){
@@ -702,10 +706,6 @@ Page({
     var page = page
     var brand_id = app.globalData.brand_detail_brand_id
     var cases = that.data.cases
-    var all_area = app.globalData.all_area
-    var all_style = app.globalData.all_style
-    var all_house_style = app.globalData.all_house_style
-    var all_price = app.globalData.all_price
     wx.request({
       url: 'https://32906079.jxggdxw.com/api/v1/get_case_next_page/',
       method: 'GET',
@@ -732,24 +732,12 @@ Page({
             case_info.brand_id = res.data.cases[i].brand_id
             case_info.item_imgae_url = res.data.cases[i].item_image_url
             case_info.brand_logo = res.data.cases[i].brand_logo
-            for (var j = 0; j < all_area.length; j++) {
-              if (all_area[j].id == res.data.cases[i].area_id) {
-                case_info.area_name = all_area[j].name
-                case_info.area_id = all_area[j].id
-              }
-            }
-            for (var j = 0; j < all_price.length; j++) {
-              if (all_price[j].id == res.data.cases[i].price_id) {
-                case_info.price_name = all_price[j].name
-                case_info.price_id = all_price[j].id
-              }
-            }
-            for (var j = 0; j < all_house_style.length; j++) {
-              if (all_house_style[j].id == res.data.cases[i].house_style_id) {
-                case_info.house_style_name = all_house_style[j].name
-                case_info.house_style_id = all_house_style[j].id
-              }
-            }
+            case_info.area_name = decodeURI(res.data.cases[i].area_name)
+            case_info.area_id = res.data.cases[i].area_id
+            case_info.price_name = decodeURI(res.data.cases[i].price_name)
+            case_info.price_id = res.data.cases[i].price_id
+            case_info.house_style_name = decodeURI(res.data.cases[i].house_style_name)
+            case_info.house_style_id = res.data.cases[i].house_style_id
             cases.push(case_info)
             that.setData({
               cases: cases,

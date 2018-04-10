@@ -10,7 +10,8 @@ Page({
     collect_flag:false,
     brand_info:'',
     case_info:'',
-    show_brand_info:false
+    show_brand_info:false,
+    enter_form_share:false
   },
   desinger_info: function () {
     wx.navigateTo({
@@ -97,7 +98,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that=this
+    if (options.data) {
+      var data = JSON.parse(options.data)
+      console.log(data)
+      app.globalData.case_detail_case_id = data.case_id
+      that.setData({
+        enter_form_share:true
+      })
+    }
   },
 
   /**
@@ -107,9 +116,14 @@ Page({
     var that=this
     var brand_info={}
     var case_info={}
+    var enter_form_share = that.data.enter_form_share
     console.log(app.globalData.case_detail_case_id)
     var case_id = app.globalData.case_detail_case_id
-    var show_brand_info = app.globalData.case_detail_is_show_brand_info
+    if (enter_form_share){
+      var show_brand_info=true
+    }else{
+      var show_brand_info = app.globalData.case_detail_is_show_brand_info
+    }
     if (case_id == 0) {
       wx.redirectTo({
         url: '../home_page/home_page',
@@ -221,7 +235,20 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    var case_id = app.globalData.case_detail_case_id
+    var data = { case_id: case_id }
+    return {
+      title: '案例详情',
+      path: '/pages/case_detail/case_detail?data=' + JSON.stringify(data),
+      success: function (res) {
+        // 转发成功
+        console.log(res)
+        login.share_succ()
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
   show_login:function(){
     wx.showModal({

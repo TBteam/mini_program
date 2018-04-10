@@ -1,5 +1,6 @@
 // pages/good_details/good_details.js
 var Crypto = require('../../utils/cryptojs/cryptojs.js').Crypto
+var login = require('../../utils/login.js');
 var app=getApp()
 Page({
 
@@ -15,79 +16,6 @@ Page({
     preferential_info_flag:false,
     format_flag:false,
     collect_flag:false,
-    imgUrls: [
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG1.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG2.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG3.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG4.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG5.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG6.jpg'
-    ],
-    imgUrls1: [
-      '../photo/NORYA2.jpg',
-      '../photo/NORYA2.jpg',
-      '../photo/NORYA2.jpg',
-      '../photo/NORYA2.jpg',
-      '../photo/NORYA2.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG8.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG9.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG10.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG11.jpg',
-      'https://32906079.jxggdxw.com/WeappServer/D8/169/IMG12.jpg'
-    ],
-    price:'28-98',
-    formats:[{ format: '规格规格1', price: '28', checked: false },
-             { format: '规格规格2', price: '38', checked: false },
-             { format: '规格规格3', price: '48', checked: false },
-             { format: '规格规格4', price: '58', checked: false },
-             { format: '规格规格5', price: '68', checked: false },
-             { format: '规格规格6', price: '78', checked: false },
-             { format: '规格规格7', price: '88', checked: false },
-             { format: '规格规格8', price: '98', checked: false },
-    ],
-    goods: [
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG1.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG2.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG3.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG4.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG5.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG6.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG7.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG8.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG9.jpg'
-      },
-      {
-        name: 'ddddddddddddd', old_price: 78, new_price: 58,
-        url: 'https://32906079.jxggdxw.com/WeappServer/D8/43/IMG10.jpg'
-      },
-    ],
-    text: "￥GU0z04gtxuO￥"
   },
   collect:function(){
     var that = this
@@ -140,11 +68,7 @@ Page({
         })
       }
     }else{
-      wx.showToast({
-        title: '请登陆',
-        icon: 'none',
-        duration: 1500
-      })
+      that.show_login()
     }
   },
  
@@ -152,13 +76,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log('onload')
+    console.log(options)
+    console.log(options.info)
+    if (options.data){
+      var data = JSON.parse(options.data)
+      console.log(data)
+      app.globalData.good_detail_product_id = data.product_id
+    }
+    //app.globalData.good_detail_product_id = options.product_id
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function (res) {
+    console.log(res)
     var product_id = app.globalData.good_detail_product_id
     var allow_login_flag = app.globalData.allow_login_flag
     if (product_id == 0) {
@@ -212,7 +145,6 @@ Page({
           })
         }
       }
-
     })
   },
 
@@ -255,7 +187,56 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function (res) {
+      console.log(res)
+      var product_id = app.globalData.good_detail_product_id
+      var data = { style: 'share', product_id: product_id}
+      return {
+        title: '商品详情',
+        path: '/pages/good_details/good_details?data=' + JSON.stringify(data),
+        success: function (res) {
+          // 转发成功
+          console.log(res)
+          login.share_succ()
+        },
+        fail: function (res) {
+          // 转发失败
+        }
+      }
+  },
+  show_login: function () {
+    wx.showModal({
+      title: '请登录',
+      // content: '这是一个模态弹窗',
+      success: function (res) {
+        if (res.confirm) {
+          var that = this;
+          wx.openSetting({
+            success: function (res) {
+              console.log(res)
+              console.log(res.authSetting["scope.userInfo"])
+              if (res.authSetting["scope.userInfo"]) {
+                wx.getUserInfo({
+                  success: function (res) {
+                    console.log('用户允许获取信息')
+                    console.log(res)
+                    app.globalData.allow_login_flag = true;
+                    app.globalData.userInfo = res.userInfo
+                    login.Login()
+                  },
+                  fail: function () {
+                    app.globalData.allow_login_flag = false;
+                    console.log('用户不允许获取信息')
+                  }
+
+                })
+              }
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   }
 })

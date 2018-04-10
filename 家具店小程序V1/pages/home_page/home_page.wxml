@@ -8,7 +8,7 @@
             </view>
             <view class='me_name_text'>
                 <text wx:if="{{user_allow_login}}" class='me_name_text_style'>{{user_wechat_info.nickName}}</text>
-                <text wx:if="{{!user_allow_login}}" class='me_name_text_style'>请登录</text>
+                <text wx:if="{{!user_allow_login}}" class='me_name_text_style'>点击头像登陆</text>
             </view>
 
             <view class='me_KK'></view>
