@@ -7,6 +7,10 @@ Page({
   data: {
     style: ['中式', '新中式', '美式', '欧式','其他'],
     style_index:0,
+    name:'',
+    contact:'',
+    address:'',
+    brand_name:'',
   },
 
   /**
@@ -27,7 +31,94 @@ Page({
       style_index: res.detail.value
     })
   },
-
+  input:function(res){
+    console.log(res)
+    var that=this
+    var apply_info={}
+    if (res.currentTarget.id=='1'){
+      that.setData({
+        name: res.detail.value
+      })
+    } else if (res.currentTarget.id == '2') {
+      that.setData({
+        contact: res.detail.value
+      })
+    } else if (res.currentTarget.id == '3') {
+      that.setData({
+        address: res.detail.value
+      })
+    } else if (res.currentTarget.id == '4') {
+      that.setData({
+        brand_name: res.detail.value
+      })
+    }
+  },
+  submit:function(){
+    var that=this
+    var style = that.data.style
+    var style_index = that.data.style_index
+    var name = that.data.name
+    console.log(name)
+    var contact = that.data.contact
+    var address = that.data.address
+    var brand_name = that.data.brand_name
+    if (name == '') {
+      wx.showToast({
+        title: '请填写姓名',
+        icon: 'loading',
+        duration: 2000
+      })
+    } else if (contact == '') {
+      wx.showToast({
+        title: '请填写联系方式',
+        icon: 'loading',
+        duration: 2000
+      })
+    } else if (address == '') {
+      wx.showToast({
+        title: '请填写地址',
+        icon: 'loading',
+        duration: 2000
+      })
+    } else if (brand_name == '') {
+      wx.showToast({
+        title: '请填写品牌',
+        icon: 'loading',
+        duration: 2000
+      })
+    }else {
+      var style=style[style_index]
+      console.log(name)
+      console.log(contact)
+      console.log(address)
+      console.log(brand_name)
+      console.log(style)
+      wx.request({
+        url: 'https://32906079.jxggdxw.com/api/v1/uplaod_enter_apply/',
+        method: 'POST',
+        data: {
+          user_name: encodeURI(name),
+          contact: encodeURI(contact),
+          address: encodeURI(address),
+          brand_name: encodeURI(brand_name),
+          brand_style: encodeURI(style),
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res)
+          if (res.data.ret == 'succ') {
+            wx.showToast({
+              title: '提交成功',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+        }
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面显示
    */

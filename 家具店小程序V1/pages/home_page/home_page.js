@@ -20,7 +20,7 @@ Page({
     all_price:[],
     all_style:[],
     all_house_style:[],
-    all_brand: ['品牌1', '品牌1', '品牌1', '品牌1', '品牌1', '品牌1'],
+    all_brand: [],
     cases:[],
     new_case_page:0,
     hot_case_page:0,
@@ -359,17 +359,27 @@ Page({
       that.setData({
         all_style: all_style
       })
+    } else if (res.currentTarget.dataset.id == "five") {
+      var all_brand = that.data.all_brand
+      for (var i = 0; i < all_brand.length; i++) {
+        all_brand[i].checked = false
+      }
+      all_brand[res.currentTarget.id].checked = !all_brand[res.currentTarget.id].checked
+      that.setData({
+        all_brand: all_brand
+      })
     }
   },
 /************重置&确定函数**************/
 reset_ensure:function(res){
   var that=this
   console.log(res)
-  var filter_condition={price_id:'none',house_style_id:'none',area_id:'none',style_id:'none'}
+  var filter_condition={brand_id:'none',price_id:'none',house_style_id:'none',area_id:'none',style_id:'none'}
   var filter_is_selected_flag = false
   if (res.currentTarget.dataset.type == "reset") {
     that.reset();
   } else if (res.currentTarget.dataset.type == "ensure") {
+    var all_brand = that.data.all_brand
     var all_price = that.data.all_price
     var all_house_style = that.data.all_house_style
     var all_area = that.data.all_area
@@ -397,6 +407,12 @@ reset_ensure:function(res){
     for (var i = 0; i < all_style.length; i++) {
       if (all_style[i].checked) {
         filter_condition.style_id = all_style[i].id
+        filter_is_selected_flag = true
+      }
+    }
+    for (var i = 0; i < all_brand.length; i++) {
+      if (all_brand[i].checked) {
+        filter_condition.brand_id = all_brand[i].id
         filter_is_selected_flag = true
       }
     }
@@ -476,6 +492,7 @@ back_top:function(e){
    */
   onReady: function () {
     var that=this
+    var all_brand=[]
     var all_area = []
     var all_house_style = []
     var all_price = []
@@ -505,6 +522,13 @@ back_top:function(e){
       },
       success: function (res) {
         console.log(res)
+        for (var i = 0; i < res.data.all_brand.length; i++) {
+          var brand = {}
+          brand.name = decodeURI(res.data.all_brand[i].brand_name)
+          brand.id = res.data.all_brand[i].brand_id
+          brand.checked = false
+          all_brand.push(brand)
+        }
         console.log(res.data.all_area.length)
         for (var i = 0; i < res.data.all_area.length;i++){
           var area={}
@@ -581,7 +605,9 @@ back_top:function(e){
         app.globalData.all_price = all_price
         app.globalData.all_style = all_style
         app.globalData.all_house_style = all_house_style
+        app.globalData.all_brand = all_brand
         that.setData({
+          all_brand: all_brand,
           all_area: all_area,
           all_price: all_price,
           all_style: all_style,
@@ -963,6 +989,7 @@ back_top:function(e){
       method: 'GET',
       data: {
         'page': page,
+        'brand_id': filter_condition.brand_id,
         'area_id':filter_condition.area_id,
         'price_id': filter_condition.price_id,
         'style_id': filter_condition.style_id,

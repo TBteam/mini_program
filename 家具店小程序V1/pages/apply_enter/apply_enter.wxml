@@ -6,7 +6,7 @@
         <text class='apply_info_item_title_text_style'>姓名</text>
     </view>
     <view class='apply_info_item_input_main'>
-        <input placeholder='请输入联系人姓名'  class='apply_info_item_input_style' ></input>
+        <input placeholder='请输入联系人姓名' bindblur='input' id='1'   class='apply_info_item_input_style' ></input>
     </view>
     <view class='apply_info_right_icon_main'>
         <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
@@ -21,7 +21,7 @@
         <text class='apply_info_item_title_text_style'>联系方式</text>
     </view>
     <view class='apply_info_item_input_main'>
-        <input placeholder='请输入联系方式'  class='apply_info_item_input_style' ></input>
+        <input placeholder='请输入联系方式' bindblur='input' id='2'   class='apply_info_item_input_style' ></input>
     </view>
     <view class='apply_info_right_icon_main'>
         <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
@@ -36,7 +36,7 @@
         <text class='apply_info_item_title_text_style'>地址(选填)</text>
     </view>
     <view class='apply_info_item_input_main'>
-        <input placeholder='请输入地址'  class='apply_info_item_input_style' ></input>
+        <input placeholder='请输入地址' bindblur='input' id='3'   class='apply_info_item_input_style' ></input>
     </view>
     <view class='apply_info_right_icon_main'>
         <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
@@ -52,7 +52,7 @@
         <text class='apply_info_item_title_text_style'>家具品牌</text>
     </view>
     <view class='apply_info_item_input_main'>
-        <input placeholder='请输入家具品牌名称'  class='apply_info_item_input_style' ></input>
+        <input placeholder='请输入家具品牌名称' bindblur='input' id='4'   class='apply_info_item_input_style' ></input>
     </view>
     <view class='apply_info_right_icon_main'>
         <image  class='apply_info_right_icon_size' src="../photo/right.png"></image>
@@ -80,7 +80,7 @@
 
 
 <view class='apply_button_main'>
-   <view class='apply_button_size'>
+   <view bindtap='submit' class='apply_button_size'>
       <text class='apply_button_style'>提交申请</text>
    </view>
 </view>

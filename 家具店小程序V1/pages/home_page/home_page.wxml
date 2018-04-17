@@ -226,10 +226,10 @@
        <view class='filter_select_main'>
            <view wx:for="{{all_brand}}">
                <view wx:if="{{!item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="five" class='filter_select_item_border'>
-                   <text class='filter_select_item_text_style'>{{item}}</text>
+                   <text class='filter_select_item_text_style'>{{item.name}}</text>
                </view>
                <view wx:if="{{item.checked}}" bindtap='filter_item_select' id="{{index}}" data-id="five"  class='filter_select_item_border_checked'>
-                   <text class='filter_select_item_text_style_checked'>{{item}}</text>
+                   <text class='filter_select_item_text_style_checked'>{{item.name}}</text>
                </view>
            </view>
        </view>
