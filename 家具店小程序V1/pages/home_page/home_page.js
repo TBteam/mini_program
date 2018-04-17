@@ -219,13 +219,6 @@ Page({
     var hot_flag=that.data.hot_flag
     var new_flag = that.data.new_flag
     if (res.currentTarget.id == '2') {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      })
-      setTimeout(function () {
-        wx.hideLoading()
-      }, 2000)
       hot_flag=!hot_flag
       that.reset()
       that.setData({
@@ -235,6 +228,13 @@ Page({
       if (hot_cases.length == 0) {
         console.log('hot_cases=0')
         that.get_hot_case(0)
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 1500)
       } else {
         console.log('hot_cases!=0')
         that.setData({
@@ -249,13 +249,6 @@ Page({
         filter_is_selected: false
       })
     } else if (res.currentTarget.id == '1') {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      })
-      setTimeout(function () {
-        wx.hideLoading()
-      }, 2000)
       new_flag = !new_flag
       that.reset()
       that.setData({
@@ -265,6 +258,13 @@ Page({
       if(new_cases.length==0){
         console.log('new_cases=0')
         that.get_new_case(0)
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 1500)
       }else{
         console.log('new_cases!=0')
         that.setData({
@@ -280,13 +280,6 @@ Page({
       })
     }
     else if (res.currentTarget.id == '3') {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      })
-      setTimeout(function () {
-        wx.hideLoading()
-      }, 2000)
       //colligate_flag = !colligate_flag
       that.reset()
       that.setData({
@@ -424,7 +417,7 @@ reset_ensure:function(res){
       })
       setTimeout(function () {
         wx.hideLoading()
-      }, 2000)
+      }, 1500)
       filter_is_selected=true;
       var new_flag=false;
       var hot_flag = false;
@@ -511,7 +504,7 @@ back_top:function(e){
     })
     setTimeout(function () {
       wx.hideLoading()
-    }, 2000)
+    }, 1500)
     wx.request({
       url: 'https://32906079.jxggdxw.com/api/v1/get_first_page_info/',
       method: 'GET',

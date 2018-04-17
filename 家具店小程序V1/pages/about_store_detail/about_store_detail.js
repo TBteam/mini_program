@@ -1,4 +1,5 @@
 // pages/about_store_detail/about_store_detail.js
+var app=getApp()
 Page({
 
   /**
@@ -6,6 +7,9 @@ Page({
    */
   data: {
     show_map_flag:false,
+    shop_info:'',
+    longitude:0,
+    latitude:0,
     markers: [{
       //iconPath: "/resources/others.png",
       id: 0,
@@ -54,7 +58,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    var that=this
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1500)
+    var brand_id = app.globalData.brand_detail_brand_id
+    var shop_info={}
+    var markers = that.data.markers
+    wx.request({
+      url: 'https://32906079.jxggdxw.com/api/v1/get_shop_info/',
+      method: 'GET',
+      data: {
+        'brand_id': brand_id
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        shop_info.shop_name=decodeURI(res.data.shop_info.shop_name)
+        markers[0].title = shop_info.shop_name
+        shop_info.shop_addr = decodeURI(res.data.shop_info.shop_addr)
+        shop_info.shop_contact = decodeURI(res.data.shop_info.shop_contact)
+        shop_info.shop_pic = res.data.shop_info.shop_pic
+        var locate = res.data.shop_info.shop_locate
+        locate = locate.replace('(', '')
+        locate = locate.replace(')', '')
+        var locate1 = locate.split(",")
+        markers[0].callout.content = shop_info.shop_name
+        markers[0].longitude = parseFloat(locate1[1]) 
+        markers[0].latitude = parseFloat(locate1[0]) 
+        that.setData({
+          shop_info: shop_info,
+          markers: markers,
+          longitude: markers[0].longitude,
+          latitude: markers[0].latitude
+        })
+      }
+    })
   },
 
   /**

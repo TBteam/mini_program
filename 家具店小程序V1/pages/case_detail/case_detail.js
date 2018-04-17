@@ -132,6 +132,13 @@ Page({
         complete: function (res) { },
       })
     }
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1500)
      console.log(case_id)
      var allow_login_flag = app.globalData.allow_login_flag
      var user_id 

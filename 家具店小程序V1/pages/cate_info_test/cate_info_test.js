@@ -68,6 +68,13 @@ Page({
         complete: function (res) { },
       })
     }
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1500)
     var all_products=[]
     var cases=[]
     var hot_products=[]

@@ -92,6 +92,13 @@ Page({
    */
   onReady: function (res) {
     console.log(res)
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1500)
     var product_id = app.globalData.good_detail_product_id
     var allow_login_flag = app.globalData.allow_login_flag
     if (product_id == 0) {
@@ -135,6 +142,7 @@ Page({
           good_info.collect = res.data.collect
           good_info.install = res.data.install
           good_info.warranty = res.data.warranty
+          good_info.order = res.data.order
          console.log(good_info)
          that.setData({
            good_info: good_info

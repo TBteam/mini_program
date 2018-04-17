@@ -49,6 +49,14 @@
             <text class='service_info_text_style'>3年保修</text>
         </view>
     </view>
+    <view wx:if='{{good_info.order}}' class='service_info_item_main'>
+        <view class='service_info_icon_main'>
+           <image   mode='scaleToFill'  class="service_info_icon_size" src="../photo/correct.png" background-size="cover"></image>
+        </view>
+        <view class='service_info_text_main'>
+            <text class='service_info_text_style'>可定制</text>
+        </view>
+    </view>
 </view>
 
 <view class='KKK'></view>
