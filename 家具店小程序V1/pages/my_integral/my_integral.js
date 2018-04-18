@@ -15,7 +15,7 @@ Page({
       '3、积分获取规则，积分获取规则，积分获取规则，积分获取规则，积分获取规则'
     ],
     user_wechat_info:'',
-    my_integral:0
+    my_integral:''
   },
 
   /**
@@ -31,6 +31,13 @@ Page({
   onReady: function () {
     var that=this
     var user_id = app.globalData.user_id 
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1500)
     wx.request({
       url: 'https://32906079.jxggdxw.com/api/v1/get_user_integrate/',
       method: 'GET',

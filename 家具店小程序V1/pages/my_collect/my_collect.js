@@ -42,6 +42,13 @@ Page({
    */
   onReady: function () {
     var that=this
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    setTimeout(function () {
+      wx.hideLoading()
+    }, 1500)
     var collect_good_page = that.data.collect_good_page
     var collect_case_page = that.data.collect_case_page
     

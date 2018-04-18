@@ -1,5 +1,4 @@
 // pages/good_details/good_details.js
-var Crypto = require('../../utils/cryptojs/cryptojs.js').Crypto
 var login = require('../../utils/login.js');
 var app=getApp()
 Page({

@@ -117,7 +117,6 @@ Page({
   tap_end: function (e) {
     var filter_is_open_flag = this.data.filter_is_open_flag
     if (!filter_is_open_flag) {
-    console.log(e)
     if (this.data.startmark > this.data.newmark){
       this.setData({
         translate: 'transform: translateX(0px)',

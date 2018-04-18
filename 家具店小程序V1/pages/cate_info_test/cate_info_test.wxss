@@ -349,7 +349,7 @@
   border-left-style:solid;
   border-color:#c7c7c7;
   border-radius: 10rpx;
-  border-width:1rpx;
+  border-width:3rpx;
   margin-left: 25rpx;
   background-color: white
 }
@@ -364,10 +364,10 @@
   height: 20rpx;
 }
 .classfiy_select_icon_size{
-  width: 50rpx;
-  height: 30rpx;
-  margin-left: 75rpx;
-  bottom: 114rpx;
+  width: 60rpx;
+  height: 25rpx;
+  margin-left: 70rpx;
+  bottom: 118rpx;
   position: fixed;
 }
 /*********底部场景选择框***********/
@@ -379,7 +379,7 @@
   border-right-style:solid;
   border-bottom-style:solid;
   border-left-style:solid;
-  border-width:1rpx;
+  border-width:3rpx;
   border-color:#c7c7c7;
   border-radius: 10rpx;
   margin-left: 275rpx;
@@ -395,10 +395,10 @@
   height: 20rpx;
 }
 .classfiy_select_icon_size1{
-  width: 50rpx;
-  height: 30rpx;
-  margin-left: 75rpx;
-  bottom: 114rpx;
+  width: 60rpx;
+  height: 25rpx;
+  margin-left: 70rpx;
+  bottom: 118rpx;
   position: fixed;
 }
 /**********底部分类&场景选项***********/
