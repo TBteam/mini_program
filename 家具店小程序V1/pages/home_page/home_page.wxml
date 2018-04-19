@@ -146,11 +146,7 @@
 
         </view>
         
-        <view class='case_item_K'></view>
-        <view class='case_item_K'></view>
-        <view class='case_item_K'></view>
-        <view class='case_item_K'></view>
-
+        <view class='case_item_KK'></view>
         <view bindtap='back_top' wx:for="{{cases}}">
         
         <view  class='case_item_main'>

@@ -39,7 +39,7 @@ Page({
       wx.hideLoading()
     }, 1500)
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_user_integrate/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_user_integrate/',
       method: 'GET',
       data: {
         "user_id": user_id,

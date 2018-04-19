@@ -31,7 +31,7 @@ Page({
       var user_id = app.globalData.user_id
       if (!case_info.collect){
           wx.request({
-            url: 'https://32906079.jxggdxw.com/api/v1/collect_case/',
+            url: 'https://furniture.jxggdxw.com/api/v1/collect_case/',
             method: 'GET',
             data: {
               'case_id': case_id,
@@ -53,7 +53,7 @@ Page({
           })
       }else{
         wx.request({
-          url: 'https://32906079.jxggdxw.com/api/v1/cancle_collect_case/',
+          url: 'https://furniture.jxggdxw.com/api/v1/cancle_collect_case/',
           method: 'GET',
           data: {
             'case_id': case_id,
@@ -150,7 +150,7 @@ Page({
      console.log(allow_login_flag)
      console.log(user_id)
      wx.request({
-       url: 'https://32906079.jxggdxw.com/api/v1/get_case_detailed_info/',
+       url: 'https://furniture.jxggdxw.com/api/v1/get_case_detailed_info/',
        method: 'GET',
        data: {
          'case_id': case_id,

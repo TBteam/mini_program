@@ -190,7 +190,7 @@ Page({
     var user_id = app.globalData.user_id 
     var products = that.data.collect_good
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_collect_product/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_collect_product/',
       method: 'GET',
       data: {
         'user_id': user_id,
@@ -238,7 +238,7 @@ Page({
     var all_price = app.globalData.all_price
     var cases=that.data.collect_case
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_collect_case/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_collect_case/',
       method: 'GET',
       data: {
         'user_id': user_id,

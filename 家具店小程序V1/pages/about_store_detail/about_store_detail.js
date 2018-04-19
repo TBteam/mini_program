@@ -70,7 +70,7 @@ Page({
     var shop_info={}
     var markers = that.data.markers
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_shop_info/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_shop_info/',
       method: 'GET',
       data: {
         'brand_id': brand_id

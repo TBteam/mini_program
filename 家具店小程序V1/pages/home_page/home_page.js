@@ -505,7 +505,7 @@ back_top:function(e){
       wx.hideLoading()
     }, 1500)
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_first_page_info/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_first_page_info/',
       method: 'GET',
       data: {
       },
@@ -571,25 +571,6 @@ back_top:function(e){
           case_info.price_id = res.data.cases[i].price_id
           case_info.house_style_name = decodeURI(res.data.cases[i].house_style_name)
           case_info.house_style_id = res.data.cases[i].house_style_id
-
-          // for(var j=0;j<all_area.length;j++){
-          //   if (all_area[j].id == res.data.cases[i].area_id){
-          //     case_info.area_name = all_area[j].name
-          //     case_info.area_id = all_area[j].id
-          //   }
-          // }
-          // for (var j = 0; j < all_price.length; j++) {
-          //   if (all_price[j].id == res.data.cases[i].price_id) {
-          //     case_info.price_name = all_price[j].name
-          //     case_info.price_id = all_price[j].id
-          //   }
-          // }
-          // for (var j = 0; j < all_house_style.length; j++) {
-          //   if (all_house_style[j].id == res.data.cases[i].house_style_id) {
-          //     case_info.house_style_name = all_house_style[j].name
-          //     case_info.house_style_id = all_house_style[j].id
-          //   }
-          // }
           cases.push(case_info)
         }
         console.log(cases)
@@ -838,7 +819,7 @@ back_top:function(e){
      var page=page
      var new_case_more_flag = that.data.new_case_more_flag
      wx.request({
-       url: 'https://32906079.jxggdxw.com/api/v1/get_new_case/',
+       url: 'https://furniture.jxggdxw.com/api/v1/get_new_case/',
        method: 'GET',
        data: {
          'page': page
@@ -884,7 +865,7 @@ back_top:function(e){
     var page = page
     var hot_case_more_flag = that.data.hot_case_more_flag
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_hot_case/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_hot_case/',
       method: 'GET',
       data: {
         'page': page
@@ -930,7 +911,7 @@ back_top:function(e){
     var page = page
     var colligate_case_more_flag = that.data.colligate_case_more_flag
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_colligate_case/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_colligate_case/',
       method: 'GET',
       data: {
         'page': page
@@ -977,7 +958,7 @@ back_top:function(e){
     var page = page
     var filter_case_more_flag = that.data.filter_case_more_flag
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_condition_case/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_condition_case/',
       method: 'GET',
       data: {
         'page': page,

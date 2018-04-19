@@ -388,7 +388,11 @@
 }
 .case_item_K{
   width: 100%;
-  height: 20rpx;
+  height: 10rpx;
+}
+.case_item_KK{
+  width: 100%;
+  height: 80rpx;
 }
 /***********加载更多***********/
 .add_more_main{

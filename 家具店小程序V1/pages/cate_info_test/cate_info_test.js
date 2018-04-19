@@ -83,7 +83,7 @@ Page({
     var scenes=[]
     var brand_info=[]
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_brand_info/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_brand_info/',
       method: 'GET',
       data: {
         'brand_id': brand_id
@@ -551,7 +551,7 @@ Page({
       products=[]
     }
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_product_of_cate/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_product_of_cate/',
       method: 'GET',
       data: {
         'page': page,
@@ -593,7 +593,7 @@ Page({
     var scene_id = scene_id
     var products = []
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_product_of_scene/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_product_of_scene/',
       method: 'GET',
       data: {
         'page': page,
@@ -635,7 +635,7 @@ Page({
      var page=page
      var products = that.data.all_products
      wx.request({
-       url: 'https://32906079.jxggdxw.com/api/v1/get_all_product_next_page/',
+       url: 'https://furniture.jxggdxw.com/api/v1/get_all_product_next_page/',
        method: 'GET',
        data: {
          'page': page,
@@ -674,7 +674,7 @@ Page({
     var page = page
     var products = that.data.new_products
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_new_product_next_page/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_new_product_next_page/',
       method: 'GET',
       data: {
         'page': page,
@@ -714,7 +714,7 @@ Page({
     var brand_id = app.globalData.brand_detail_brand_id
     var cases = that.data.cases
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_case_next_page/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_case_next_page/',
       method: 'GET',
       data: {
         'page': page,

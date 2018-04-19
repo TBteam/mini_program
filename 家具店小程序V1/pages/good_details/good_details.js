@@ -25,7 +25,7 @@ Page({
       var user_id = app.globalData.user_id
       if (!good_info.collect){
         wx.request({
-          url: 'https://32906079.jxggdxw.com/api/v1/collect_product/',
+          url: 'https://furniture.jxggdxw.com/api/v1/collect_product/',
           method: 'GET',
           data: {
             'product_id': product_id,
@@ -46,7 +46,7 @@ Page({
         })
       }else{
         wx.request({
-          url: 'https://32906079.jxggdxw.com/api/v1/cancle_collect_product/',
+          url: 'https://furniture.jxggdxw.com/api/v1/cancle_collect_product/',
           method: 'GET',
           data: {
             'product_id': product_id,
@@ -117,7 +117,7 @@ Page({
     }
     var that = this;
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/get_product_detailed_info/',
+      url: 'https://furniture.jxggdxw.com/api/v1/get_product_detailed_info/',
       method: 'GET',
       data: {
         'product_id': product_id,

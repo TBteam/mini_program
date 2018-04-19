@@ -23,7 +23,7 @@ function login_upload_code() {
       console.log(res)
       code = res.code
       wx.request({
-        url: 'https://32906079.jxggdxw.com/api/v1/webapp_login/',
+        url: 'https://furniture.jxggdxw.com/api/v1/webapp_login/',
         method: 'POST',
         data: {
           "code": code
@@ -56,7 +56,7 @@ function login_upload_code1() {
       console.log(res)
       code = res.code
       wx.request({
-        url: 'https://32906079.jxggdxw.com/api/v1/webapp_login/',
+        url: 'https://furniture.jxggdxw.com/api/v1/webapp_login/',
         method: 'POST',
         data: {
           "code": code
@@ -93,7 +93,7 @@ function login_upload_session() {
     var session = wx.getStorageSync('session')
     if (session) {
       wx.request({
-        url: 'https://32906079.jxggdxw.com/api/v1/check_session/',
+        url: 'https://furniture.jxggdxw.com/api/v1/check_session/',
         method: 'POST',
         data: {
           "key": session
@@ -126,7 +126,7 @@ function share_succ(){
   if (allow_login_flag){
     var user_id = app.globalData.user_id
     wx.request({
-      url: 'https://32906079.jxggdxw.com/api/v1/share_succ/',
+      url: 'https://furniture.jxggdxw.com/api/v1/share_succ/',
       method: 'GET',
       data: {
         "user_id": user_id,

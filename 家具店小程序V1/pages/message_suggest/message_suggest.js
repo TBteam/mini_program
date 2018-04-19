@@ -72,7 +72,7 @@ Page({
       })
     }else{
       wx.request({
-        url: 'https://32906079.jxggdxw.com/api/v1/uplaod_feedback/',
+        url: 'https://furniture.jxggdxw.com/api/v1/uplaod_feedback/',
         method: 'POST',
         data: {
           user_name: encodeURI(user_name),
