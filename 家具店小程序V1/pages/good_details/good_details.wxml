@@ -25,7 +25,7 @@
        </view>
        <view class='good_collect_text_main'>
            <text  wx:if='{{!good_info.collect}}' class='good_collect_text_style_uncollect'>收藏</text>
-           <text  wx:if='{{good_info.collect}}' class='good_collect_text_style_uncollect'>已收藏</text>
+           <text  wx:if='{{good_info.collect}}' class='good_collect_text_style_collect'>已收藏</text>
        </view>
     </view>
     

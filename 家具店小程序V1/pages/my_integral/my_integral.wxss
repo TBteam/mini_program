@@ -6,12 +6,12 @@ page{
   width: 100%;
   height: 350rpx;
   display: flex;
-  background-color: #fc5874;
+  background-color: #22393c;
 }
 .my_integral_left_main{
   width: 60%;
   height: 350rpx;
-  background-color: #fc5874;
+  background-color: #22393c;
 }
 .my_integral_number_tltle{
   width: 100%;
@@ -66,13 +66,13 @@ page{
 .my_integral_right_main{
   width: 40%;
   height: 100%;
-  background-color: #fc5874;
+  background-color:#22393c;
 }
 .me_info_image_main{
   width: 100%;
   height: 180rpx;
   margin-top: 60rpx;
-  background-color: #fc5874;
+  background-color: #22393c;
   text-align: center;
 }
 .me_info_image_size{
@@ -84,7 +84,7 @@ page{
   width: 100%;
   height: 50rpx;
   margin-top: 8rpx;
-  background-color: #fc5874;
+  background-color: #22393c;
   text-align: center;
 }
 .me_info_name_style{
@@ -121,7 +121,7 @@ page{
   vertical-align: middle;
   font-size: 35rpx;
   font-family:"", Times, serif; 
-  color: #9c9595;
+  color: #aeaeae;
 }
 .my_integral_rule_style{
   height: 100%;
@@ -129,5 +129,5 @@ page{
   vertical-align: middle;
   font-size: 30rpx;
   font-family:"", Times, serif; 
-  color: #9c9595;
+  color: #aeaeae;
 }

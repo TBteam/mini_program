@@ -15,7 +15,7 @@
 
             <view class='me_item_main' >
                   <view class='me_item_image_main'>
-                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/star.png" background-size="cover"></image>
+                      <image mode='scaleToFill'  class="me_item_image_size" src="../photo/star2.png" background-size="cover"></image>
                   </view>
                   <view bindtap='me_bintap' id='1' class='me_item_text_main'>
                        <text class='me_item_text_style'>我的收藏</text>
@@ -76,25 +76,12 @@
         </view> 
     </view>  
     <view class="top "  bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style="{{translate}}" >  
-       
         <scroll-view   scroll-y style='{{style}}' scroll-top='{{scroll_top}}' >
         <view class='topbar'>
             <view class='topbar_image'>
                <image wx:if="{{user_allow_login}}" bindtap="tap_ch" class='topbar_image_size' src="{{user_wechat_info.avatarUrl}}"></image>
                <image wx:if="{{!user_allow_login}}" bindtap="tap_ch" class='topbar_image_size' src="../photo/user.png"></image>
             </view>
-            <!--
-            <view class='search_border'>
-                  <view class='search_icon_main'>
-                      <image class='search_icon_size' src="../photo/search.png"></image>
-                  </view>
-                  <view class='search_text_main'>
-                      <text class='search_text_style'>搜索家装案例</text>
-                  </view>
-            </view>
-            -->
-            <!--
-            <view class='topbar_K'></view>-->
             <view wx:if="{{colligate_flag}}" bindtap='hot_new_bintap' id='3' class='topbar_item_border_checked'>
                 <view class='topbar_text_main_checked'>
                     <text class='topbar_text_style_checked'>综合</text>
@@ -148,7 +135,6 @@
         
         <view class='case_item_KK'></view>
         <view bindtap='back_top' wx:for="{{cases}}">
-        
         <view  class='case_item_main'>
             <view bindtap='bintap' id='2' data-case_id="{{index}}" class='case_item_image_main'>
                  <image mode='scaleToFill'  class="case_item_image_size" src="{{item.item_imgae_url}}" background-size="cover"></image>

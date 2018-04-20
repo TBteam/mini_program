@@ -57,14 +57,16 @@
   vertical-align: middle;
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color: #9c9595
+  color: #999999
 }
 .good_collect_text_style_collect{
+  width: 150rpx;
+  text-align: center;
   line-height: 50rpx;
   vertical-align: middle;
-  font-size: 28rpx;
+  font-size: 25rpx;
   font-family:"", Times, serif;
-  color: #fc5874
+  color: #22393c
 }
 .good_name_main{
   width: 630rpx;
@@ -74,6 +76,7 @@
 .good_name_style{
   font-size: 40rpx;
   font-family:"", Times, serif;
+  color: #22393c
 }
 .KK{
   widows: 100%;

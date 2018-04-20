@@ -38,9 +38,9 @@
    font-family:"", Times, serif;
    line-height: 80rpx;
    vertical-align: middle;
-   color:#fc5874;
+   color:#22393c;
    border-bottom-style:solid;
-   border-color: #fc5874;
+   border-color: #22393c;
    border-width: 3rpx;
 }
 /***********商品列表***********/
@@ -71,6 +71,7 @@
   padding-right: 20rpx;
    font-size: 25rpx;
    font-family:"", Times, serif;
+   color: #333333
 }
 .old_price{
   margin-top: 10rpx;
@@ -81,7 +82,7 @@
   padding-left: 20rpx;
    font-size: 30rpx;
    font-family:"", Times, serif;
-   color: #fc5874;
+   color: #22393c;
 }
 .new_price{
   margin-top: 10rpx;
@@ -92,7 +93,7 @@
   padding-left: 20rpx;
    font-size: 35rpx;
    font-family:"", Times, serif;
-   color: #fc5874;
+   color: #22393c;
 }
 /************家装案例************/
 .case_item_main{
@@ -146,17 +147,17 @@
   margin-left: 20rpx;
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color:  #fc5874
+  color:  #22393c
 }
 .case_item_text_info_style2{
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color: #9c9595
+  color: #999999
 }
 .case_item_text_info_style3{
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color: #fc5874
+  color: #22393c
 }
 .case_item_brand_image_main{
   width: 110rpx;
@@ -193,7 +194,7 @@
   vertical-align: middle;
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color: #9c9595
+  color: #333333
 }
 .case_item_K{
   width: 100%;
@@ -226,5 +227,5 @@
   vertical-align: middle;
   font-size: 30rpx;
   font-family:"", Times, serif;
-  color: #9c9595
+  color: #999999
 }

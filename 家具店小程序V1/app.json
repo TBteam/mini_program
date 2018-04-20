@@ -12,9 +12,9 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fc5874",
+    "navigationBarBackgroundColor": "#22393c",
     "navigationBarTitleText": "平台名称",
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle":"white",
     "enablePullDownRefresh":false
   }
 }

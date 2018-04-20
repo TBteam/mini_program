@@ -448,6 +448,7 @@ reset:function(){
   var all_house_style = that.data.all_house_style
   var all_area = that.data.all_area
   var all_style = that.data.all_style
+  var all_brand=that.data.all_brand
   for (var i = 0; i < all_price.length; i++) {
     all_price[i].checked = false
   }
@@ -460,11 +461,15 @@ reset:function(){
   for (var i = 0; i < all_style.length; i++) {
     all_style[i].checked = false
   }
+  for (var i = 0; i < all_brand.length; i++) {
+    all_brand[i].checked = false
+  }
   that.setData({
     all_price: all_price,
     all_house_style: all_house_style,
     all_area: all_area,
-    all_style: all_style
+    all_style: all_style,
+    all_brand: all_brand
   })
 },
 

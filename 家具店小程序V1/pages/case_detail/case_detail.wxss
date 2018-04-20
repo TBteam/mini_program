@@ -1,116 +1,33 @@
 /* pages/case_detail/case_detail.wxss */
 page{
-  background-color: white;
-}
-/************设计师*************/
-.desinger_K{
-  width: 100%;
-  height: 20rpx
-}
-.desinger_main{
-  width: 95%;
-  height: 260rpx;
-  background-color: white;
-  margin-left:auto;
-  margin-right:auto;
-  display: flex;
-  direction: row;
-}
-.desinger_image_main{
-  width: 30%;
-  height: 200rpx;
-  padding-top: 30rpx;
-}
-.desinger_image_size{
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 50%;
-}
-.desinger_info_main{
-  width: 50%;
-  height: 200rpx;
-  padding-top: 30rpx;
-}
-.desinger_info_name_main{
-  width: 100%;
-  height: 70rpx;
-  display: flex;
-  align-items: center;
-}
-.desinger_info_name_style{
-  font-size: 35rpx;
-  font-family:"", Times, serif;
-  padding-left: 20rpx;
-}
-.desinger_info_detail_main{
-  width: 100%;
-  height: 130rpx;
-  display: flex;
-  align-items: center;
-}
-.desinger_info_detail_style{
-  font-size: 30rpx;
-  font-family:"", Times, serif;
-  padding-left: 20rpx;
-  display: flex;
-  word-break:  break-all;  /**文本自动换行**/
-  color: #9c9595
-}
-.desinger_order_main{
-  width: 20%;
-  height: 200rpx;
-  padding-top: 30rpx;
-  display: flex;
-  align-items: center;
-}
-.desinger_order_button_size{
-  width: 80%;
-  height: 70rpx;
-  margin-left:auto;
-  margin-right:auto;
-  text-align: center;
-  border-top-style:solid;
-  border-right-style:solid;
-  border-bottom-style:solid;
-  border-left-style:solid;
-  border-width:1rpx;
-  border-radius: 10rpx;
-  border-color:#9c9595;
-  background-color: #9c9595;
-}
-.desinger_order_button_text_style{
-  font-size: 30rpx;
-  font-family:"", Times, serif;
-  white-space: nowrap;     /*文本不换行*/
-  line-height:70rpx;
-  vertical-align:middle;   /******上下居中*****/
-  color: white
+  background-color: #f6f6f6;
 }
 /*********************/
 .case_title_main{
   width: 100%;
   display: flex;
-  background-color: whitesmoke;
+  background-color: #ececec;
 }
 .case_title_main1{
   width: 96%;
   margin-top: 10rpx;
   margin-left: auto;
   margin-right: auto;
-  background-color: whitesmoke;
+  background-color: #ececec;
   text-align: center;
 }
 .case_title_style{
   font-size: 40rpx;
   font-family:"", Times, serif;
   font-weight: bold;
+  color: #22393c
 }
 /************家装图片*************/
 .case_item_main{
   width: 96%;
   margin-left:auto;
   margin-right:auto;
-  background-color:whitesmoke;
+  background-color:white;
 }
 .case_item_image_main{
   width: 100%;
@@ -119,18 +36,18 @@ page{
 .case_item_text_main{
   width: 100%;
   margin-top: 10rpx;
-  background-color: whitesmoke;
+  background-color: white;
 }
 .case_item_text_style{
   display: flex;
   line-height: 35rpx;
   font-size: 30rpx;
   font-family:"", Times, serif;
-  color: #9c9595;
+  color: #999999;
   text-indent:2em
 }
 .KKKKK{
-  height: 5rpx;
+  height: 10rpx;
   width: 100%;
 }
 /*********作者、收藏**********/
@@ -139,7 +56,7 @@ page{
   height: 50rpx;
   display: flex;
   margin-bottom: 10rpx;
-  background-color: whitesmoke;
+  background-color: #ececec;
 }
 .autor_main{
   width: 200rpx;
@@ -155,7 +72,7 @@ page{
   vertical-align: middle;
   font-size: 30rpx;
   font-family:"", Times, serif;
-  color: #9c9595
+  color: #999999
 }
 .collect_main{
   width: 150rpx;
@@ -189,7 +106,7 @@ page{
   margin-left: 5rpx;
   font-size: 30rpx;
   font-family:"", Times, serif;
-  color: #9c9595
+  color: #22393c
 }
 /***********品牌简介***********/
 .brand_info_main{
@@ -197,7 +114,7 @@ page{
   height: 160rpx;
   position: fixed;
   bottom: -1rpx;
-  background-color: whitesmoke;
+  background-color: #ececec;
   display: flex;
   z-index: 999;
 }
@@ -219,9 +136,8 @@ page{
   margin-top: 8rpx;
 }
 .brand_info_image_size{
-  width: 130rpx;
-  height: 130rpx;
-  margin-left: 5rpx;
+  width: 140rpx;
+  height: 140rpx;
 }
 .brand_info_text_main{
   width: 400rpx;
@@ -268,9 +184,9 @@ page{
   border-bottom-style:solid;
   border-left-style:solid;
   border-width: 2rpx;
-  border-color: #fc5874;
+  border-color: #22393c;
   border-radius: 10rpx;
-  background-color: #fc5874;
+  background-color: #22393c;
   text-align: center
 }
 .brand_enter_button_text_style{

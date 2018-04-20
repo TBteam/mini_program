@@ -40,6 +40,7 @@ page{
   padding-left: 20rpx;
   font-size: 35rpx;
   font-family:"", Times, serif; 
+  color: #22393c
 }
 
 .about_us_line{
@@ -80,6 +81,7 @@ page{
   white-space: nowrap;     /*文本不换行*/
   line-height:60rpx;
   vertical-align:middle;   /******上下居中*****/
+  color: #22393c
 }
 
 .about_us_info_title_mian{
@@ -90,6 +92,7 @@ page{
 .about_us_info_title_text_style{
     font-size: 50rpx;
    font-family:"", Times, serif;
+   color: #22393c
 }
 .about_us_K{
   width: 100%;

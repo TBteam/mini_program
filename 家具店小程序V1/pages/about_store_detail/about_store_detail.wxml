@@ -14,7 +14,7 @@
   <text class='text_style'>地址：{{shop_info.shop_addr}}</text>
 </view>
 <view class='icon_mian'>
-     <image bindtap='show_map' class="icon_style" src="../photo/address.png" background-size="cover"></image>
+     <image bindtap='show_map' mode='scaleToFill' class="icon_style" src="../photo/address.png" background-size="cover"></image>
 </view>
 </view>
 <view wx:if="{{show_map_flag}}" >
@@ -29,7 +29,7 @@
       <text class='text_style'>电话：{{shop_info.shop_contact}}</text>
    </view>
     <view class='icon_mian'>
-     <image bindtap='call_phone' class="icon_style" src="../photo/phone2.png" background-size="cover"></image>
+     <image bindtap='call_phone' mode='scaleToFill' class="icon_style" src="../photo/phone3.png" background-size="cover"></image>
      </view>
 </view>
 
