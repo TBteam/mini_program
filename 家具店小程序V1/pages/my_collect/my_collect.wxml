@@ -41,10 +41,6 @@
 </view>
 
 <!--家装案例界面-->
-<view class='case_item_K'></view>
-<view class='case_item_K'></view>
-<view class='case_item_K'></view>
-<view class='case_item_K'></view>
 <view class='case_item_KK'></view>
  <view  wx:if='{{collect_case_flag}}' wx:for="{{collect_case}}">
         <view class='case_item_main'>

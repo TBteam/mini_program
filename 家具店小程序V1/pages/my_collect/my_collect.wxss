@@ -1,4 +1,7 @@
 /* pages/my_collect/my_collect.wxss */
+page{
+  background-color: #f6f6f6;
+}
 /********顶部选择栏********/
 .good_details_recommand_title_main{
   width: 100%;
@@ -7,7 +10,7 @@
   position: fixed;
   top: -1rpx;
   z-index: 999;
-  background-color: white
+  background-color: #ececec
 }
 .good_details_recommand_title_details{
   width: 50%;
@@ -26,7 +29,7 @@
    font-family:"", Times, serif;
    line-height: 80rpx;
    vertical-align: middle;
-   color:black;
+   color:#22393c;
    border-bottom-style:solid;
    border-color: #ebebeb;
    border-width: 3rpx;
@@ -48,7 +51,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 80rpx;
+  margin-top: 100rpx;
 }
 .good_mian_left{
   width: 356rpx;
@@ -98,16 +101,16 @@
 /************家装案例************/
 .case_item_main{
   width: 97%;
-  height: 500rpx;
+  height: 540rpx;
   margin-left: auto;
   margin-right: auto;
-  background-color: whitesmoke
+  background-color: #ffffff
 }
 .case_item_image_main{
   width: 100%;
   height: 400rpx;
   display: flex;
-  z-index: 3
+  z-index: 4
 }
 .case_item_image_size{
   width: 100%;
@@ -115,8 +118,13 @@
 }
 .case_item_text_main{
   width: 100%;
-  height: 100rpx;
+  height: 140rpx;
   display: flex;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-style:solid;
+  border-width: 1rpx;
+  border-color: #eeeeee;
 }
 .case_item_text_left_main{
   width: 70%;
@@ -128,6 +136,7 @@
 }
 .case_item_text_title_main{
   width: 100%;
+  margin-top: 20rpx;
   height: 55rpx;
   display: flex;
   align-items: center;
@@ -136,10 +145,11 @@
   margin-left: 20rpx;
   font-size: 35rpx;
   font-family:"", Times, serif;
+  color: #333333
 }
 .case_item_text_info_main{
   width: 100%;
-  height: 45rpx;
+  height: 35rpx;
   display: flex;
   align-items: center;
 }
@@ -147,62 +157,67 @@
   margin-left: 20rpx;
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color:  #22393c
+  color:  #666666
 }
 .case_item_text_info_style2{
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color: #999999
+  color: #aeaeae
 }
 .case_item_text_info_style3{
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color: #22393c
+  color: #666666
 }
 .case_item_brand_image_main{
   width: 110rpx;
   height: 110rpx;
-  margin-top: -60rpx;
+  margin-top: -65rpx;
   margin-left: auto;
   margin-right: auto;
   border-top-style:solid;
   border-right-style:solid;
   border-bottom-style:solid;
   border-left-style:solid;
-  border-width: 5rpx;
+  border-width: 1rpx;
   border-color: white;
   background-color: white;
-  border-radius: 50%;
+  border-radius: 25%;
   display: flex;
   align-items: center;
-  z-index: 4;
+  z-index: 5;
 }
 .case_item_brand_image_size{
-  width: 100rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 25%;
   margin-left: auto;
   margin-right: auto;
 }
 .case_item_brand_name_main{
   width: 100%;
   height: 45rpx;
-  text-align: center;
+  display: flex;
+  align-items: center
 }
 .case_item_brand_name_style{
   width: 100%;
-  height: 45rpx;
-  line-height: 35rpx;
-  vertical-align: middle;
+  text-align: center;
   font-size: 25rpx;
   font-family:"", Times, serif;
-  color: #333333
+  color: #22393c
 }
 .case_item_K{
   width: 100%;
-  height: 20rpx;
+  height: 40rpx;
+}
+.case_item_KKK{
+  width: 100%;
+  height: 19rpx;
 }
 .case_item_KK{
   width: 100%;
-  height: 15rpx;
+  height: 100rpx;
 }
 /***********加载更多***********/
 .add_more_main{

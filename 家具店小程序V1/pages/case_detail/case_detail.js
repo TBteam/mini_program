@@ -11,7 +11,8 @@ Page({
     brand_info:'',
     case_info:'',
     show_brand_info:false,
-    enter_form_share:false
+    enter_form_share:false,
+    basic_flag:true
   },
   desinger_info: function () {
     wx.navigateTo({
@@ -117,6 +118,7 @@ Page({
     var brand_info={}
     var case_info={}
     var enter_form_share = that.data.enter_form_share
+    var basic_flag
     console.log(app.globalData.case_detail_case_id)
     var case_id = app.globalData.case_detail_case_id
     if (enter_form_share){
@@ -169,7 +171,12 @@ Page({
            brand_info.brand_id = res.data.brand_info.brand_id
            case_info.case_name = decodeURI(res.data.case_name)
            case_info.collect = res.data.collect
-           case_info.case_basic_info = decodeURI(res.data.case_basic_info) 
+           case_info.case_basic_info = decodeURI(res.data.case_basic_info)
+           if (case_info.case_basic_info=='') {
+             basic_flag=false
+           }else{
+             basic_flag = true
+           }
            var case_pics = []
            for (var i = 0; i < res.data.case_infos.length; i++) {
              if (res.data.case_infos[i].style=='image'){
@@ -190,6 +197,7 @@ Page({
            that.setData({
              brand_info: brand_info,
              case_info: case_info,
+             basic_flag: basic_flag,
              show_brand_info: show_brand_info
            })
            wx.showLoading({

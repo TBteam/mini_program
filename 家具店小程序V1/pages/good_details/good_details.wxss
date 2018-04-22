@@ -40,9 +40,9 @@
   text-align: center;
 }
 .good_collect_icon_size{
-  width: 45rpx;
-  height: 45rpx;
-  margin-top: 55rpx;
+  width: 35rpx;
+  height: 35rpx;
+  margin-top: 65rpx;
 }
 .good_collect_text_main{
   width: 100%;
