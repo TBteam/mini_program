@@ -36,14 +36,26 @@ Page({
       show_map_flag: show_map_flag
     })
   },
-  call_phone: function () {
-    wx.makePhoneCall({
-      phoneNumber: '12345678999'
-    })
+  call_phone: function (res) {
+    var that=this
+    console.log(res)
+    var shop_info=that.data.shop_info;
+    if (res.currentTarget.id=='1'){
+       wx.makePhoneCall({
+          phoneNumber: shop_info.shop_contact
+        })
+    } else if (res.currentTarget.id == '2'){
+      wx.makePhoneCall({
+        phoneNumber: shop_info.phone_contact
+      })
+    }
+    
   },
   copy: function () {
+    var that=this
+    var shop_info = that.data.shop_info;
     wx.setClipboardData({
-      data: '12345678999',
+      data: shop_info.wechat_contact,
       success: function (res) {
         wx.showToast({
           title: '复制成功',
@@ -84,6 +96,8 @@ Page({
         markers[0].title = shop_info.shop_name
         shop_info.shop_addr = decodeURI(res.data.shop_info.shop_addr)
         shop_info.shop_contact = decodeURI(res.data.shop_info.shop_contact)
+        shop_info.phone_contact = decodeURI(res.data.shop_info.phone_contact)
+        shop_info.wechat_contact = decodeURI(res.data.shop_info.wechat_contact)
         shop_info.shop_pic = res.data.shop_info.shop_pic
         var locate = res.data.shop_info.shop_locate
         locate = locate.replace('(', '')
@@ -92,6 +106,9 @@ Page({
         markers[0].callout.content = shop_info.shop_name
         markers[0].longitude = parseFloat(locate1[1]) 
         markers[0].latitude = parseFloat(locate1[0]) 
+        wx.setNavigationBarTitle({
+          title: shop_info.shop_name
+        })
         that.setData({
           shop_info: shop_info,
           markers: markers,

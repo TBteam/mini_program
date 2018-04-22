@@ -392,11 +392,19 @@ Page({
     var page=that.data.category_good_page
     console.log(res.currentTarget.id)
     var category_id=categorys[res.currentTarget.id].category_id
-    that.get_category_product(category_id, page)
-    that.setData({
-      classfiy_flag: false,
-      secne_flag: false,
-    })
+    if (that.data.category_show_flag && category_id==that.data.cate_id){
+      that.setData({
+        classfiy_flag: false,
+        secne_flag: false,
+      })
+    }else{
+      that.get_category_product(category_id, page)
+      that.setData({
+        classfiy_flag: false,
+        secne_flag: false,
+      })
+    }
+    
   },
   scene_bintap: function (res) {
     var that = this;
@@ -404,12 +412,20 @@ Page({
     var page = that.data.scene_good_page
     console.log(res.currentTarget.id)
     var scene_id = scenes[res.currentTarget.id].scene_id
-    that.get_scene_product(scene_id, page)
-    console.log(res)
-    that.setData({
-      classfiy_flag: false,
-      secne_flag: false,
-    })
+    if (that.data.scene_show_flag && scene_id == that.data.scene_id) {
+      that.setData({
+        classfiy_flag: false,
+        secne_flag: false,
+      })
+    } else {
+      that.get_scene_product(scene_id, page)
+      console.log(res)
+      that.setData({
+        classfiy_flag: false,
+        secne_flag: false,
+      })
+    }
+    
   },
   add_more:function(){
     var that=this
@@ -545,7 +561,7 @@ Page({
     var page=page
     var cate_id=category_id
     var category_show_flag = that.data.category_show_flag
-    if (category_show_flag){
+    if (category_show_flag && cate_id == that.data.cate_id){
       var products = that.data.products
     }else{
       products=[]
@@ -592,6 +608,12 @@ Page({
     var page = page
     var scene_id = scene_id
     var products = []
+    var scene_show_flag = that.data.scene_show_flag
+    if (scene_show_flag && scene_id == that.data.scene_id) {
+      var products = that.data.products
+    } else {
+      products = []
+    }
     wx.request({
       url: 'https://furniture.jxggdxw.com/api/v1/get_product_of_scene/',
       method: 'GET',

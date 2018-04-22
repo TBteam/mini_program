@@ -169,14 +169,22 @@ Page({
            brand_info.brand_id = res.data.brand_info.brand_id
            case_info.case_name = decodeURI(res.data.case_name)
            case_info.collect = res.data.collect
+           case_info.case_basic_info = decodeURI(res.data.case_basic_info) 
            var case_pics = []
-           for (var i = 0; i < res.data.case_pics.length; i++) {
-             var pic = {}
-             pic.url = res.data.case_pics[i].url
-             pic.text = decodeURI(res.data.case_pics[i].text)
-             case_pics.push(pic)
+           for (var i = 0; i < res.data.case_infos.length; i++) {
+             if (res.data.case_infos[i].style=='image'){
+               var pic = {}
+               pic.url = res.data.case_infos[i].url
+               pic.style=false
+               case_pics.push(pic)
+             } if (res.data.case_infos[i].style == 'text') {
+               var pic = {}
+               pic.text = decodeURI(res.data.case_infos[i].text)
+               pic.style = true
+               case_pics.push(pic)
+             }
            }
-           case_info.pics = case_pics
+           case_info.infos = case_pics
            console.log(case_info)
            console.log(brand_info)
            that.setData({

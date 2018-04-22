@@ -48,13 +48,12 @@
 <view class='brand_info_image_main'>
     <image class="brand_info_image_size" src="{{item.brand_image_url}}"></image>
 </view>
-<view class='brand_info_K'></view>
 <view class='brand_info_text_main'>
-    <text class='brand_info_text_style'>上图为品牌1图片介绍，本处为品牌1文字介绍,上图为品牌1图片介绍，本处为品牌1文字介绍,上图为品牌1图片介绍，本处为品牌1文字介绍</text>
+    <text class='brand_info_text_style'>{{item.brand_image_text}}</text>
 </view>
 </view>
 <view class='brand_info_K'></view>
-
+<!--
 <view class='main'>
     <view wx:for='{{products}}'>
         <view class='good_mian_left' bindtap='bindtap'id='{{index}}' data-product_style='hot_product'>
@@ -68,10 +67,10 @@
         </view>
    </view>
 </view>
+-->
 </view>
 <!--家装案例-->
 <view class='case_main' wx:if='{{case_flag}}'>
-<view class='case_item_K'></view>
 <view wx:for="{{cases}}">
         <view bindtap='case_detail' id='{{index}}' class='case_item_main'>
             <view  class='case_item_image_main'>

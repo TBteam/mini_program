@@ -15,7 +15,7 @@
            <text class='good_name_style'>{{good_info.product_name}}</text>
        </view>
         <view class='good_new_price_main'>
-             <text class='good_new_price_style'>¥ {{good_info.product_price}}</text>
+             <text class='good_new_price_style'>¥ {{good_price}}</text>
         </view>
     </view>
     <view bindtap='collect'  class='good_collect_main'>
@@ -61,22 +61,43 @@
 
 <view class='KKK'></view>
 
+<view bindtap='format' class='good_format_title_main'>
+   <view  class='good_format_title_text_main'>
+      <text class='good_format_title_text_style'>规格</text>
+      <text class='good_format_title_text_style1'>已选：{{select_format_name}}</text>
+   </view>
+   <!--
+   <view class='good_format_title_icon_main'>
+      <view class='good_format_title_icon_size'>
+      <image   mode='scaleToFill'  class="good_format_title_icon_size" src="../photo/ellipsis.png" background-size="cover"></image>
+      </view>
+   </view>
+   -->
+</view>
+<view  class='good_format_main'>
+<view class='good_info_line'></view>
+   <view wx:for="{{formats}}">
+      <view wx:if='{{!item.checked}}' bindtap='format_select' id='{{index}}' class='good_format_item_border'>
+        <view class='good_format_item_text_main'>
+            <text class='good_format_item_text_style'>{{item.format_name}}</text>
+        </view>
+      </view>
+      <view wx:if='{{item.checked}}' bindtap='format_select' id='{{index}}' class='good_format_item_border_checked'>
+        <view class='good_format_item_text_main'>
+            <text class='good_format_item_text_checked_style'>{{item.format_name}}</text>
+        </view>
+      </view>
+   </view>
+   <view class='good_format_K'></view>
+</view>
+<view class='KKK'></view>
+
 <view class='good_info_item_main'>
    <view class='good_info_item_title_main'>
       <text class='good_info_item_title_style'>品牌</text>
    </view>
    <view class='good_info_item_text_main'>
       <text class='good_info_item_text_style'>{{good_info.brand_name}}</text>
-   </view>
-</view>
-<view class='good_info_line'></view>
-
-<view class='good_info_item_main'>
-   <view class='good_info_item_title_main'>
-      <text class='good_info_item_title_style'>尺寸</text>
-   </view>
-   <view class='good_info_item_text_main'>
-      <text class='good_info_item_text_style'>{{good_info.product_size}}</text>
    </view>
 </view>
 <view class='good_info_line'></view>
@@ -90,6 +111,15 @@
    </view>
 </view>
 <view class='good_info_line'></view>
+
+<view class='good_info_item_main'>
+   <view class='good_info_item_title_main'>
+      <text class='good_info_item_title_style'>产地</text>
+   </view>
+   <view class='good_info_item_text_main'>
+      <text class='good_info_item_text_style'>{{good_info.product_size}}</text>
+   </view>
+</view>
 
 <view class='good_info_details_title_main'>
    <view class='good_info_details_title_left'>

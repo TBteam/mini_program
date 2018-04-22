@@ -4,8 +4,7 @@ page{
 }
 .store_image_mian{
   width: 100%;
-  height: 400rpx;
-  margin-top: 2rpx;
+  height: 563rpx;
   margin-left: auto;
   margin-right: auto;
 }
@@ -37,8 +36,11 @@ page{
   height: 80rpx;
 }
 .text_style{
+  display: flex;
   padding-left: 20rpx;
-  font-size: 35rpx;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  vertical-align: middle;
   font-family:"", Times, serif; 
   color: #22393c
 }
@@ -86,11 +88,14 @@ page{
 
 .about_us_info_title_mian{
     width: 100%;
-    height: 100rpx;
-    text-align: center;
+    height: 150rpx;
+    display: flex;
+    align-items: center;
 }
 .about_us_info_title_text_style{
-    font-size: 50rpx;
+  width: 100%;
+  text-align: center;
+   font-size: 50rpx;
    font-family:"", Times, serif;
    color: #22393c
 }

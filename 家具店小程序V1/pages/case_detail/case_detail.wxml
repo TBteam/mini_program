@@ -22,16 +22,21 @@
 </view>
 </view>
 <!--家装图片-->
-<view wx:for='{{case_info.pics}}'>
-    <view  class='case_item_main'>
-       <view class='case_item_image_main'>
-           <image class="case_item_image_main" mode='aspectFit' src="{{item.url}}"></image>
-       </view>
+<view  class='case_item_main'>
        <view class='case_item_text_main'>
-          <text class='case_item_text_style'>文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍文字介绍</text>
+          <text class='case_item_text_style'>{{case_info.case_basic_info}}</text>
+       </view>
+ </view>
+<view wx:for='{{case_info.infos}}'>
+    <view  class='case_item_main'>
+       <view wx:if='{{!item.style}}' class='case_item_image_main'>
+           <image class="case_item_image_size" mode='aspectFit' src="{{item.url}}"></image>
+       </view>
+       <view wx:if='{{item.style}}' class='case_item_text_main'>
+          <text class='case_item_text_style'>{{item.text}}</text>
        </view>
     </view>
-    <view class='KKKKK'></view>
+
   </view>
 
 <view wx:if='{{show_brand_info}}' class='bottom_K'></view>

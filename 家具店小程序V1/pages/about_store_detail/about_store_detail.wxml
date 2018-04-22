@@ -4,7 +4,6 @@
   <image class="store_image" src="{{shop_info.shop_pic}}" ></image>
 </view>
 
-<view class='about_us_K'></view>
 <view class='about_us_info_title_mian'>
    <text class='about_us_info_title_text_style'>{{shop_info.shop_name}}</text>
 </view>
@@ -29,14 +28,26 @@
       <text class='text_style'>电话：{{shop_info.shop_contact}}</text>
    </view>
     <view class='icon_mian'>
-     <image bindtap='call_phone' mode='scaleToFill' class="icon_style" src="../photo/phone3.png" background-size="cover"></image>
+     <image bindtap='call_phone' id='1' mode='scaleToFill' class="icon_style" src="../photo/phone3.png" background-size="cover"></image>
      </view>
 </view>
 
 <view class='about_us_KK'></view>
+
+<view class='about_us_main'>
+   <view class='text_mian'>
+      <text class='text_style'>手机：{{shop_info.phone_contact}}</text>
+   </view>
+    <view class='icon_mian'>
+     <image bindtap='call_phone' id='2' mode='scaleToFill' class="icon_style" src="../photo/phone3.png" background-size="cover"></image>
+     </view>
+</view>
+
+
+<view class='about_us_KK'></view>
 <view class='about_us_main'>
 <view class='text_mian'>
-  <text class='text_style'>微信：{{shop_info.shop_contact}}</text>
+  <text class='text_style'>微信：{{shop_info.wechat_contact}}</text>
 </view>
 <view bindtap='copy' class='copy_button_main'>
        <view class='copy_button_size'>
@@ -44,5 +55,6 @@
        </view>
    </view>
 </view>
-<view class='KK'></view>
+<view class='about_us_K'></view>
+<view class='about_us_K'></view>
 

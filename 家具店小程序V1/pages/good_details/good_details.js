@@ -8,6 +8,7 @@ Page({
    */
   data: {
     good_info:'',
+    good_price:'',
     bottom_info_flag:false,
     good_info_flag:false,
     detail_info_flag:true,
@@ -15,6 +16,9 @@ Page({
     preferential_info_flag:false,
     format_flag:false,
     collect_flag:false,
+    format_flag:true,
+    select_format_name:'',
+    formats: [{ format_name: '1110*950*865mm', price: 12333, checked: false }, { format_name: '1110*950*865mm', price: 1232, checked: false }, { format_name: '1110*950*865mm', price: 12343, checked: false }, { format_name: '规格1', price: 5332, checked: false }]
   },
   collect:function(){
     var that = this
@@ -69,6 +73,31 @@ Page({
     }else{
       that.show_login()
     }
+  },
+  format:function(){
+    var that=this
+    var format_flag = !that.data.format_flag
+    console.log(format_flag)
+    that.setData({
+      format_flag: format_flag
+    })
+  },
+  format_select:function(res){
+    var that=this
+    var formats=that.data.formats
+    var id = res.currentTarget.id
+    for(var i=0;i<formats.length;i++){
+      if(i==id){
+        formats[i].checked=true
+      }else{
+        formats[i].checked = false
+        }
+    }
+    that.setData({
+      formats: formats,
+      good_price: formats[id].price,
+      select_format_name: formats[id].format_name
+    })
   },
  
   /**
@@ -131,10 +160,11 @@ Page({
         console.log(res.data.detail_images)
         if(res.data.ret=='succ'){
           var good_info={}
+          var formates=[]
           good_info.top_images=res.data.top_images
           good_info.detail_images=res.data.detail_images
           good_info.product_name=decodeURI(res.data.name)
-          good_info.product_price = decodeURI(res.data.price)
+          var product_price = decodeURI(res.data.price)
           good_info.brand_name = decodeURI(res.data.brand_name)
           good_info.product_size = decodeURI(res.data.size)
           good_info.product_color = decodeURI(res.data.color)
@@ -142,9 +172,23 @@ Page({
           good_info.install = res.data.install
           good_info.warranty = res.data.warranty
           good_info.order = res.data.order
+          for (var i = 0; i < res.data.formates.length;i++){
+              var formate={}
+              formate.format_name = decodeURI(res.data.formates[i].formate_name)
+              formate.price = decodeURI(res.data.formates[i].formate_price)
+              if(i==0){
+                formate.checked = true
+              }else{
+                formate.checked = false
+              }
+              formates.push(formate)
+          }
          console.log(good_info)
          that.setData({
-           good_info: good_info
+           good_info: good_info,
+           good_price: product_price,
+           formats: formates,
+           select_format_name: formates[0].format_name
          })
         }else if(res.data.ret=='fail'){
           wx.navigateBack({
