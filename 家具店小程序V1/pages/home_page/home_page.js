@@ -809,9 +809,11 @@ back_top:function(e){
         app.globalData.userInfo = res.userInfo
         wx.checkSession({
           success: function () {
+            console.log('check session succ')
             login.login_upload_session()
           },
           fail: function () {
+            console.log('check session fail')
             login.login_upload_code();
           }
         })

@@ -91,6 +91,7 @@ function login_upload_session() {
   var that = this
   try {
     var session = wx.getStorageSync('session')
+    console.log('session:' + session)
     if (session) {
       wx.request({
         url: 'https://furniture.jxggdxw.com/api/v1/check_session/',
