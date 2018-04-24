@@ -168,20 +168,30 @@ Page({
     this.data.newmark = 0;
     }
   },
+  bindscrolltolower:function(e){
+    var that=this
+    console.log('滚动到了底部')
+    console.log(e)
+    that.add_more()
+  },
   add_more:function(){
     var that=this
-    hot_flag = that.data.hot_flag
-    new_flag = that.data.new_flag
-    colligate_flag = that.data.colligate_flag      //综合标志位
-    filter_is_selected = that.data.filter_is_selected
-    if(hot_flag){
+    var hot_flag = that.data.hot_flag
+    var new_flag = that.data.new_flag
+    var colligate_flag = that.data.colligate_flag      //综合标志位
+    var filter_is_selected = that.data.filter_is_selected
+    var new_case_more_flag = that.data.new_case_more_flag
+    var hot_case_more_flag = that.data.hot_case_more_flag
+    var filter_case_more_flag = that.data.filter_case_more_flag
+    var colligate_case_more_flag = that.data.colligate_case_more_flag
+    if (hot_flag && !hot_case_more_flag){
       var page=that.data.hot_case_page
       page+=1
       that.get_hot_case(page)
       that.setData({
         hot_case_page: page
       })
-    }else if(new_flag){
+    } else if (new_flag && !new_case_more_flag){
       var page = that.data.new_case_page
       page += 1
       that.get_new_case(page)
@@ -189,14 +199,14 @@ Page({
         new_case_page: page
       })
     }
-    else if (colligate_flag) {
+    else if (colligate_flag && !colligate_case_more_flag) {
       var page = that.data.colligate_case_page
       page += 1
       that.get_colligate_case(page)
       that.setData({
         colligate_case_page: page
       })
-    } else if (filter_is_selected) {
+    } else if (filter_is_selected && !filter_case_more_flag) {
       var page = that.data.filter_case_page
       page += 1
       that.get_filter_case(page)

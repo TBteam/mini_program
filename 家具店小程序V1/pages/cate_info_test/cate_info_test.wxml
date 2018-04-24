@@ -90,26 +90,24 @@
                          <text class='case_item_text_info_style3'>{{item.price_name}}</text>
                      </view>
                 </view>
-                
-                <!--
-                <view bindtap='bintap' id='1' class='case_item_text_right_main'>
-                    <view class='case_item_brand_image_main'>
-                        <image mode='aspectFit'  class="case_item_brand_image_size" src="../photo/NORYA_selected.jpg" background-size="cover"></image>
-                    </view>
-                    <view class='case_item_brand_name_main'>
-                         <text class='case_item_brand_name_style'>挪亚家D5</text>
-                     </view>
-                </view>
-                -->
             </view>
         </view>
         <view class='case_item_K'></view>
         </view>
         <view wx:if='{{case_flag}}'>
             <view wx:if='{{!case_more_flag}}'> 
+                <view class="weui-loadmore" >
+                    <view class="weui-loading"></view>
+                    <view class="weui-loadmore__tips">正在加载</view>
+                 </view>
                 <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
                     <text class='add_more_text_style'>加载更多. . .</text>
                 </view>
+            </view>
+            <view wx:if='{{case_more_flag}}'> 
+                <view class="weui-loadmore" >
+                    <view class="weui-loadmore__tips">已加载全部</view>
+                 </view>
             </view>
         </view>
 </view>
@@ -127,27 +125,60 @@
             </view>    
         </view>
    </view>
+   </view>
    <view wx:if='{{all_good_flag && !category_show_flag && !scene_show_flag}}'>
         <view wx:if='{{!all_good_more_flag}}'> 
+          <view class="weui-loadmore1" >
+               <view class="weui-loading"></view>
+               <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+          <!--
            <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
               <text class='add_more_text_style'>加载更多. . .</text>
           </view>
+          -->
         </view>
+        <view wx:if='{{all_good_more_flag}}'> 
+            <view class="weui-loadmore1" >
+               <view class="weui-loadmore__tips">已加载全部</view>
+            </view>
+         </view>
      </view>
      <view wx:if='{{all_good_flag && category_show_flag && !scene_show_flag}}'>
         <view wx:if='{{!category_good_more_flag}}'> 
+           <view class="weui-loadmore1" >
+               <view class="weui-loading"></view>
+               <view class="weui-loadmore__tips">正在加载</view>
+           </view>
+           <!--
            <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
               <text class='add_more_text_style'>加载更多. . .</text>
           </view>
+          -->
         </view>
+        <view wx:if='{{category_good_more_flag}}'> 
+            <view class="weui-loadmore1" >
+               <view class="weui-loadmore__tips">已加载全部</view>
+            </view>
+         </view>
      </view>
      <view wx:if='{{all_good_flag && !category_show_flag && scene_show_flag}}'>
         <view wx:if='{{!scene_good_more_flag}}'> 
+           <view class="weui-loadmore1" >
+               <view class="weui-loading"></view>
+               <view class="weui-loadmore__tips">正在加载</view>
+           </view>
+           <!--
            <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
               <text class='add_more_text_style'>加载更多. . .</text>
           </view>
+          -->
         </view>
-     </view>
+        <view wx:if='{{scene_good_more_flag}}'> 
+            <view class="weui-loadmore1" >
+               <view class="weui-loadmore__tips">已加载全部</view>
+            </view>
+         </view>
    <view class='all_product_bottom_K'></view>
 </view>
 </view>
@@ -168,10 +199,21 @@
 </view>
 <view wx:if='{{new_good_flag }}'>
         <view wx:if='{{!new_good_more_flag}}'> 
+           <view class="weui-loadmore1" >
+               <view class="weui-loading"></view>
+               <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+          <!--
            <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
               <text class='add_more_text_style'>加载更多. . .</text>
           </view>
+          -->
         </view>
+        <view wx:if='{{new_good_more_flag}}'> 
+            <view class="weui-loadmore1" >
+               <view class="weui-loadmore__tips">已加载全部</view>
+            </view>
+         </view>
 </view>
 <view class='brand_info_K'></view>
 <view class='brand_info_K'></view>
@@ -242,9 +284,3 @@
      <image class="classfiy_select_icon_size1" src="../photo/right3.png"></image>
 </view>
 </view>
-
-<!--
-<view bindtap='back_main' class='back_main'>
-   <image class="back_main_size"    src="../photo/main_select3.png"></image>
-</view>
--->

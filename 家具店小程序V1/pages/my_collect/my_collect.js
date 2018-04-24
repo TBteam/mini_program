@@ -133,13 +133,16 @@ Page({
   },
   add_more:function(){
     var that=this
-    var collect_good_page = that.data.collect_good_page+1
-    var collect_case_page = that.data.collect_case_page+1
     var collect_good_flag = that.data.collect_good_flag
     var collect_case_flag = that.data.collect_case_flag
-    if (collect_good_flag){
+    var collect_good_more_flag = that.data.collect_good_more_flag
+    var collect_case_more_flag = that.data.collect_case_more_flag
+
+    if (collect_good_flag && !collect_good_more_flag){
+      var collect_good_page = that.data.collect_good_page + 1
       that.get_collect_product(collect_good_page)
-    } else if (collect_case_flag){
+    } else if (collect_case_flag && !collect_case_more_flag){
+      var collect_case_page = that.data.collect_case_page + 1
       that.get_collect_case(collect_case_page)
     }
   },
@@ -175,7 +178,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    this.add_more()
   },
 
   /**

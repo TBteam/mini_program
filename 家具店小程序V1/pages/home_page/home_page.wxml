@@ -130,7 +130,7 @@
                 </view>
             </view>
         </view>
-        <scroll-view   scroll-y style='{{style}}' scroll-top='{{scroll_top}}' >
+        <scroll-view bindscrolltolower='bindscrolltolower'   scroll-y style='{{style}}' scroll-top='{{scroll_top}}' >
         
         
         <view class='case_item_KK'></view>
@@ -165,31 +165,76 @@
         </view>
         <view class='case_item_K'></view>
         </view>
+        <!--是否加载完成-->
         <view wx:if='{{hot_flag}}'>
              <view wx:if='{{!hot_case_more_flag}}'> 
+                 <view class="weui-loadmore" >
+                    <view class="weui-loading"></view>
+                    <view class="weui-loadmore__tips">正在加载</view>
+                 </view>
+                 <!--
                  <view bindtap='add_more' data-flag='hot' class='add_more_main'>
                      <text class='add_more_text_style'>加载更多. . .</text>
+                 </view>
+                 -->
+             </view>
+             <view wx:if='{{hot_case_more_flag}}'> 
+                <view class="weui-loadmore" >
+                    <view class="weui-loadmore__tips">已加载全部</view>
                  </view>
              </view>
         </view>
         <view wx:if='{{new_flag}}'>
              <view wx:if='{{!new_case_more_flag}}'> 
+                 <view class="weui-loadmore" >
+                    <view class="weui-loading"></view>
+                    <view class="weui-loadmore__tips">正在加载</view>
+                 </view>
+                 <!--
                  <view bindtap='add_more' data-flag='new'  class='add_more_main'>
                      <text class='add_more_text_style'>加载更多. . .</text>
+                 </view>
+                 -->
+             </view>
+             <view wx:if='{{new_case_more_flag}}'> 
+                <view class="weui-loadmore" >
+                    <view class="weui-loadmore__tips">已加载全部</view>
                  </view>
              </view>
         </view>
         <view wx:if='{{filter_is_selected}}'>
              <view wx:if='{{!filter_case_more_flag}}'> 
+                 <view class="weui-loadmore" >
+                    <view class="weui-loading"></view>
+                    <view class="weui-loadmore__tips">正在加载</view>
+                 </view>
+                 <!--
                  <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
                      <text class='add_more_text_style'>加载更多. . .</text>
+                 </view>
+                 -->
+             </view>
+             <view wx:if='{{filter_case_more_flag}}'> 
+                <view class="weui-loadmore" >
+                    <view class="weui-loadmore__tips">已加载全部</view>
                  </view>
              </view>
         </view>
         <view wx:if='{{colligate_flag}}'>
              <view wx:if='{{!colligate_case_more_flag}}'> 
+                <view class="weui-loadmore" >
+                    <view class="weui-loading"></view>
+                    <view class="weui-loadmore__tips">正在加载</view>
+                 </view>
+                 <!--
                  <view bindtap='add_more' data-flag='colligate' class='add_more_main'>
                      <text class='add_more_text_style'>加载更多. . .</text>
+                 </view>
+                 -->
+             </view>
+             <view wx:if='{{colligate_case_more_flag}}'> 
+                <view class="weui-loadmore" >
+                    <view class="weui-loadmore__tips">已加载全部</view>
                  </view>
              </view>
         </view>

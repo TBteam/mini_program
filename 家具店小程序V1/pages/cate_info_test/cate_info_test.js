@@ -437,6 +437,8 @@ Page({
     var all_good_more_flag = that.data.all_good_more_flag
     var new_good_more_flag = that.data.new_good_more_flag
     var case_more_flag = that.data.case_more_flag
+    var category_good_more_flag = that.data.category_good_more_flag
+    var scene_good_more_flag = that.data.scene_good_more_flag
 
     var category_show_flag = that.data.category_show_flag
     var scene_show_flag = that.data.scene_show_flag
@@ -473,7 +475,7 @@ Page({
       }
     }  else if (case_flag){
       console.log('case page')
-      if (case_more_flag){
+      if (!case_more_flag){
         var case_page=that.data.case_page+1
         that.get_case_next_page(case_page)
         that.setData({
@@ -533,7 +535,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+  console.log('下拉触底')
+  this.add_more()
   },
 
   /**

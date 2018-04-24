@@ -20,7 +20,7 @@
 
 <!--商品-->
 <view wx:if='{{collect_good_flag}}'>
-<view class='main'>
+  <view class='main'>
     <view wx:for='{{collect_good}}'>
         <view class='good_mian_left' bindtap='good_detail' id='{{index}}'>
             <image class="image" src="{{item.item_image_url}}"  ></image>
@@ -31,13 +31,19 @@
                  <text class='old_price_style'>¥ {{item.product_price}}</text>
             </view>    
         </view>
+     </view>   
    </view>
    <view wx:if='{{!collect_good_more_flag}}'> 
-                <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
-                    <text class='add_more_text_style'>加载更多. . .</text>
-                </view>
+         <view class="weui-loadmore1" >
+               <view class="weui-loading"></view>
+               <view class="weui-loadmore__tips">正在加载</view>
+           </view>
     </view>
-</view>
+    <view wx:if='{{collect_good_more_flag}}'> 
+        <view class="weui-loadmore1" >
+             <view class="weui-loadmore__tips">已加载全部</view>
+        </view>
+    </view>
 </view>
 
 <!--家装案例界面-->
@@ -72,8 +78,19 @@
         </view>
         <view class='case_item_K'></view>
         <view wx:if='{{!collect_case_more_flag}}'> 
+           <view class="weui-loadmore" >
+               <view class="weui-loading"></view>
+               <view class="weui-loadmore__tips">正在加载</view>
+           </view>
+           <!--
                 <view bindtap='add_more' data-flag='filter'  class='add_more_main'>
                     <text class='add_more_text_style'>加载更多. . .</text>
                 </view>
+            -->
+        </view>
+        <view wx:if='{{collect_case_more_flag}}'> 
+           <view class="weui-loadmore" >
+               <view class="weui-loadmore__tips">已加载全部</view>
+           </view>
         </view>
 </view>
