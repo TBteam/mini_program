@@ -51,34 +51,6 @@ page{
    border-width: 3rpx;
 }
 /*********品牌介绍**********/
-.brand_info_logo_main{
-  width: 96%;
-  height: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 90rpx;
-  background-color: white;
-  text-align: center;
-}
-.brand_info_logo_main1{
-  width:100%;
-  height: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: white;
-  text-align: center;
-}
-.brand_info_logo_size{
-  width: 100%;
-  height: 100%;
-}
-.brand_info_logo_text_style{
-  font-size: 50rpx;
-  font-family:"", Times, serif;
-  color: #666666;
-  line-height: 200rpx;
-  vertical-align: middle;
-}
 .brand_info_image_main{
   width: 96%;
   height: 540rpx;
@@ -90,17 +62,25 @@ page{
 }
 .brand_info_text_main{
   width: 96%;
-  padding-top: 10rpx;
+  padding-top: 25rpx;
   padding-bottom: 10rpx;
   margin: auto;
   background-color: white;
 }
+.brand_info_text_size{
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
 .brand_info_text_style{
+  display: flex;
   font-size: 30rpx;
-  line-height: 45rpx;
+  line-height: 40rpx;
   font-family:"", Times, serif;
   color: #666666;
   vertical-align: middle;
+  padding-bottom: 10rpx;
 }
 .brand_info_K{
   width: 100%;
@@ -121,7 +101,7 @@ page{
 }
 .case_item_main{
   width: 97%;
-  height: 510rpx;
+  height: 530rpx;
   margin-left: auto;
   margin-right: auto;
   background-color: #ffffff
@@ -138,7 +118,7 @@ page{
 }
 .case_item_text_main{
   width: 100%;
-  height: 110rpx;
+  height: 130rpx;
   display: flex;
   border-right-style:solid;
   border-bottom-style:solid;
@@ -156,7 +136,7 @@ page{
 }
 .case_item_text_title_main{
   width: 100%;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   height: 55rpx;
   display: flex;
   align-items: center;

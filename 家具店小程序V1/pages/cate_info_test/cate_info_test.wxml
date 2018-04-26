@@ -38,20 +38,19 @@
 <view class='K'></view>
 <!--首页-->
 <view wx:if='{{first_flag}}'>
-<!--
-<view class='brand_info_logo_main'  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
-    <image class="brand_info_image_size" src="../photo/ttt.jpg"></image>
-</view>
--->
 <view class='brand_info_KK'></view>
-<view wx:for='{{brand_info}}' wx:key='key' >
-<view class='brand_info_image_main'>
-    <image class="brand_info_image_size" src="{{item.brand_image_url}}"></image>
-</view>
-<view class='brand_info_text_main'>
-    <text class='brand_info_text_style'>{{item.brand_image_text}}</text>
-</view>
-</view>
+    <view wx:for='{{brand_info}}' wx:key='key' >
+       <view class='brand_info_image_main'>
+           <image class="brand_info_image_size" src="{{item.brand_image_url}}"></image>
+       </view>
+       <view class='brand_info_text_main'>
+          <view class='brand_info_text_size'>
+               <view wx:for='{{item.brand_image_text}}' wx:for-item="itemName">
+                  <text class='brand_info_text_style'>{{itemName}}</text>
+               </view>
+          </view>
+       </view>
+      </view>
 <view class='brand_info_K'></view>
 <!--
 <view class='main'>

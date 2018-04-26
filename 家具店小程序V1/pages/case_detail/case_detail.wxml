@@ -24,7 +24,9 @@
 <!--家装图片-->
 <view wx:if='{{basic_flag}}'  class='case_item_main'>
        <view class='case_item_text_main1'>
-          <text class='case_item_text_style'>{{case_info.case_basic_info}}</text>
+          <view wx:for='{{case_info.case_basic_info}}'>
+              <text class='case_item_text_style'>{{item}}</text>
+          </view>
        </view>
  </view>
 <view wx:for='{{case_info.infos}}'>
@@ -33,7 +35,9 @@
            <image class="case_item_image_size" mode='aspectFit' src="{{item.url}}"></image>
        </view>
        <view wx:if='{{item.style}}' class='case_item_text_main'>
-          <text class='case_item_text_style'>{{item.text}}</text>
+          <view wx:for='{{item.text}}' wx:for-index="idx" wx:for-item="itemName" >
+          <text class='case_item_text_style'>{{itemName}}</text> 
+          </view>
        </view>
     </view>
 

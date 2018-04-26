@@ -171,12 +171,23 @@ Page({
            brand_info.brand_id = res.data.brand_info.brand_id
            case_info.case_name = decodeURI(res.data.case_name)
            case_info.collect = res.data.collect
-           case_info.case_basic_info = decodeURI(res.data.case_basic_info)
-           if (case_info.case_basic_info=='') {
+           
+           var text = decodeURI(res.data.case_basic_info)
+           var text1 = text.split('\n')
+           console.log(text1)
+           var text3 = []
+           for (var j = 0; j < text1.length; j++) {
+             if (text1[j].replace(/(^\s*)|(\s*$)/g, "").length != 0) {
+               text3.push(text1[j])
+             }
+           }
+           if (text3.length==0) {
              basic_flag=false
            }else{
              basic_flag = true
+             case_info.case_basic_info = text3
            }
+           
            var case_pics = []
            for (var i = 0; i < res.data.case_infos.length; i++) {
              if (res.data.case_infos[i].style=='image'){
@@ -186,7 +197,17 @@ Page({
                case_pics.push(pic)
              } if (res.data.case_infos[i].style == 'text') {
                var pic = {}
-               pic.text = decodeURI(res.data.case_infos[i].text)
+              // console.log(decodeURI(res.data.case_infos[i].text).replace(/\n\s*\r/, ""))
+               var text = decodeURI(res.data.case_infos[i].text)
+               var text1=text.split('\n')
+               console.log(text1)
+               var text3=[]
+               for(var j=0;j<text1.length;j++){
+                 if (text1[j].replace(/(^\s*)|(\s*$)/g, "").length != 0){
+                    text3.push(text1[j])
+                  }
+               }
+               pic.text = text3
                pic.style = true
                case_pics.push(pic)
              }

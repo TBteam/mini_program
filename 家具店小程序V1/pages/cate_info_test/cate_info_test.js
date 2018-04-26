@@ -143,7 +143,16 @@ Page({
           for(var i=0;i<res.data.brand_info.length;i++){
             var brandinfo={}
             brandinfo.brand_image_url = res.data.brand_info[i].url
-            brandinfo.brand_image_text = decodeURI(res.data.brand_info[i].text) 
+            var text = decodeURI(res.data.brand_info[i].text) 
+            var text1 = text.split('\n')
+            console.log(text1)
+            var text3 = []
+            for (var j = 0; j < text1.length; j++) {
+              if (text1[j].replace(/(^\s*)|(\s*$)/g, "").length != 0) {
+                text3.push(text1[j])
+              }
+            }
+            brandinfo.brand_image_text = text3 
             brand_info.push(brandinfo)
           }
           if (res.data.cases.length < 10) {
