@@ -90,8 +90,8 @@
   border-left-style:solid;
   border-width: 2rpx;
   border-radius: 10rpx;
-  background-color: #fc5874;
-  border-color: #fc5874;
+  background-color: #22393c;
+  border-color: #22393c;
   text-align: center;
 }
 .apply_button_style{
