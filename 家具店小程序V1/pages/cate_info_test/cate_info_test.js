@@ -236,7 +236,6 @@ Page({
       wx.pageScrollTo({
         scrollTop: 0
       })
-      
       that.setData({
         first_flag: false,
         case_flag: true,
@@ -319,28 +318,6 @@ Page({
       })
     }
   },
-  back_main:function(){
-    var res = getCurrentPages()
-    var flag = false;
-    console.log(res)
-    for (var i = 0; i < res.length; i++) {
-      if (res[i].route == 'pages/main/main') {
-        flag = true;
-      }
-    }
-    if (flag) {
-      wx.navigateBack({
-        delta: 1
-      })
-    } else {
-      wx.redirectTo({
-        url: '../main/main',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    }
-  },
   about_store:function(){
     wx.navigateTo({
       url: '../about_store_detail/about_store_detail',
@@ -352,25 +329,24 @@ Page({
   bindtap: function (res) {
      console.log(res)
      var that=this
-     var all_products=that.data.all_products
-     var hot_products=that.data.hot_products
-     var new_products=that.data.new_products
+     var products=that.data.products
      var id = res.currentTarget.id
-     if (res.currentTarget.dataset.product_style=='hot_product'){
+     app.globalData.good_detail_product_id = products[id].product_id
+     /*if (res.currentTarget.dataset.product_style=='hot_product'){
        console.log('hot_product')
        console.log(id)
        app.globalData.good_detail_product_id=hot_products[id].product_id
      } else if (res.currentTarget.dataset.product_style == 'all_product') {
        console.log('all_product')
        console.log(id)
-       app.globalData.good_detail_product_id = all_products[id].product_id
+       app.globalData.good_detail_product_id = products[id].product_id
        console.log(all_products)
        console.log(app.globalData.good_detail_product_id)
      } else if (res.currentTarget.dataset.product_style == 'new_product') {
        console.log('new_product')
        console.log(id)
        app.globalData.good_detail_product_id = new_products[id].product_id
-     }
+     }*/
     wx.navigateTo({
       url: '../good_details/good_details',
       success: function (res) { },
@@ -407,12 +383,19 @@ Page({
         secne_flag: false,
       })
     }else{
+      page=0
+      console.log('')
       that.get_category_product(category_id, page)
       that.setData({
         classfiy_flag: false,
         secne_flag: false,
+        category_good_page: 0,
+        scene_good_page: 0,
       })
     }
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
     
   },
   scene_bintap: function (res) {
@@ -427,13 +410,20 @@ Page({
         secne_flag: false,
       })
     } else {
+      page = 0
       that.get_scene_product(scene_id, page)
       console.log(res)
       that.setData({
         classfiy_flag: false,
         secne_flag: false,
+        category_good_page: 0,
+        scene_good_page: 0,
       })
+      
     }
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
     
   },
   add_more:function(){

@@ -120,7 +120,7 @@
                  <text class='name_text_style'> {{item.product_name}}</text>
             </view>
             <view class='old_price'>
-                 <text class='old_price_style'>¥ {{item.product_price}}</text>
+                 <text class='old_price_style'>¥{{item.product_price}}</text>
             </view>    
         </view>
    </view>
@@ -178,8 +178,8 @@
                <view class="weui-loadmore__tips">已加载全部</view>
             </view>
          </view>
-   <view class='all_product_bottom_K'></view>
 </view>
+<view class='all_product_bottom_K'></view>
 </view>
 <!--新款-->
 <view wx:if='{{new_good_flag}}'>
@@ -191,7 +191,7 @@
                  <text class='name_text_style'>{{item.product_name}}</text>
             </view>
             <view class='old_price'>
-                 <text class='old_price_style'>¥ {{item.product_price}}</text>
+                 <text class='old_price_style'>¥{{item.product_price}}</text>
             </view>    
         </view>
    </view>

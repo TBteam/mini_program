@@ -34,6 +34,7 @@
             </view>
             <view class='me_item_line'></view>
           -->
+          <!--
             <view class='me_item_main' bindtap='me_bintap' id='3' >
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/integral.png" background-size="cover"></image>
@@ -43,7 +44,7 @@
                   </view>
             </view>
             <view class='me_item_line'></view>
-
+          -->
             <view class='me_item_main' bindtap='me_bintap' id='4'>
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/apply.png" background-size="cover"></image>
@@ -63,7 +64,7 @@
                   </view>
             </view>
             <view class='me_item_line'></view>
-
+            <!--
             <view class='me_item_main' bindtap='me_bintap' id='6'>
                   <view class='me_item_image_main'>
                       <image mode='scaleToFill'  class="me_item_image_size" src="../photo/about_us.png" background-size="cover"></image>
@@ -73,6 +74,7 @@
                   </view>
             </view>
             <view class='me_item_line'></view>
+-->
         </view> 
     </view>  
     <view class="top "  bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style="{{translate}}" >  
