@@ -53,12 +53,10 @@ page{
 /*********品牌介绍**********/
 .brand_info_image_main{
   width: 96%;
-  height: 540rpx;
   margin: auto;
 }
 .brand_info_image_size{
   width: 100%;
-  height: 100%;
 }
 .brand_info_text_main{
   width: 96%;

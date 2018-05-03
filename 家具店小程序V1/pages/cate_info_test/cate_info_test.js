@@ -143,6 +143,8 @@ Page({
           for(var i=0;i<res.data.brand_info.length;i++){
             var brandinfo={}
             brandinfo.brand_image_url = res.data.brand_info[i].url
+            var height = res.data.brand_info[i].size.height * 720 / res.data.brand_info[i].size.width
+            brandinfo.style1 = 'height:' + height + 'rpx'
             var text = decodeURI(res.data.brand_info[i].text) 
             var text1 = text.split('\n')
             console.log(text1)

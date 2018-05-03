@@ -162,7 +162,7 @@ Page({
           var good_info={}
           var formates=[]
           good_info.top_images=res.data.top_images
-          good_info.detail_images=res.data.detail_images
+          good_info.detail_images=[]
           good_info.product_name=decodeURI(res.data.name)
           var product_price = decodeURI(res.data.price)
           good_info.brand_name = decodeURI(res.data.brand_name)
@@ -172,6 +172,13 @@ Page({
           good_info.install = res.data.install
           good_info.warranty = res.data.warranty
           good_info.order = res.data.order
+          for (var i = 0; i < res.data.detail_images.length;i++){
+               var pic_detail={}
+               pic_detail.url = res.data.detail_images[i].url
+               var height = res.data.detail_images[i].size.height * 720 / res.data.detail_images[i].size.width
+               pic_detail.style1 = 'height:' + height + 'rpx'
+               good_info.detail_images.push(pic_detail)
+          }
           for (var i = 0; i < res.data.formates.length;i++){
               var formate={}
               formate.format_name = decodeURI(res.data.formates[i].formate_name)

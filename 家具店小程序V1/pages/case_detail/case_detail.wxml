@@ -32,7 +32,7 @@
 <view wx:for='{{case_info.infos}}'>
     <view  class='case_item_main'>
        <view wx:if='{{!item.style}}' class='case_item_image_main'>
-           <image class="case_item_image_size" mode='aspectFit' src="{{item.url}}"></image>
+           <image class="case_item_image_size" style='{{item.style1}}' mode='aspectFit' src="{{item.url}}"></image>
        </view>
        <view wx:if='{{item.style}}' class='case_item_text_main'>
           <view wx:for='{{item.text}}' wx:for-index="idx" wx:for-item="itemName" >

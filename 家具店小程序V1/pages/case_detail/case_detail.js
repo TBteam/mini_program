@@ -193,6 +193,8 @@ Page({
              if (res.data.case_infos[i].style=='image'){
                var pic = {}
                pic.url = res.data.case_infos[i].url
+               var height = res.data.case_infos[i].size.height * 720 / res.data.case_infos[i].size.width
+               pic.style1='height:'+height+'rpx'
                pic.style=false
                case_pics.push(pic)
              } if (res.data.case_infos[i].style == 'text') {
@@ -212,6 +214,7 @@ Page({
                case_pics.push(pic)
              }
            }
+           console.log(case_pics)
            case_info.infos = case_pics
            console.log(case_info)
            console.log(brand_info)

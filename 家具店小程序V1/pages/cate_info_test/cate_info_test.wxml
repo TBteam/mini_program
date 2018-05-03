@@ -41,7 +41,7 @@
 <view class='brand_info_KK'></view>
     <view wx:for='{{brand_info}}' wx:key='key' >
        <view class='brand_info_image_main'>
-           <image class="brand_info_image_size" src="{{item.brand_image_url}}"></image>
+           <image class="brand_info_image_size" style='{{item.style1}}' src="{{item.brand_image_url}}"></image>
        </view>
        <view class='brand_info_text_main'>
           <view class='brand_info_text_size'>

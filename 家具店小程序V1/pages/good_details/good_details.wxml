@@ -133,11 +133,9 @@
    </view>
 </view>
 
-
-
 <view class="good_details_info_main" wx:for='{{good_info.detail_images}}'>
           <view class='good_details_info_image_main'>
-              <image src="{{item}}" mode='scaleToFill' class="good_details_info_image_main" />
+              <image src="{{item.url}}" style='{{item.style1}}' mode='scaleToFill' class="good_details_info_image_main" />
           </view>
          <view class='good_details_info_K'> </view>
 </view> 
