@@ -15,19 +15,6 @@ Page({
     collect_case_more_flag:false,
     collect_good:[],
     collect_case:[],
-    item: ['1', '1', '1', '1', '1', '1', '1', '1', '1'],
-    goods: [
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-      { name: 'ddddddddddddd', old_price: 78, new_price: 58 },
-    ],
   },
 
   /**
@@ -42,6 +29,7 @@ Page({
    */
   onReady: function () {
     var that=this
+    wx.hideShareMenu()
     wx.showLoading({
       title: '加载中',
       mask: true

@@ -785,8 +785,9 @@ back_top:function(e){
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    from: 'menu'
     return {
-      title: '平台名称',
+      title: '品+生活',
       path: '/pages/home_page/home_page',
       success: function (res) {
         // 转发成功

@@ -18,7 +18,7 @@ Page({
     collect_flag:false,
     format_flag:true,
     select_format_name:'',
-    formats: [{ format_name: '1110*950*865mm', price: 12333, checked: false }, { format_name: '1110*950*865mm', price: 1232, checked: false }, { format_name: '1110*950*865mm', price: 12343, checked: false }, { format_name: '规格1', price: 5332, checked: false }]
+    formats: []
   },
   collect:function(){
     var that = this
@@ -247,10 +247,12 @@ Page({
    */
   onShareAppMessage: function (res) {
       console.log(res)
+      var that=this
+      var good_info = that.data.good_info
       var product_id = app.globalData.good_detail_product_id
       var data = { style: 'share', product_id: product_id}
       return {
-        title: '商品详情',
+        title: good_info.product_name,
         path: '/pages/good_details/good_details?data=' + JSON.stringify(data),
         success: function (res) {
           // 转发成功

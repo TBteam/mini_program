@@ -189,6 +189,7 @@ Page({
             new_products: new_products,
             categorys: categorys,
             scenes: scenes,
+            shop_name: decodeURI(res.data.shop_name),
             products:hot_products,
             all_good_more_flag: all_good_more_flag,
             new_good_more_flag: new_good_more_flag,
@@ -546,8 +547,9 @@ Page({
   onShareAppMessage: function () {
     var brand_id = app.globalData.brand_detail_brand_id
     var data={brand_id:brand_id}
+    var shop_name=this.data.shop_name
     return {
-      title: '品牌详情',
+      title: shop_name,
       path: '/pages/cate_info_test/cate_info_test?data=' + JSON.stringify(data),
       success: function (res) {
         // 转发成功

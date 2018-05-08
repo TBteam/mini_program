@@ -61,6 +61,7 @@ Page({
    */
   onReady: function () {
     var that=this
+    wx.hideShareMenu()
     wx.showLoading({
       title: '加载中',
       mask: true
@@ -167,6 +168,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    
   }
 })

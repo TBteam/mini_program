@@ -284,8 +284,9 @@ Page({
   onShareAppMessage: function () {
     var case_id = app.globalData.case_detail_case_id
     var data = { case_id: case_id }
+    var case_info = this.data.case_info
     return {
-      title: '案例详情',
+      title: case_info.case_name,
       path: '/pages/case_detail/case_detail?data=' + JSON.stringify(data),
       success: function (res) {
         // 转发成功
