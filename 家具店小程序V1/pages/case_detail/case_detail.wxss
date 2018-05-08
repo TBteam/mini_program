@@ -38,8 +38,8 @@ page{
 .case_item_text_main{
   width: 96%;
   margin-left: 2%;
-  padding-top: 15rpx;
-  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+  padding-bottom: 13rpx;
   background-color: white;
 }
 .case_item_text_main1{
