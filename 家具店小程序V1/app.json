@@ -13,7 +13,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#22393c",
-    "navigationBarTitleText": "平台名称",
+    "navigationBarTitleText": "品+生活",
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":false
   }
