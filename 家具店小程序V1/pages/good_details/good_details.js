@@ -18,7 +18,10 @@ Page({
     collect_flag:false,
     format_flag:true,
     select_format_name:'',
-    formats: []
+    formats: [],
+    benefit_show_falg:true,
+    benefit:[1,1,1],
+    is_have_benefit:false
   },
   collect:function(){
     var that = this
@@ -74,12 +77,12 @@ Page({
       that.show_login()
     }
   },
-  format:function(){
+  benefit:function(){
     var that=this
-    var format_flag = !that.data.format_flag
-    console.log(format_flag)
+    var benefit_show_falg = !that.data.benefit_show_falg
+    console.log(benefit_show_falg)
     that.setData({
-      format_flag: format_flag
+      benefit_show_falg: benefit_show_falg
     })
   },
   format_select:function(res){
@@ -161,6 +164,8 @@ Page({
         if(res.data.ret=='succ'){
           var good_info={}
           var formates=[]
+          var benefits=[]
+          var is_have_benefit=false
           good_info.top_images=res.data.top_images
           good_info.detail_images=[]
           good_info.product_name=decodeURI(res.data.name)
@@ -172,6 +177,16 @@ Page({
           good_info.install = res.data.install
           good_info.warranty = res.data.warranty
           good_info.order = res.data.order
+          is_have_benefit = res.data.benefit_flag
+          if(res.data.benefit_flag){
+            for (var i = 0; i < res.data.benefits.length; i++) {
+                var benefit={}
+                benefit.benefit_style = decodeURI(res.data.benefits[i].benefit_style)
+                benefit.benefit_text = decodeURI(res.data.benefits[i].benefit_text)
+                benefits.push(benefit)
+            }
+          }
+          
           for (var i = 0; i < res.data.detail_images.length;i++){
                var pic_detail={}
                pic_detail.url = res.data.detail_images[i].url
@@ -195,7 +210,9 @@ Page({
            good_info: good_info,
            good_price: product_price,
            formats: formates,
-           select_format_name: formates[0].format_name
+           select_format_name: formates[0].format_name,
+           benefit: benefits,
+           is_have_benefit: is_have_benefit
          })
         }else if(res.data.ret=='fail'){
           wx.navigateBack({

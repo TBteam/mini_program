@@ -150,6 +150,7 @@ page{
 .brand_info_image_size{
   width: 140rpx;
   height: 140rpx;
+  border-radius: 20rpx;
 }
 .brand_info_text_main{
   width: 400rpx;

@@ -92,6 +92,31 @@
 </view>
 <view class='KKK'></view>
 
+<view wx:if='{{is_have_benefit}}'>
+<view  bindtap='benefit' class='good_format_title_main'>
+   <view  class='good_format_title_text_main'>
+      <text class='good_format_title_text_style2'>优惠活动</text>
+   </view>
+   <view class='good_format_title_icon_main'>
+      <image wx:if='{{!benefit_show_falg}}'    mode='scaleToFill'  class="good_format_title_icon_size" src="../photo/more2.png" background-size="cover"></image>
+      <image wx:if='{{benefit_show_falg}}'    mode='scaleToFill'  class="good_format_title_icon_size1" src="../photo/more3.png" background-size="cover"></image>
+      </view>
+</view>
+
+<view wx:if='{{benefit_show_falg}}' class='benefit_main'>
+   <view class='good_info_line'></view>
+   <view class='benefit_item_K'></view>
+   <view wx:for='{{benefit}}'>
+      <view class='benefit_item_main'>
+           <text class='bennefit_item_text_style1'>{{item.benefit_style}}</text>
+           <text class='bennefit_item_text_style'>{{item.benefit_text}}</text>
+      </view>
+      <view class='benefit_item_K'></view>
+   </view>
+</view>
+<view class='KKK'></view>
+</view>
+
 <view class='good_info_item_main'>
    <view class='good_info_item_title_main'>
       <text class='good_info_item_title_style'>品牌</text>
@@ -134,7 +159,7 @@
 </view>
 
 <view class="good_details_info_main" wx:for='{{good_info.detail_images}}'>
-          <view class='good_details_info_image_main'>
+          <view class='good_details_info_image_main' style='{{item.style1}}'>
               <image src="{{item.url}}" style='{{item.style1}}' mode='scaleToFill' class="good_details_info_image_main" />
           </view>
          <view class='good_details_info_K'> </view>

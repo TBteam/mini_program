@@ -89,7 +89,7 @@
 }
 .KKK{
   width: 100%;
-  height: 50rpx;
+  height: 30rpx;
   background-color: whitesmoke;
 }
 
@@ -151,7 +151,7 @@
   font-size: 32rpx;
   font-family:"", Times, serif;
   margin-left: 30rpx;
-  color: gray
+  color: #666666
 }
 
 .good_info_item_text_main{
@@ -165,7 +165,7 @@
   font-size: 32rpx;
   font-family:"", Times, serif;
   margin-right: 30rpx;
-  color:  gray
+  color:  #666666
 }
 .good_info_line{
   width: 690rpx;
@@ -212,7 +212,7 @@
   vertical-align: middle;
   font-size: 30rpx;
   font-family:"", Times, serif;
-  color:  gray
+  color:  #666666
 }
 .good_info_details_title_right{
   width: 300rpx;
@@ -257,7 +257,7 @@
   display: flex;
 }
 .good_format_title_text_main{
-  width: 90%;
+  width: 92%;
   height: 80rpx;
   display: flex;
 }
@@ -267,7 +267,7 @@
   font-size: 32rpx;
   font-family:"", Times, serif;
   margin-left: 30rpx;
-  color: gray
+  color: #666666
 }
 .good_format_title_text_style1{
   line-height: 80rpx;
@@ -275,17 +275,22 @@
   font-size: 28rpx;
   font-family:"", Times, serif;
   margin-left: 15rpx;
-  color: gray
+  color: #666666
 }
 .good_format_title_icon_main{
-  width: 10%;
+  width: 8%;
   height: 80rpx;
   display: flex;
   align-items: center
 }
 .good_format_title_icon_size{
-  width: 40rpx;
-  height: 40rpx;
+  width: 20rpx;
+  height: 30rpx;
+  margin-left: 12rpx;
+}
+.good_format_title_icon_size1{
+  width: 30rpx;
+  height: 20rpx;
 }
 .good_format_main{
   width: 100%;
@@ -316,7 +321,7 @@
    vertical-align: middle;
    font-size: 30rpx;
    font-family:"", Times, serif;
-   color: #aeaeae
+   color: #666666
 }
 .good_format_item_border_checked{
   height: 60rpx;
@@ -342,4 +347,44 @@
 .good_format_K{
   width: 100%;
   height: 30rpx;
+}
+
+/********优惠活动******/
+.good_format_title_text_style2{
+  line-height: 80rpx;
+  vertical-align: middle;
+  font-size: 32rpx;
+  font-family:"", Times, serif;
+  margin-left: 30rpx;
+  color: #333333
+}
+.benefit_main{
+  width: 100%;
+  height: 100%;
+}
+.benefit_item_K{
+  width: 100%;
+  height: 15rpx;
+}
+.benefit_item_main{
+  width: 690rpx;
+  margin-left: 30rpx;
+}
+.bennefit_item_text_style{
+   line-height: 35rpx;
+   vertical-align: middle;
+   padding-left: 10rpx;
+   font-size: 27rpx;
+   font-family:"", Times, serif;
+   color: #333333
+}
+.bennefit_item_text_style1{
+   line-height: 35rpx;
+   vertical-align: middle;
+   font-size: 32rpx;
+   padding-left: 8rpx;
+   padding-right: 8rpx;
+   font-family:"", Times, serif;
+   color:white;
+   background-color: #fc5874
 }
