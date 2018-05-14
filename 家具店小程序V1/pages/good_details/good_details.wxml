@@ -31,8 +31,8 @@
     
 </view>
 <view class='K'></view>
-<view class='KK'></view>
-<view class='service_info_main'>
+<view wx:if='{{is_show_service}}' class='KK'></view>
+<view wx:if='{{is_show_service}}' class='service_info_main'>
     <view wx:if='{{good_info.install}}' class='service_info_item_main'>
         <view class='service_info_icon_main'>
            <image   mode='scaleToFill'  class="service_info_icon_size" src="../photo/correct.png" background-size="cover"></image>

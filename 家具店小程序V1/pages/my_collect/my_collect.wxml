@@ -48,7 +48,8 @@
 
 <!--家装案例界面-->
 <view class='case_item_KK'></view>
- <view  wx:if='{{collect_case_flag}}' wx:for="{{collect_case}}">
+<view wx:if='{{collect_case_flag}}'>
+ <view   wx:for="{{collect_case}}">
         <view class='case_item_main'>
             <view bindtap='bintap' id='2' data-case_id="{{index}}"  class='case_item_image_main'>
                  <image mode='scaleToFill'  class="case_item_image_size" src="{{item.item_imgae_url}}" background-size="cover"></image>
@@ -77,7 +78,8 @@
             </view>
         </view>
         <view class='case_item_K'></view>
-        <view wx:if='{{!collect_case_more_flag}}'> 
+</view>
+ <view wx:if='{{!collect_case_more_flag}}'> 
            <view class="weui-loadmore" >
                <view class="weui-loading"></view>
                <view class="weui-loadmore__tips">正在加载</view>

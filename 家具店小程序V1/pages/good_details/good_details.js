@@ -21,7 +21,8 @@ Page({
     formats: [],
     benefit_show_falg:true,
     benefit:[1,1,1],
-    is_have_benefit:false
+    is_have_benefit:false,
+    is_show_service:false
   },
   collect:function(){
     var that = this
@@ -186,7 +187,11 @@ Page({
                 benefits.push(benefit)
             }
           }
-          
+          if (good_info.collect || good_info.install || good_info.order){
+              var is_show_service=true
+          }else{
+              var is_show_service = false
+          }
           for (var i = 0; i < res.data.detail_images.length;i++){
                var pic_detail={}
                pic_detail.url = res.data.detail_images[i].url
@@ -212,7 +217,8 @@ Page({
            formats: formates,
            select_format_name: formates[0].format_name,
            benefit: benefits,
-           is_have_benefit: is_have_benefit
+           is_have_benefit: is_have_benefit,
+           is_show_service: is_show_service
          })
         }else if(res.data.ret=='fail'){
           wx.navigateBack({

@@ -28,10 +28,10 @@ page{
 }
 .good_details_recommand_title_unchecked_style{
    font-size: 35rpx;
-   height: 78rpx;
+   height: 80rpx;
    width: 100%;
    font-family:"", Times, serif;
-   line-height: 78rpx;
+   line-height: 80rpx;
    vertical-align: middle;
    color:#22393c;
    border-bottom-style:solid;
@@ -40,10 +40,10 @@ page{
 }
 .good_details_recommand_title_checked_style{
    font-size: 35rpx;
-   height: 78rpx;
+   height: 80rpx;
    width: 100%;
    font-family:"", Times, serif;
-   line-height: 78rpx;
+   line-height: 80rpx;
    vertical-align: middle;
    color:#22393c;
    border-bottom-style:solid;
